@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:woo_driver/res/theme/theme.dart';
+import 'package:woo_driver/ui/screens/app_detail.dart';
+import 'package:woo_driver/ui/screens/bank_details.dart';
+import 'package:woo_driver/ui/screens/chat.dart';
+import 'package:woo_driver/ui/screens/choose_vehicle.dart';
+import 'package:woo_driver/ui/screens/go_to_pick_up.dart';
+import 'package:woo_driver/ui/screens/home.dart';
+import 'package:woo_driver/ui/screens/job_preferences.dart';
 import 'package:woo_driver/ui/screens/log_in_screen.dart';
 import 'package:woo_driver/ui/screens/onboarding_screen.dart';
 import 'package:woo_driver/ui/screens/otp_screen.dart';
+import 'package:woo_driver/ui/screens/profile_detail.dart';
 import 'package:woo_driver/ui/screens/sign_up_screen.dart';
 
 
@@ -16,7 +25,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -30,10 +39,11 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: AppTheme.primaryColorMaterial,
-        focusColor: AppTheme.primaryColor
+        primarySwatch: Colors.red ,
+        focusColor: AppTheme.primaryColor,
+
       ),
-      home: SignUpScreen(),
+      home: ChatScreen(),
     );
   }
 }
