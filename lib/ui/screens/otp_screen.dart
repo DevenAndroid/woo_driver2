@@ -53,7 +53,7 @@ class _OtpScreenState extends State<OtpScreen> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     const Text(
@@ -76,7 +76,7 @@ class _OtpScreenState extends State<OtpScreen> {
                     const SizedBox(
                       height: 60,
                     ),
-                    Text(
+                    const Text(
                       'We have sent an OTP on +91 99845 45698',
                       textAlign: TextAlign.center,
                     ),
@@ -87,9 +87,9 @@ class _OtpScreenState extends State<OtpScreen> {
 
                     OtpTextField(
                       focusedBorderColor: AppTheme.primaryColor,
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      borderRadius: const BorderRadius.all(Radius.circular(10)),
                       numberOfFields: 4,
-                      borderColor: Color(0xFF512DA8),
+                      borderColor: const Color(0xFF512DA8),
                       //set to true to show as box or false to show as dash
                       showFieldAsBox: true,
                       //runs when a code is typed in
@@ -102,7 +102,7 @@ class _OtpScreenState extends State<OtpScreen> {
                             context: context,
                             builder: (context){
                               return AlertDialog(
-                                title: Text("Verification Code"),
+                                title: const Text("Verification Code"),
                                 content: Text('Code entered is $verificationCode'),
                               );
                             }
@@ -116,8 +116,8 @@ class _OtpScreenState extends State<OtpScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("Resend OTP In "),
-                        Text("00:20",style: TextStyle(color: AppTheme.primaryColor),)
+                        const Text("Resend OTP In "),
+                        const Text("00:20",style: const TextStyle(color: AppTheme.primaryColor),)
                       ],
                     ),
                     const SizedBox(

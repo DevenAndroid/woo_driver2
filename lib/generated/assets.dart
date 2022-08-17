@@ -14,13 +14,17 @@ class Assets {
   static const String imagesHuman2 = 'assets/images/human2.png';
   static const String imagesId = 'assets/images/id.png';
   static const String imagesIfsc = 'assets/images/ifsc.png';
+  static const String imagesLanguage = 'assets/images/language.png';
+  static const String imagesLoading = 'assets/images/loading.png';
   static const String imagesMap = 'assets/images/map.jpg';
   static const String imagesMenu = 'assets/images/menu.png';
   static const String imagesMotorCycle = 'assets/images/Motor_Cycle.png';
   static const String imagesOnboardingScreen1 = 'assets/images/onboarding_screen_1.png';
   static const String imagesOnboardingScreen2 = 'assets/images/onboarding_screen_2.png';
   static const String imagesOnboardingScreen3 = 'assets/images/onboarding_screen_3.png';
+  static const String imagesRectangleBox = 'assets/images/rectangle_box.png';
   static const String imagesScooter = 'assets/images/Scooter.png';
+  static const String imagesSend = 'assets/images/send.png';
   static const String imagesVideo = 'assets/images/video.png';
   static const String imagesWallet = 'assets/images/wallet.png';
 

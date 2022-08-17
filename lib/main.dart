@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:woo_driver/res/theme/theme.dart';
+import 'package:woo_driver/splash_screen.dart';
 import 'package:woo_driver/ui/screens/app_detail.dart';
 import 'package:woo_driver/ui/screens/bank_details.dart';
 import 'package:woo_driver/ui/screens/chat.dart';
 import 'package:woo_driver/ui/screens/choose_vehicle.dart';
 import 'package:woo_driver/ui/screens/go_to_pick_up.dart';
+import 'package:woo_driver/ui/screens/history.dart';
 import 'package:woo_driver/ui/screens/home.dart';
 import 'package:woo_driver/ui/screens/job_preferences.dart';
 import 'package:woo_driver/ui/screens/log_in_screen.dart';
+import 'package:woo_driver/ui/screens/more.dart';
+import 'package:woo_driver/ui/screens/my_wallet.dart';
 import 'package:woo_driver/ui/screens/onboarding_screen.dart';
 import 'package:woo_driver/ui/screens/otp_screen.dart';
+import 'package:woo_driver/ui/screens/profile.dart';
 import 'package:woo_driver/ui/screens/profile_detail.dart';
 import 'package:woo_driver/ui/screens/sign_up_screen.dart';
 
@@ -43,7 +48,7 @@ class MyApp extends StatelessWidget {
         focusColor: AppTheme.primaryColor,
 
       ),
-      home: ChatScreen(),
+      home: ProfileScreen(),
     );
   }
 }

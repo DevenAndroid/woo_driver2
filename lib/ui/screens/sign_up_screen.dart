@@ -26,12 +26,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 color: AppTheme.primaryColor,
                 child: const Center(
                     child: Text(
-                      'LOGO',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          fontSize: 26),
-                    )),
+                  'LOGO',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      fontSize: 26),
+                )),
               ),
             ],
           ),
@@ -58,10 +58,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                     const Text(
                       'Sign up',
-                      style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold
-                      ),
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(
@@ -73,7 +71,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         height: 2,
                         thickness: 3,
                         color: Colors.grey,
-
                       ),
                     ),
                     const SizedBox(
@@ -82,7 +79,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     const Text(
                       'Hello !',
                       style:
-                      TextStyle(fontSize: 28, color: AppTheme.primaryColor),
+                          TextStyle(fontSize: 28, color: AppTheme.primaryColor),
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(
@@ -143,7 +140,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             hintStyle: TextStyle(
                               color: Colors.grey[400],
                               fontSize:
-                              MediaQuery.of(context).size.width * 0.040,
+                                  MediaQuery.of(context).size.width * 0.040,
                             ),
                             focusColor: AppTheme.primaryColor,
                             hoverColor: AppTheme.primaryColor),
@@ -193,7 +190,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             hintStyle: TextStyle(
                               color: Colors.grey[400],
                               fontSize:
-                              MediaQuery.of(context).size.width * 0.040,
+                                  MediaQuery.of(context).size.width * 0.040,
                             ),
                             focusColor: AppTheme.primaryColor,
                             hoverColor: AppTheme.primaryColor),
@@ -255,7 +252,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             hintStyle: TextStyle(
                               color: Colors.grey[400],
                               fontSize:
-                              MediaQuery.of(context).size.width * 0.040,
+                                  MediaQuery.of(context).size.width * 0.040,
                             ),
                             focusColor: AppTheme.primaryColor,
                             hoverColor: AppTheme.primaryColor),
@@ -307,7 +304,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             hintStyle: TextStyle(
                               color: Colors.grey[400],
                               fontSize:
-                              MediaQuery.of(context).size.width * 0.040,
+                                  MediaQuery.of(context).size.width * 0.040,
                             ),
                             focusColor: AppTheme.primaryColor,
                             hoverColor: AppTheme.primaryColor),
@@ -326,12 +323,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         style: ElevatedButton.styleFrom(
                             shape: const RoundedRectangleBorder(
                                 borderRadius:
-                                BorderRadius.all(Radius.circular(5))),
+                                    BorderRadius.all(Radius.circular(5))),
                             primary: AppTheme.primaryColor,
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 35, vertical: 15),
                             textStyle:
-                            const TextStyle(fontWeight: FontWeight.bold)),
+                                const TextStyle(fontWeight: FontWeight.bold)),
                         onPressed: () {},
                         child: const Text(
                           "Got OTP",
