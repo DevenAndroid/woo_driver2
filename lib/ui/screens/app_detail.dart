@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:woo_driver/res/theme/theme.dart';
-import 'package:woo_driver/ui/screens/sign_up_screen.dart';
+
+import '../../res/theme/theme.dart';
+import '../widget/custom_button.dart';
+import 'app_routes/app_routes.dart';
+import 'sign_up_screen.dart';
 
 class AppDetailScreen extends StatefulWidget {
   const AppDetailScreen({Key? key}) : super(key: key);
@@ -20,7 +22,7 @@ class _AppDetailScreenState extends State<AppDetailScreen> {
     return Scaffold(
         appBar: PreferredSize(
             preferredSize:
-                Size.fromHeight(MediaQuery.of(context).size.height * .13),
+                Size.fromHeight(MediaQuery.of(context).size.height * .11),
             child: AppBar(
               centerTitle: true,
               shape: const RoundedRectangleBorder(
@@ -39,7 +41,7 @@ class _AppDetailScreenState extends State<AppDetailScreen> {
               backgroundColor: AppTheme.primaryColor,
               leading: GestureDetector(child: const Icon(Icons.arrow_back_ios),
                 onTap: (){
-                  Get.to(SignUpScreen());
+                  Get.to(const SignUpScreen());
                 },),
               title: const Text(
                 "LOGO",
@@ -91,7 +93,7 @@ class _AppDetailScreenState extends State<AppDetailScreen> {
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Padding(
+                              const Padding(
                                 padding: EdgeInsets.only(top: 5),
                                 child: Icon(
                                   Icons.circle,
@@ -99,24 +101,40 @@ class _AppDetailScreenState extends State<AppDetailScreen> {
                                   color: AppTheme.primaryColor,
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 10,
                               ),
-                              Expanded(
+                              const Expanded(
                                 child: Text(
                                   "Lorem Ipsum Dolor Sit Amet,Consectetur Adipiscing Elit,",
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontSize: 16, color: Color(0xff707070)),
                                 ),
                               ),
                             ],
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 15,
-                          )
+                          ),
+
+
                         ],
                       );
-                    })
+                    }),
+                SizedBox(
+                  height: 20,
+                ),
+                Align(
+                  alignment: Alignment.center,
+                  child: CustomButton(
+                    height: 50,
+                    width: 150,
+                    buttonText: " Continue ",
+                    onPress: () {
+                      Get.toNamed(MyRoutes.chooseVehicleScreen);
+                    },
+                  ),
+                ),
               ],
             ),
           ),

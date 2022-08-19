@@ -29,7 +29,7 @@ class _MyWalletScreenState extends State<MyWalletScreen> {
     return Scaffold(
       appBar: PreferredSize(
           preferredSize:
-              Size.fromHeight(MediaQuery.of(context).size.height * .13),
+              Size.fromHeight(MediaQuery.of(context).size.height * .11),
           child: AppBar(
             centerTitle: true,
             shape: const RoundedRectangleBorder(

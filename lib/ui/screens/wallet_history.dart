@@ -4,14 +4,14 @@ import 'package:table_calendar/table_calendar.dart';
 import '../../res/theme/theme.dart';
 import 'calendar_screen.dart';
 
-class HistoryScreen extends StatefulWidget {
-  const HistoryScreen({Key? key}) : super(key: key);
+class WalletHistoryScreen extends StatefulWidget {
+  const WalletHistoryScreen({Key? key}) : super(key: key);
 
   @override
-  State<HistoryScreen> createState() => _HistoryScreenState();
+  State<WalletHistoryScreen> createState() => _WalletHistoryScreenState();
 }
 
-class _HistoryScreenState extends State<HistoryScreen> {
+class _WalletHistoryScreenState extends State<WalletHistoryScreen> {
   CalendarFormat _calendarFormat = CalendarFormat.month;
   RangeSelectionMode _rangeSelectionMode = RangeSelectionMode
       .toggledOn; // Can be toggled on/off by longpressing a date

@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
+import 'package:get/get.dart';
+import 'package:woo_driver/ui/screens/app_routes/app_routes.dart';
 import '../../res/theme/theme.dart';
+import '../widget/custom_button.dart';
 
 class OtpScreen extends StatefulWidget {
   const OtpScreen({Key? key}) : super(key: key);
@@ -29,9 +32,9 @@ class _OtpScreenState extends State<OtpScreen> {
                       child: Text(
                     'LOGO',
                     style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w500,
                         color: Colors.white,
-                        fontSize: 26),
+                        fontSize: 30),
                   )),
                 ),
               ],
@@ -123,21 +126,27 @@ class _OtpScreenState extends State<OtpScreen> {
                     const SizedBox(
                       height: 30,
                     ),
-                    ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            shape: const RoundedRectangleBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(5))),
-                            primary: AppTheme.primaryColor,
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 35, vertical: 15),
-                            textStyle:
-                                const TextStyle(fontWeight: FontWeight.bold)),
-                        onPressed: () {},
-                        child: const Text(
-                          "Verify & Proceed",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        )),
+                    // ElevatedButton(
+                    //     style: ElevatedButton.styleFrom(
+                    //         shape: const RoundedRectangleBorder(
+                    //             borderRadius:
+                    //                 BorderRadius.all(Radius.circular(5))),
+                    //         primary: AppTheme.primaryColor,
+                    //         padding: const EdgeInsets.symmetric(
+                    //             horizontal: 35, vertical: 15),
+                    //         textStyle:
+                    //             const TextStyle(fontWeight: FontWeight.bold)),
+                    //     onPressed: () {},
+                    //     child: const Text(
+                    //       "Verify & Proceed",
+                    //       style: TextStyle(fontWeight: FontWeight.bold),
+                    //     )),
+                    CustomButton(
+                        buttonText: "Verify & Proceed",
+                        onPress: () {
+                          print("Get otp");
+                          Get.toNamed(MyRoutes.homeScreen);
+                        }),
 
                   ],
                 ),

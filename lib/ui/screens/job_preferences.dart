@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import '../../res/theme/theme.dart';
+import '../widget/custom_button.dart';
+import 'app_routes/app_routes.dart';
 import 'choose_vehicle.dart';
 
 class JobPreferencesScreen extends StatefulWidget {
@@ -20,7 +22,7 @@ class _JobPreferencesScreenState extends State<JobPreferencesScreen> {
     return Scaffold(
         appBar: PreferredSize(
             preferredSize:
-                Size.fromHeight(MediaQuery.of(context).size.height * .13),
+                Size.fromHeight(MediaQuery.of(context).size.height * .11),
             child: AppBar(
               centerTitle: true,
               shape: const RoundedRectangleBorder(
@@ -516,24 +518,35 @@ class _JobPreferencesScreenState extends State<JobPreferencesScreen> {
                 const SizedBox(
                   height: 150,
                 ),
+                // Align(
+                //   alignment: Alignment.center,
+                //   child: ElevatedButton(
+                //       style: ElevatedButton.styleFrom(
+                //           shape: const RoundedRectangleBorder(
+                //               borderRadius:
+                //                   BorderRadius.all(Radius.circular(5))),
+                //           primary: AppTheme.primaryColor,
+                //           padding: const EdgeInsets.symmetric(
+                //               horizontal: 35, vertical: 15),
+                //           textStyle:
+                //               const TextStyle(fontWeight: FontWeight.bold)),
+                //       onPressed: () {},
+                //       child: const Text(
+                //         " Continue ",
+                //         style: TextStyle(
+                //             fontWeight: FontWeight.w500, fontSize: 14),
+                //       )),
+                // ),
                 Align(
                   alignment: Alignment.center,
-                  child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          shape: const RoundedRectangleBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(5))),
-                          primary: AppTheme.primaryColor,
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 35, vertical: 15),
-                          textStyle:
-                              const TextStyle(fontWeight: FontWeight.bold)),
-                      onPressed: () {},
-                      child: const Text(
-                        " Continue ",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w500, fontSize: 14),
-                      )),
+                  child: CustomButton(
+                    height: 50,
+                    width: 150,
+                    buttonText: " Continue ",
+                    onPress: () {
+                      Get.toNamed(MyRoutes.profileDetailScreen);
+                    },
+                  ),
                 ),
               ],
             ),

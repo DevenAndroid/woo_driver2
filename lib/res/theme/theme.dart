@@ -26,66 +26,66 @@ class AppTheme {
   // static AppColor get colors {
   //   return const AppColor.getColor();
   // }
-
-  static const primaryColorMaterial = const MaterialColor(0xffF07846, {
-    50: const Color(0xffE5001C),
-    100: const Color(0xffE5001C),
-    200: const Color(0xffE5001C),
-    300: const Color(0xffE5001C),
-    400: const Color(0xffE5001C),
-    500: const Color(0xffE5001C),
-    600: const Color(0xffE5001C),
-    700: const Color(0xffE5001C),
-    800: const Color(0xffE5001C),
-    900: const Color(0xffE5001C)
-  });
-  static const primaryGradientColor = LinearGradient(
-    colors: [
-      Color(0xffE5001C),
-      Color(0xffE5001C),
-    ],
-    stops: [0.0, 1.0],
-    begin: Alignment.centerLeft,
-    end: Alignment.centerRight,
-  );
-
-  static const primaryGradientDarkColor = LinearGradient(
-    colors: [
-      Color(0xff444444),
-      Color(0xff444444),
-    ],
-    stops: [0.0, 1.0],
-    begin: Alignment.centerLeft,
-    end: Alignment.centerRight,
-  );
-
-  static const primaryGradientColorGreen = LinearGradient(
-    colors: [
-      Color(0xFF4CAF50),
-      Color(0xFF4CAF50),
-    ],
-    stops: [0.0, 1.0],
-    begin: Alignment.centerLeft,
-    end: Alignment.centerRight,
-  );
-
-  static const primaryGradientColorWhite = LinearGradient(
-    colors: [
-      Color(0xffffffff),
-      Color(0xffffffff),
-    ],
-    stops: [0.0, 1.0],
-    begin: Alignment.centerLeft,
-    end: Alignment.centerRight,
-  );
-
-  static const buttonGradientColor = LinearGradient(
-    colors: [
-      Color(0xffffdc64),
-      Color(0xffffdc64),
-    ],
-    stops: [0.0, 1.0],
-    begin: Alignment.centerLeft,
-    end: Alignment.centerRight,
-  );
+  //
+  // static const primaryColorMaterial = const MaterialColor(0xffF07846, {
+  //   50: const Color(0xffE5001C),
+  //   100: const Color(0xffE5001C),
+  //   200: const Color(0xffE5001C),
+  //   300: const Color(0xffE5001C),
+  //   400: const Color(0xffE5001C),
+  //   500: const Color(0xffE5001C),
+  //   600: const Color(0xffE5001C),
+  //   700: const Color(0xffE5001C),
+  //   800: const Color(0xffE5001C),
+  //   900: const Color(0xffE5001C)
+  // });
+  // static const primaryGradientColor = LinearGradient(
+  //   colors: [
+  //     Color(0xffE5001C),
+  //     Color(0xffE5001C),
+  //   ],
+  //   stops: [0.0, 1.0],
+  //   begin: Alignment.centerLeft,
+  //   end: Alignment.centerRight,
+  // );
+  //
+  // static const primaryGradientDarkColor = LinearGradient(
+  //   colors: [
+  //     Color(0xff444444),
+  //     Color(0xff444444),
+  //   ],
+  //   stops: [0.0, 1.0],
+  //   begin: Alignment.centerLeft,
+  //   end: Alignment.centerRight,
+  // );
+  //
+  // static const primaryGradientColorGreen = LinearGradient(
+  //   colors: [
+  //     Color(0xFF4CAF50),
+  //     Color(0xFF4CAF50),
+  //   ],
+  //   stops: [0.0, 1.0],
+  //   begin: Alignment.centerLeft,
+  //   end: Alignment.centerRight,
+  // );
+  //
+  // static const primaryGradientColorWhite = LinearGradient(
+  //   colors: [
+  //     Color(0xffffffff),
+  //     Color(0xffffffff),
+  //   ],
+  //   stops: [0.0, 1.0],
+  //   begin: Alignment.centerLeft,
+  //   end: Alignment.centerRight,
+  // );
+  //
+  // static const buttonGradientColor = LinearGradient(
+  //   colors: [
+  //     Color(0xffffdc64),
+  //     Color(0xffffdc64),
+  //   ],
+  //   stops: [0.0, 1.0],
+  //   begin: Alignment.centerLeft,
+  //   end: Alignment.centerRight,
+  // );
 }

@@ -4,8 +4,11 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:woo_driver/ui/screens/app_detail.dart';
+import 'package:woo_driver/ui/screens/job_preferences.dart';
+import 'package:woo_driver/ui/widget/custom_button.dart';
 
 import '../../res/theme/theme.dart';
+import 'app_routes/app_routes.dart';
 
 class ChooseVehicleScreen extends StatefulWidget {
   const ChooseVehicleScreen({Key? key}) : super(key: key);
@@ -22,7 +25,7 @@ class _ChooseVehicleScreenState extends State<ChooseVehicleScreen>  {
     return Scaffold(
         appBar: PreferredSize(
             preferredSize:
-                Size.fromHeight(MediaQuery.of(context).size.height * .13),
+                Size.fromHeight(MediaQuery.of(context).size.height * .11),
             child: AppBar(
               centerTitle: true,
               shape: const RoundedRectangleBorder(
@@ -47,9 +50,9 @@ class _ChooseVehicleScreenState extends State<ChooseVehicleScreen>  {
               title: const Text(
                 "LOGO",
                 style: TextStyle(
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w500,
                     color: Colors.white,
-                    fontSize: 26),
+                    fontSize: 30),
               ),
             )),
         body: SingleChildScrollView(
@@ -159,21 +162,27 @@ class _ChooseVehicleScreenState extends State<ChooseVehicleScreen>  {
                 ),
                 Align(
                   alignment: Alignment.center,
-                  child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          shape: const RoundedRectangleBorder(
-                              borderRadius:
-                              BorderRadius.all(Radius.circular(5))),
-                          primary: AppTheme.primaryColor,
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 35, vertical: 15),
-                          textStyle:
-                          const TextStyle(fontWeight: FontWeight.bold)),
-                      onPressed: () {},
-                      child: const Text(
-                        " Continue ",
-                        style: TextStyle(fontWeight: FontWeight.w500,fontSize: 14),
-                      )),
+                  child: CustomButton(
+                    buttonText: "Continue" ,
+                    onPress: (){
+                      Get.toNamed(MyRoutes.jobPreferencesScreen);
+                    },
+                  )
+                  // ElevatedButton(
+                  //     style: ElevatedButton.styleFrom(
+                  //         shape: const RoundedRectangleBorder(
+                  //             borderRadius:
+                  //             BorderRadius.all(Radius.circular(5))),
+                  //         primary: AppTheme.primaryColor,
+                  //         padding: const EdgeInsets.symmetric(
+                  //             horizontal: 35, vertical: 15),
+                  //         textStyle:
+                  //         const TextStyle(fontWeight: FontWeight.bold)),
+                  //     onPressed: () {},
+                  //     child: const Text(
+                  //       " Continue ",
+                  //       style: TextStyle(fontWeight: FontWeight.w500,fontSize: 14),
+                  //     )),
                 ),
               ],
             ),

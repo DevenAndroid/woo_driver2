@@ -5,11 +5,10 @@ import 'package:get/get_core/src/get_main.dart';
 import 'controller/splash_screen_controller.dart';
 
 class SplashScreen extends StatelessWidget {
-   SplashScreen({Key? key}) : super(key: key);
+  SplashScreen({Key? key}) : super(key: key);
 
-   final splashScreen = Get.put(SplashScreenController());
+  final splashScreen = Get.put(SplashScreenController());
 
-  // final _controller = Get.put(GetHomeController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,10 +19,6 @@ class SplashScreen extends StatelessWidget {
           Container(
             height: MediaQuery.of(context).size.height * 0.5,
             alignment: Alignment.bottomCenter,
-            // child: Image.asset(
-            //   AppAssets.logoWelcome,
-            //   width: MediaQuery.of(context).size.width * 0.6,
-            // ),
             child: const Text(
               "LOGO",
               style: TextStyle(
@@ -32,11 +27,6 @@ class SplashScreen extends StatelessWidget {
                   fontWeight: FontWeight.bold),
             ),
           ),
-          // Image.asset(
-          //   AppAssets.splashBg,
-          //   fit: BoxFit.cover,
-          //   width: MediaQuery.of(context).size.width,
-          // ),
         ],
       )),
     );

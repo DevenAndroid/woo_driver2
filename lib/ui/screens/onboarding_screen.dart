@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:woo_driver/ui/widget/custom_button.dart';
 
 import '../../res/theme/theme.dart';
+import 'app_routes/app_routes.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({Key? key}) : super(key: key);
@@ -18,7 +22,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Stack(
-
           children: [
             SizedBox(
               height: MediaQuery.of(context).size.height,
@@ -92,6 +95,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             textAlign: TextAlign.center,
                           ),
                         ),
+                        const SizedBox(
+                          height: 35,
+                        ),
                       ],
                     ),
                   )),
@@ -130,41 +136,56 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       ],
                     ),
                   )),
-
                 ],
               ),
             ),
             Positioned(
               top: MediaQuery.of(context).size.height * .86,
-              child: Container(
-                  decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.all(Radius.circular(4.0)),
-                    color: AppTheme.primaryColor.withOpacity(.23)
+              child: Column(
+                children: [
+                  Container(
+                      decoration: BoxDecoration(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(4.0)),
+                          color: AppTheme.primaryColor.withOpacity(.23)),
+                      // width: MediaQuery.of(context).size.width,
+                      alignment: Alignment.center,
+                      margin: EdgeInsets.symmetric(
+                          horizontal:
+                              MediaQuery.of(context).size.width * .5 - 51),
+                      child: SmoothPageIndicator(
+                          controller: _pageController, // PageController
+                          count: 3,
+                          effect: const SlideEffect(
+                              spacing: 0.0,
+                              radius: 4.0,
+                              dotWidth: 34.0,
+                              dotHeight: 8.0,
+                              paintStyle: PaintingStyle.stroke,
+                              strokeWidth: 1.5,
+                              dotColor: Colors.transparent,
+                              activeDotColor: AppTheme
+                                  .primaryColor), // your preferred effect
+                          onDotClicked: (index) {})),
+                  SizedBox(
+                    height: 35,
                   ),
-                  // width: MediaQuery.of(context).size.width,
-                  alignment: Alignment.center,
-                  margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*.5-51),
-                  child: SmoothPageIndicator(
-                      controller: _pageController,  // PageController
-                      count:  3,
-                      effect: const SlideEffect(
-                          spacing:  0.0,
-                          radius:  4.0,
-                          dotWidth:  34.0,
-                          dotHeight:  8.0,
-                          paintStyle:  PaintingStyle.stroke,
-                          strokeWidth:  1.5,
-                          dotColor: Colors.transparent,
-                          activeDotColor:  AppTheme.primaryColor
-                      ),  // your preferred effect
-                      onDotClicked: (index){
+                  CustomButton(
+                    buttonText: "Next",
+                    onPress: () {
+                      if (_pageController.page == 2) {
+                        Get.offAllNamed(MyRoutes.loginScreen);
 
+                        print("object");
+                      } else {
+                        _pageController.nextPage(
+                            duration: Duration(seconds: 1), curve: Curves.ease);
                       }
-                  )),
+                    },
+                  )
+                ],
+              ),
             ),
-
-
-
           ],
         ),
       ),

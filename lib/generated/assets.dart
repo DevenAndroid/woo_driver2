@@ -2,10 +2,16 @@
 class Assets {
   Assets._();
 
+  static const String imagesAddFile = 'assets/images/add_file.png';
   static const String imagesAppDetail = 'assets/images/app_detail.png';
   static const String imagesBank = 'assets/images/bank.png';
   static const String imagesBicycle = 'assets/images/Bicycle.png';
+  static const String imagesBrifecase = 'assets/images/brifecase.png';
   static const String imagesCall = 'assets/images/call.png';
+  static const String imagesCar = 'assets/images/car.png';
+  static const String imagesContactUs = 'assets/images/contact_us.png';
+  static const String imagesEdit = 'assets/images/edit.png';
+  static const String imagesFacebook = 'assets/images/facebook.png';
   static const String imagesFb = 'assets/images/fb.png';
   static const String imagesGoogle = 'assets/images/google.png';
   static const String imagesHistory = 'assets/images/history.png';
@@ -14,18 +20,26 @@ class Assets {
   static const String imagesHuman2 = 'assets/images/human2.png';
   static const String imagesId = 'assets/images/id.png';
   static const String imagesIfsc = 'assets/images/ifsc.png';
+  static const String imagesInsta = 'assets/images/insta.png';
   static const String imagesLanguage = 'assets/images/language.png';
+  static const String imagesLinkdin = 'assets/images/linkdin.png';
   static const String imagesLoading = 'assets/images/loading.png';
   static const String imagesMap = 'assets/images/map.jpg';
   static const String imagesMenu = 'assets/images/menu.png';
   static const String imagesMotorCycle = 'assets/images/Motor_Cycle.png';
+  static const String imagesMotorcycle = 'assets/images/motorcycle.png';
   static const String imagesOnboardingScreen1 = 'assets/images/onboarding_screen_1.png';
   static const String imagesOnboardingScreen2 = 'assets/images/onboarding_screen_2.png';
   static const String imagesOnboardingScreen3 = 'assets/images/onboarding_screen_3.png';
+  static const String imagesPrivacy = 'assets/images/privacy.png';
   static const String imagesRectangleBox = 'assets/images/rectangle_box.png';
   static const String imagesScooter = 'assets/images/Scooter.png';
   static const String imagesSend = 'assets/images/send.png';
+  static const String imagesTwitter = 'assets/images/twitter.png';
+  static const String imagesUser = 'assets/images/user.png';
+  static const String imagesUser2 = 'assets/images/user2.png';
   static const String imagesVideo = 'assets/images/video.png';
   static const String imagesWallet = 'assets/images/wallet.png';
+  static const String imagesWhatsApp = 'assets/images/whatsApp.png';
 
 }

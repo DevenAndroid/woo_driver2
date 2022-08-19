@@ -6,6 +6,8 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:woo_driver/ui/screens/profile_detail.dart';
 
 import '../../res/theme/theme.dart';
+import '../widget/custom_button.dart';
+import 'app_routes/app_routes.dart';
 
 class BankDetailsScreen extends StatefulWidget {
   const BankDetailsScreen({Key? key}) : super(key: key);
@@ -20,7 +22,7 @@ class _BankDetailsScreenState extends State<BankDetailsScreen> {
     return Scaffold(
         appBar: PreferredSize(
             preferredSize:
-                Size.fromHeight(MediaQuery.of(context).size.height * .13),
+                Size.fromHeight(MediaQuery.of(context).size.height * .11),
             child: AppBar(
               centerTitle: true,
               shape: const RoundedRectangleBorder(
@@ -157,18 +159,17 @@ class _BankDetailsScreenState extends State<BankDetailsScreen> {
                               //         topLeft: Radius.circular(10),
                               //         topRight: Radius.circular(10))),
                               prefixIcon: Container(
-                                width: 30,
-                                margin: const EdgeInsets.all(8),
-                                decoration: BoxDecoration(
-                                  border: Border(
-                                      right: BorderSide(
-                                          color: Colors.grey.shade300)),
-                                ),
-                                child:  Image.asset(
-                                  "assets/images/id.png",
-                                  color: AppTheme.primaryColor,
-                                )
-                              ),
+                                  width: 30,
+                                  margin: const EdgeInsets.all(8),
+                                  decoration: BoxDecoration(
+                                    border: Border(
+                                        right: BorderSide(
+                                            color: Colors.grey.shade300)),
+                                  ),
+                                  child: Image.asset(
+                                    "assets/images/id.png",
+                                    color: AppTheme.primaryColor,
+                                  )),
                               border: InputBorder.none,
                               // hintText: 'Enter your number',
                               hintStyle: TextStyle(
@@ -207,18 +208,17 @@ class _BankDetailsScreenState extends State<BankDetailsScreen> {
                               //         topLeft: Radius.circular(10),
                               //         topRight: Radius.circular(10))),
                               prefixIcon: Container(
-                                width: 30,
-                                margin: const EdgeInsets.all(8),
-                                decoration: BoxDecoration(
-                                  border: Border(
-                                      right: BorderSide(
-                                          color: Colors.grey.shade300)),
-                                ),
-                                child:  Image.asset(
-                                  "assets/images/id.png",
-                                  color: AppTheme.primaryColor,
-                                )
-                              ),
+                                  width: 30,
+                                  margin: const EdgeInsets.all(8),
+                                  decoration: BoxDecoration(
+                                    border: Border(
+                                        right: BorderSide(
+                                            color: Colors.grey.shade300)),
+                                  ),
+                                  child: Image.asset(
+                                    "assets/images/id.png",
+                                    color: AppTheme.primaryColor,
+                                  )),
                               border: InputBorder.none,
                               // hintText: 'Enter your number',
                               hintStyle: TextStyle(
@@ -257,18 +257,17 @@ class _BankDetailsScreenState extends State<BankDetailsScreen> {
                               //         topLeft: Radius.circular(10),
                               //         topRight: Radius.circular(10))),
                               prefixIcon: Container(
-                                width: 30,
-                                margin: const EdgeInsets.all(8),
-                                decoration: BoxDecoration(
-                                  border: Border(
-                                      right: BorderSide(
-                                          color: Colors.grey.shade300)),
-                                ),
-                                child: Image.asset(
-                                  "assets/images/ifsc.png",
-                                  color: AppTheme.primaryColor,
-                                )
-                              ),
+                                  width: 30,
+                                  margin: const EdgeInsets.all(8),
+                                  decoration: BoxDecoration(
+                                    border: Border(
+                                        right: BorderSide(
+                                            color: Colors.grey.shade300)),
+                                  ),
+                                  child: Image.asset(
+                                    "assets/images/ifsc.png",
+                                    color: AppTheme.primaryColor,
+                                  )),
                               border: InputBorder.none,
                               // hintText: 'Enter your number',
                               hintStyle: TextStyle(
@@ -289,24 +288,35 @@ class _BankDetailsScreenState extends State<BankDetailsScreen> {
                 const SizedBox(
                   height: 100,
                 ),
+                // Align(
+                //   alignment: Alignment.center,
+                //   child: ElevatedButton(
+                //       style: ElevatedButton.styleFrom(
+                //           shape: const RoundedRectangleBorder(
+                //               borderRadius:
+                //                   BorderRadius.all(Radius.circular(5))),
+                //           primary: AppTheme.primaryColor,
+                //           padding: const EdgeInsets.symmetric(
+                //               horizontal: 35, vertical: 15),
+                //           textStyle:
+                //               const TextStyle(fontWeight: FontWeight.bold)),
+                //       onPressed: () {},
+                //       child: const Text(
+                //         " Continue ",
+                //         style: TextStyle(
+                //             fontWeight: FontWeight.w500, fontSize: 14),
+                //       )),
+                // ),
                 Align(
                   alignment: Alignment.center,
-                  child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          shape: const RoundedRectangleBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(5))),
-                          primary: AppTheme.primaryColor,
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 35, vertical: 15),
-                          textStyle:
-                              const TextStyle(fontWeight: FontWeight.bold)),
-                      onPressed: () {},
-                      child: const Text(
-                        " Continue ",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w500, fontSize: 14),
-                      )),
+                  child: CustomButton(
+                    height: 50,
+                    width: 150,
+                    buttonText: " Continue ",
+                    onPress: () {
+                      Get.toNamed(MyRoutes.homeScreen);
+                    },
+                  ),
                 ),
               ],
             ),
