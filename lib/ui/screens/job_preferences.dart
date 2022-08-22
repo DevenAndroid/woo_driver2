@@ -81,42 +81,47 @@ class _JobPreferencesScreenState extends State<JobPreferencesScreen> {
                   height: 15,
                 ),
 
-                Container(
-                  padding: const EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: AppTheme.appBackgroundColor,
-                  ),
-                  height: MediaQuery.of(context).size.height * .065,
-                  width: MediaQuery.of(context).size.width,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: const [
-                          Icon(
-                            Icons.location_on_outlined,
-                            color: AppTheme.primaryColor,
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          VerticalDivider(
-                              width: 2,
-                              thickness: 2,
-                              color: AppTheme.dividerColor),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Text(
-                            "Choose Location",
-                            style: TextStyle(
-                                fontSize: 14, fontWeight: FontWeight.w500),
-                          ),
-                        ],
-                      ),
-                      const Icon(Icons.keyboard_arrow_up)
-                    ],
+                GestureDetector(
+                  onTap: (){
+                    showAlertDialog(context);
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.all(15),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: AppTheme.appBackgroundColor,
+                    ),
+                    height: MediaQuery.of(context).size.height * .065,
+                    width: MediaQuery.of(context).size.width,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: const [
+                            Icon(
+                              Icons.location_on_outlined,
+                              color: AppTheme.primaryColor,
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            VerticalDivider(
+                                width: 2,
+                                thickness: 2,
+                                color: AppTheme.dividerColor),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              "Choose Location",
+                              style: TextStyle(
+                                  fontSize: 14, fontWeight: FontWeight.w500),
+                            ),
+                          ],
+                        ),
+                        const Icon(Icons.keyboard_arrow_up)
+                      ],
+                    ),
                   ),
                 ),
                 const SizedBox(
@@ -553,4 +558,32 @@ class _JobPreferencesScreenState extends State<JobPreferencesScreen> {
           ),
         ));
   }
+}
+
+
+showAlertDialog(BuildContext context) {
+  // Create button
+  Widget okButton = FlatButton(
+    child: Text("OK"),
+    onPressed: () {
+      Navigator.of(context).pop();
+    },
+  );
+
+  // Create AlertDialog
+  AlertDialog alert = AlertDialog(
+    title: Text("Simple Alert"),
+    content: Text("This is an alert message."),
+    actions: [
+      okButton,
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
 }

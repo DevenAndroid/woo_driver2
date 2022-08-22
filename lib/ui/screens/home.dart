@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:im_stepper/stepper.dart';
+import 'package:woo_driver/ui/widget/custom_bottom_navigationbar.dart';
 
 import '../../res/theme/theme.dart';
 import '../widget/custom_button.dart';
@@ -98,7 +99,8 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ],
           )),
-      bottomNavigationBar: BottomAppBar(
+      bottomNavigationBar:
+      BottomAppBar(
           shape: const AutomaticNotchedShape(RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
             topLeft: Radius.circular(15),
@@ -370,10 +372,14 @@ class _HomeScreenState extends State<HomeScreen> {
                               // ),
                               ElevatedButton(
                                   style: ElevatedButton.styleFrom(
-                                      side: BorderSide(width: 2.0, color: AppTheme.primaryColor,) ,
+                                      side: BorderSide(
+                                        width: 2.0,
+                                        color: AppTheme.primaryColor,
+                                      ),
                                       shape: const RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(10)),),
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(10)),
+                                      ),
                                       primary: AppTheme.appBackgroundColor,
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: 35, vertical: 15),

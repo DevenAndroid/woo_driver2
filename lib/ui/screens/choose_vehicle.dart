@@ -1,10 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:woo_driver/ui/screens/app_detail.dart';
-import 'package:woo_driver/ui/screens/job_preferences.dart';
 import 'package:woo_driver/ui/widget/custom_button.dart';
 
 import '../../res/theme/theme.dart';
@@ -18,6 +15,7 @@ class ChooseVehicleScreen extends StatefulWidget {
 }
 
 class _ChooseVehicleScreenState extends State<ChooseVehicleScreen>  {
+
 
 
   @override
@@ -45,7 +43,7 @@ class _ChooseVehicleScreenState extends State<ChooseVehicleScreen>  {
               leading: GestureDetector(
                   child: const Icon(Icons.arrow_back_ios),
               onTap: (){
-                Get.to(AppDetailScreen());
+                Get.to(const AppDetailScreen());
               },),
               title: const Text(
                 "LOGO",
@@ -82,80 +80,93 @@ class _ChooseVehicleScreenState extends State<ChooseVehicleScreen>  {
                 const SizedBox(
                   height: 15,
                 ),
-                Container(
-                  padding: EdgeInsets.all(15),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Image.asset("assets/images/Scooter.png"),
-                      SizedBox(
-                        width: 50,
-                      ),
-                      Text(
-                        "Scooter",
-                        style: TextStyle(
-                            fontSize: 18, color: AppTheme.appBackgroundColor),
-                      ),
-                    ],
+                GestureDetector(
+                  onTap: (){},
+                  child: Container(
+                    padding: const EdgeInsets.all(15),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: AppTheme.primaryColor,
+                    ),
+                    height: MediaQuery.of(context).size.height * .1,
+                    width: MediaQuery.of(context).size.width,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Image.asset("assets/images/Scooter.png"),
+                        const SizedBox(
+                          width: 50,
+                        ),
+                        const Text(
+                          "Scooter",
+                          style: TextStyle(
+                              fontSize: 18, color: AppTheme.appBackgroundColor),
+                        ),
+                      ],
+                    ),
                   ),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: AppTheme.primaryColor,
-                  ),
-                  height: MediaQuery.of(context).size.height * .1,
-                  width: MediaQuery.of(context).size.width,
                 ),
                 const SizedBox(
                   height: 25,
                 ),
-                Container(
-                  padding: EdgeInsets.all(15),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Image.asset("assets/images/Motor_Cycle.png"),
-                      SizedBox(
-                        width: 50,
-                      ),
-                      Text(
-                        "Motor Cycle",
-                        style: TextStyle(
-                            fontSize: 18, color: AppTheme.primaryColor),
-                      ),
-                    ],
+                GestureDetector(
+                  onTap: (){},
+                  child: Container(
+                    padding: const EdgeInsets.all(15),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: AppTheme.appBackgroundColor,
+                    ),
+                    height: MediaQuery.of(context).size.height * .1,
+                    width: MediaQuery.of(context).size.width,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Image.asset("assets/images/Motor_Cycle.png"),
+                        const SizedBox(
+                          width: 50,
+                        ),
+                        const Text(
+                          "Motor Cycle",
+                          style: TextStyle(
+                              fontSize: 18, color: AppTheme.primaryColor),
+                        ),
+                      ],
+                    ),
                   ),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: AppTheme.appBackgroundColor,
-                  ),
-                  height: MediaQuery.of(context).size.height * .1,
-                  width: MediaQuery.of(context).size.width,
                 ),
                 const SizedBox(
                   height: 25,
                 ),
-                Container(
-                  padding: EdgeInsets.all(15),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Image.asset("assets/images/Bicycle.png"),
-                      SizedBox(
-                        width: 50,
-                      ),
-                      Text(
-                        "Bicycle",
-                        style: TextStyle(
-                            fontSize: 18, color: AppTheme.primaryColor),
-                      ),
-                    ],
+                InkWell(
+                  onTap: (){
+                    color : AppTheme.primaryColor;
+
+
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.all(15),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: AppTheme.appBackgroundColor,
+                    ),
+                    height: MediaQuery.of(context).size.height * .1,
+                    width: MediaQuery.of(context).size.width,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Image.asset("assets/images/Bicycle.png"),
+                        const SizedBox(
+                          width: 50,
+                        ),
+                        const Text(
+                          "Bicycle",
+                          style: TextStyle(
+                              fontSize: 18, color: AppTheme.primaryColor),
+                        ),
+                      ],
+                    ),
                   ),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: AppTheme.appBackgroundColor,
-                  ),
-                  height: MediaQuery.of(context).size.height * .1,
-                  width: MediaQuery.of(context).size.width,
                 ),
                 const SizedBox(
                   height: 130,
