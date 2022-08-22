@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:woo_driver/ui/screens/app_routes/app_routes.dart';
+import 'package:woo_driver/ui/widget/custom_bottom_navigationbar.dart';
 
 import '../../res/theme/theme.dart';
 import 'home.dart';
@@ -51,37 +52,38 @@ class _MoreScreenState extends State<MoreScreen> {
                     fontSize: 28),
               ),
             )),
-        bottomNavigationBar: BottomAppBar(
-            shape: const AutomaticNotchedShape(RoundedRectangleBorder(
-                borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(15),
-              topRight: Radius.circular(15),
-            ))),
-            color: AppTheme.primaryColor,
-            child: Container(
-              margin: const EdgeInsets.only(right: 15),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Image.asset(
-                    "assets/images/home.png",
-                    color: AppTheme.appBackgroundColor,
-                  ),
-                  Image.asset(
-                    "assets/images/wallet.png",
-                    color: AppTheme.appBackgroundColor,
-                  ),
-                  Image.asset(
-                    "assets/images/history.png",
-                    color: AppTheme.appBackgroundColor,
-                  ),
-                  Image.asset(
-                    "assets/images/menu.png",
-                    color: AppTheme.appBackgroundColor,
-                  )
-                ],
-              ),
-            )),
+        bottomNavigationBar:  const CustomBottomNavigationBar(),
+        // BottomAppBar(
+        //     shape: const AutomaticNotchedShape(RoundedRectangleBorder(
+        //         borderRadius: BorderRadius.only(
+        //       topLeft: Radius.circular(15),
+        //       topRight: Radius.circular(15),
+        //     ))),
+        //     color: AppTheme.primaryColor,
+        //     child: Container(
+        //       margin: const EdgeInsets.only(right: 15),
+        //       child: Row(
+        //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        //         children: <Widget>[
+        //           Image.asset(
+        //             "assets/images/home.png",
+        //             color: AppTheme.appBackgroundColor,
+        //           ),
+        //           Image.asset(
+        //             "assets/images/wallet.png",
+        //             color: AppTheme.appBackgroundColor,
+        //           ),
+        //           Image.asset(
+        //             "assets/images/history.png",
+        //             color: AppTheme.appBackgroundColor,
+        //           ),
+        //           Image.asset(
+        //             "assets/images/menu.png",
+        //             color: AppTheme.appBackgroundColor,
+        //           )
+        //         ],
+        //       ),
+        //     )),
         body: Container(
           padding: const EdgeInsets.all(10),
           child: Column(

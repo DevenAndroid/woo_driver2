@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:im_stepper/stepper.dart';
 import 'package:table_calendar/table_calendar.dart';
+import 'package:woo_driver/ui/widget/custom_bottom_navigationbar.dart';
 
 import '../../res/theme/theme.dart';
 import 'calendar_screen.dart';
@@ -23,37 +25,38 @@ class _WalletHistoryScreenState extends State<WalletHistoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomAppBar(
-          shape: const AutomaticNotchedShape(RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(15),
-            topRight: Radius.circular(15),
-          ))),
-          color: AppTheme.primaryColor,
-          child: Container(
-            margin: const EdgeInsets.only(right: 15),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Image.asset(
-                  "assets/images/home.png",
-                  color: AppTheme.appBackgroundColor,
-                ),
-                Image.asset(
-                  "assets/images/wallet.png",
-                  color: AppTheme.appBackgroundColor,
-                ),
-                Image.asset(
-                  "assets/images/history.png",
-                  color: AppTheme.appBackgroundColor,
-                ),
-                Image.asset(
-                  "assets/images/menu.png",
-                  color: AppTheme.appBackgroundColor,
-                )
-              ],
-            ),
-          )),
+      bottomNavigationBar: const CustomBottomNavigationBar(),
+      // BottomAppBar(
+      //     shape: const AutomaticNotchedShape(RoundedRectangleBorder(
+      //         borderRadius: BorderRadius.only(
+      //       topLeft: Radius.circular(15),
+      //       topRight: Radius.circular(15),
+      //     ))),
+      //     color: AppTheme.primaryColor,
+      //     child: Container(
+      //       margin: const EdgeInsets.only(right: 15),
+      //       child: Row(
+      //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      //         children: <Widget>[
+      //           Image.asset(
+      //             "assets/images/home.png",
+      //             color: AppTheme.appBackgroundColor,
+      //           ),
+      //           Image.asset(
+      //             "assets/images/wallet.png",
+      //             color: AppTheme.appBackgroundColor,
+      //           ),
+      //           Image.asset(
+      //             "assets/images/history.png",
+      //             color: AppTheme.appBackgroundColor,
+      //           ),
+      //           Image.asset(
+      //             "assets/images/menu.png",
+      //             color: AppTheme.appBackgroundColor,
+      //           )
+      //         ],
+      //       ),
+      //     )),
       body: Stack(children: [
         SizedBox(
           height: MediaQuery.of(context).size.height,
@@ -292,17 +295,32 @@ class _WalletHistoryScreenState extends State<WalletHistoryScreen> {
                                 ),
                                 Row(
                                   children: [
-                                    Column(
-                                      children: [
-                                        Image.asset(
-                                          "assets/images/loading.png",
-                                          height: 50,
-                                          width: 30,
-                                        )
-                                      ],
-                                    ),
-                                    const SizedBox(
-                                      width: 5,
+                                    MediaQuery.removePadding(
+                                      context: context,
+                                      child: SizedBox(
+                                        width: 50,
+                                        height: 70,
+                                        child: IconStepper(
+                                          icons: const [
+                                            Icon(
+                                              Icons.circle,
+                                              color: AppTheme.primaryColor,
+                                            ),
+                                            Icon(Icons.circle,
+                                                color: AppTheme.primaryColor),
+                                          ],
+                                          direction: Axis.vertical,
+                                          lineLength: 20,
+                                          lineColor: AppTheme.primaryColor,
+                                          activeStepBorderColor:
+                                              AppTheme.primaryColor,
+                                          stepRadius: 5.0,
+                                          activeStepColor:
+                                              AppTheme.primaryColor,
+                                          stepColor: AppTheme.primaryColor,
+                                          enableNextPreviousButtons: false,
+                                        ),
+                                      ),
                                     ),
                                     Column(
                                       children: const [

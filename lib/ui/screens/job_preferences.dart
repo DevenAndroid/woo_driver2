@@ -1,6 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../../res/theme/theme.dart';
 import '../widget/custom_button.dart';
@@ -15,7 +18,26 @@ class JobPreferencesScreen extends StatefulWidget {
 }
 
 class _JobPreferencesScreenState extends State<JobPreferencesScreen> {
+  bool arrowDown = false;
 
+  Completer<GoogleMapController> _controller = Completer();
+
+  static final CameraPosition _kGooglePlex = const CameraPosition(
+    target: LatLng(26.9112472, 75.7296486),
+    zoom: 14.4746,
+  );
+
+  static final CameraPosition _kLake = const CameraPosition(
+      bearing: 192.8334901395799,
+      target: LatLng(26.9112472, 75.7296486),
+      tilt: 59.440717697143555,
+      zoom: 19.151926040649414);
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,96 +102,188 @@ class _JobPreferencesScreenState extends State<JobPreferencesScreen> {
                 const SizedBox(
                   height: 15,
                 ),
-
                 GestureDetector(
-                  onTap: (){
-                    showAlertDialog(context);
+                  onTap: () {
+                    showAlertDialog(context, _kGooglePlex, _controller);
                   },
-                  child: Container(
-                    padding: const EdgeInsets.all(15),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: AppTheme.appBackgroundColor,
+                  child: Theme(
+                    data: ThemeData().copyWith(
+                      dividerColor: Colors.transparent,
                     ),
-                    height: MediaQuery.of(context).size.height * .065,
-                    width: MediaQuery.of(context).size.width,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: const [
-                            Icon(
-                              Icons.location_on_outlined,
-                              color: AppTheme.primaryColor,
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            VerticalDivider(
-                                width: 2,
-                                thickness: 2,
-                                color: AppTheme.dividerColor),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text(
-                              "Choose Location",
-                              style: TextStyle(
-                                  fontSize: 14, fontWeight: FontWeight.w500),
-                            ),
-                          ],
-                        ),
-                        const Icon(Icons.keyboard_arrow_up)
-                      ],
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 25,
-                ),
-                Container(
-                  padding: const EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: AppTheme.appBackgroundColor,
-                  ),
-                  height: MediaQuery.of(context).size.height * .065,
-                  width: MediaQuery.of(context).size.width,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
+                    child: ExpansionTile(
+                      collapsedBackgroundColor: Colors.white,
+                      // leading: const Icon(
+                      //   Icons.gps_fixed,
+                      //   color: AppTheme.primaryColor,
+                      // ),
+                      title: Row(
                         children: const [
                           Icon(
                             Icons.location_on_outlined,
                             color: AppTheme.primaryColor,
                           ),
-                          // SizedBox(
-                          //   width: 10,
-                          // ),
-                          // VerticalDivider(
-                          //     width: 2,
-                          //     thickness: 2,
-                          //     color: AppTheme.dividerColor),
                           SizedBox(
-                            width: 10,
+                            width: 7,
                           ),
                           Text(
-                            "Toronto",
+                            "|",
                             style: TextStyle(
-                                fontSize: 14, fontWeight: FontWeight.w500),
+                                fontSize: 28,
+                                fontWeight: FontWeight.w500,
+                                color: AppTheme.dividerColor),
+                          ),
+                          SizedBox(
+                            width: 7,
+                          ),
+                          Text(
+                            "Choose Location",
+                            style: TextStyle(
+                                fontSize: 14, color: AppTheme.blackTextColor),
                           ),
                         ],
                       ),
-                      const Text(
-                        "Change",
-                        style: TextStyle(
-                            color: Color(0xff2B7AF1),
-                            fontWeight: FontWeight.w500),
-                      )
-                    ],
+                      trailing:
+                          // InkWell(
+                          //     onTap: () {
+                          //       setState(() {
+                          //    arrowDown = !arrowDown;
+                          //       });
+                          //     },
+                          //     child: arrowDown == true
+                          //         ? const Icon(Icons.keyboard_arrow_down)
+                          //         : const Icon(
+                          //         Icons.keyboard_arrow_up)),
+                          const Icon(
+                        Icons.keyboard_arrow_down,
+                        color: AppTheme.blackTextColor,
+                      ),
+
+                      children: <Widget>[
+                        Container(
+                          padding: const EdgeInsets.all(15),
+                          color: AppTheme.appBackgroundColor,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  const Icon(
+                                    Icons.location_on_outlined,
+                                    color: AppTheme.primaryColor,
+                                  ),
+                                  const SizedBox(
+                                    width: 25,
+                                  ),
+                                  const Text(
+                                    "Toronto",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 14),
+                                  )
+                                ],
+                              ),
+                              const Text(
+                                "Change",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 14,
+                                    color: Color(0xff2B7AF1)),
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
+
+                // GestureDetector(
+                //   onTap: (){
+                //
+                //   },
+                //   child: Container(
+                //     padding: const EdgeInsets.all(15),
+                //     decoration: BoxDecoration(
+                //       borderRadius: BorderRadius.circular(10),
+                //       color: AppTheme.appBackgroundColor,
+                //     ),
+                //     height: MediaQuery.of(context).size.height * .065,
+                //     width: MediaQuery.of(context).size.width,
+                //     child: Row(
+                //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //       children: [
+                //         Row(
+                //           children: const [
+                //             Icon(
+                //               Icons.location_on_outlined,
+                //               color: AppTheme.primaryColor,
+                //             ),
+                //             SizedBox(
+                //               width: 10,
+                //             ),
+                //             VerticalDivider(
+                //                 width: 2,
+                //                 thickness: 2,
+                //                 color: AppTheme.dividerColor),
+                //             SizedBox(
+                //               width: 10,
+                //             ),
+                //             Text(
+                //               "Choose Location",
+                //               style: TextStyle(
+                //                   fontSize: 14, fontWeight: FontWeight.w500),
+                //             ),
+                //           ],
+                //         ),
+                //         const Icon(Icons.keyboard_arrow_up)
+                //       ],
+                //     ),
+                //   ),
+                // ),
+
+                // Container(
+                //   padding: const EdgeInsets.all(15),
+                //   decoration: BoxDecoration(
+                //     borderRadius: BorderRadius.circular(10),
+                //     color: AppTheme.appBackgroundColor,
+                //   ),
+                //   height: MediaQuery.of(context).size.height * .065,
+                //   width: MediaQuery.of(context).size.width,
+                //   child: Row(
+                //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //     children: [
+                //       Row(
+                //         children: const [
+                //           Icon(
+                //             Icons.location_on_outlined,
+                //             color: AppTheme.primaryColor,
+                //           ),
+                //           // SizedBox(
+                //           //   width: 10,
+                //           // ),
+                //           // VerticalDivider(
+                //           //     width: 2,
+                //           //     thickness: 2,
+                //           //     color: AppTheme.dividerColor),
+                //           SizedBox(
+                //             width: 10,
+                //           ),
+                //           Text(
+                //             "Toronto",
+                //             style: TextStyle(
+                //                 fontSize: 14, fontWeight: FontWeight.w500),
+                //           ),
+                //         ],
+                //       ),
+                //       const Text(
+                //         "Change",
+                //         style: TextStyle(
+                //             color: Color(0xff2B7AF1),
+                //             fontWeight: FontWeight.w500),
+                //       )
+                //     ],
+                //   ),
+                // ),
                 const SizedBox(
                   height: 25,
                 ),
@@ -243,9 +357,7 @@ class _JobPreferencesScreenState extends State<JobPreferencesScreen> {
                         Text(
                           "Choose area",
                           style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                              color: AppTheme.blackTextColor),
+                              fontSize: 14, color: AppTheme.blackTextColor),
                         ),
                       ],
                     ),
@@ -426,9 +538,7 @@ class _JobPreferencesScreenState extends State<JobPreferencesScreen> {
                           Text(
                             "Time selection",
                             style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w500,
-                                color: AppTheme.blackTextColor),
+                                fontSize: 14, color: AppTheme.blackTextColor),
                           ),
                         ],
                       ),
@@ -560,30 +670,53 @@ class _JobPreferencesScreenState extends State<JobPreferencesScreen> {
   }
 }
 
-
-showAlertDialog(BuildContext context) {
-  // Create button
-  Widget okButton = FlatButton(
+showAlertDialog(BuildContext context, cameraPosition, mapController) {
+  Widget okButton = TextButton(
     child: Text("OK"),
-    onPressed: () {
-      Navigator.of(context).pop();
-    },
+    onPressed: () {},
   );
 
-  // Create AlertDialog
-  AlertDialog alert = AlertDialog(
-    title: Text("Simple Alert"),
-    content: Text("This is an alert message."),
-    actions: [
-      okButton,
-    ],
-  );
-
-  // show the dialog
   showDialog(
     context: context,
     builder: (BuildContext context) {
-      return alert;
+      return Dialog(
+        backgroundColor: Colors.transparent,
+        // shape: RoundedRectangleBorder(
+        //     borderRadius: BorderRadius.circular(30),
+        //     side: BorderSide(color: Colors.red)
+        //       ),
+        insetPadding: EdgeInsets.zero,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(30),
+          child: Container(
+            height: MediaQuery.of(context).size.height * .6,
+            width: MediaQuery.of(context).size.width * .9,
+            color: Colors.transparent,
+            // decoration: BoxDecoration(
+            //   border: Border.all(width: 10,color: Colors.white),
+            //     borderRadius: BorderRadius.all(Radius.circular(30))),
+            child: Stack(children: [
+              GoogleMap(
+                myLocationEnabled: true,
+                myLocationButtonEnabled: true,
+                mapType: MapType.normal,
+                initialCameraPosition: cameraPosition,
+                onMapCreated: (GoogleMapController controller) {
+                  mapController.complete(controller);
+                },
+              ),
+              Positioned(
+                bottom: 22,
+                left: 100,
+                child: CustomButton(
+                  buttonText: "Continue",
+                  onPress: () {},
+                ),
+              )
+            ]),
+          ),
+        ),
+      );
     },
   );
 }

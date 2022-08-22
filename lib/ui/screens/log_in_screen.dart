@@ -175,7 +175,7 @@ class _LogInScreenState extends State<LogInScreen> {
                         keyboardType: TextInputType.number,
                         validator: (value) {
                           if (value!.isEmpty) {
-                            return 'Filed is required';
+                            return 'Field is required';
                           }
                           return null;
                         },

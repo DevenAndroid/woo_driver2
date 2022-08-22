@@ -24,7 +24,6 @@ class Assets {
   static const String imagesLanguage = 'assets/images/language.png';
   static const String imagesLinkdin = 'assets/images/linkdin.png';
   static const String imagesLoading = 'assets/images/loading.png';
-  static const String imagesMap = 'assets/images/map.jpg';
   static const String imagesMenu = 'assets/images/menu.png';
   static const String imagesMotorCycle = 'assets/images/Motor_Cycle.png';
   static const String imagesMotorcycle = 'assets/images/motorcycle.png';

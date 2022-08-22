@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -14,174 +13,105 @@ class LanguageScreen extends StatefulWidget {
 }
 
 class _LanguageScreenState extends State<LanguageScreen> {
+
+
+  List<Language> languages = [
+    Language(
+      title: "English",
+    ),
+    Language(
+      title: "Maori",
+    ),
+    Language(
+      title: "Latin",
+    ),
+    Language(
+      title: "German",
+    ),
+    Language(
+      title: "Tamil",
+    ),
+    Language(
+      title: "Hindi",
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: PreferredSize(
-            preferredSize:
-            Size.fromHeight(MediaQuery.of(context).size.height * .11),
-            child: AppBar(
-              centerTitle: true,
-              shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.vertical(
-                    bottom: Radius.circular(20),
-                  )),
-              systemOverlayStyle: const SystemUiOverlayStyle(
-                // Status bar color
-                statusBarColor: AppTheme.primaryColor,
-
-                // Status bar brightness (optional)
-                statusBarIconBrightness: Brightness.light,
-                // For Android (dark icons)
-                statusBarBrightness: Brightness.light, // For iOS (dark icons)
-              ),
-              backgroundColor: AppTheme.primaryColor,
-              leading: GestureDetector(
-                child: const Icon(Icons.arrow_back_ios),
-                onTap: () {
-                  Get.to(const HomeScreen());
-                },
-              ),
-              title: const Text(
-                "Language",
-                style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white,
-                    fontSize: 20),
-              ),
+      appBar: PreferredSize(
+          preferredSize:
+              Size.fromHeight(MediaQuery.of(context).size.height * .11),
+          child: AppBar(
+            centerTitle: true,
+            shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.vertical(
+              bottom: Radius.circular(20),
             )),
+            systemOverlayStyle: const SystemUiOverlayStyle(
+              // Status bar color
+              statusBarColor: AppTheme.primaryColor,
+
+              // Status bar brightness (optional)
+              statusBarIconBrightness: Brightness.light,
+              // For Android (dark icons)
+              statusBarBrightness: Brightness.light, // For iOS (dark icons)
+            ),
+            backgroundColor: AppTheme.primaryColor,
+            leading: GestureDetector(
+              child: const Icon(Icons.arrow_back_ios),
+              onTap: () {
+                Get.to(const HomeScreen());
+              },
+            ),
+            title: const Text(
+              "Language",
+              style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  color: Colors.white,
+                  fontSize: 20),
+            ),
+          )),
       body: Container(
-        margin: EdgeInsets.all(15),
-        child: Expanded(
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    height: MediaQuery.of(context).size.height * .05,
-                    width: MediaQuery.of(context).size.width * .4,
-                    margin: const EdgeInsets.all(10),
-                    padding: const EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                        color: AppTheme.primaryColor,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: const [
-                          BoxShadow(
-                            color: Color(0xffe3dfdf),
-                            blurRadius: 10.0,
-                          ),
-                        ]),
-                    child: Text("English",style: TextStyle(fontSize: 14),),
-
-                  ),
-                  Container(
-                    height: MediaQuery.of(context).size.height * .05,
-                    width: MediaQuery.of(context).size.width * .4,
-                    margin: const EdgeInsets.all(10),
-                    padding: const EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                        color: AppTheme.appBackgroundColor,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: const [
-                          BoxShadow(
-                            color: Color(0xffe3dfdf),
-                            blurRadius: 10.0,
-                          ),
-                        ]),
-                    child: Text("Maori",style: TextStyle(fontSize: 14),),
-
-                  )
-                ],
+        margin: const EdgeInsets.all(15),
+        child: Wrap(
+          children: List.generate(languages.length, (index) => GestureDetector(
+            onTap: () {
+          for (var item in languages) {
+          item.selected = false;
+          }
+          languages[index].selected = true;
+          setState(() {});
+          },
+            child: Container(
+              height: MediaQuery.of(context).size.height * .05,
+              width: MediaQuery.of(context).size.width * .4,
+              margin: const EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                  color:languages[index].selected == true? AppTheme.primaryColor : AppTheme.appBackgroundColor,
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Color(0xffe3dfdf),
+                      blurRadius: 10.0,
+                    ),
+                  ]),
+              child: Text(
+                languages[index].title.toString(),
+                style:  TextStyle(fontSize: 14,color: languages[index].selected != true? Colors.black : AppTheme.appBackgroundColor,),
               ),
-              SizedBox(
-                height: 15,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    height: MediaQuery.of(context).size.height * .05,
-                    width: MediaQuery.of(context).size.width * .4,
-                    margin: const EdgeInsets.all(10),
-                    padding: const EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                        color: AppTheme.appBackgroundColor,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: const [
-                          BoxShadow(
-                            color: Color(0xffe3dfdf),
-                            blurRadius: 10.0,
-                          ),
-                        ]),
-                    child: Text("Latin",style: TextStyle(fontSize: 14),),
-
-                  ),
-                  Container(
-                    height: MediaQuery.of(context).size.height * .05,
-                    width: MediaQuery.of(context).size.width * .4,
-                    margin: const EdgeInsets.all(10),
-                    padding: const EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                        color: AppTheme.appBackgroundColor,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: const [
-                          BoxShadow(
-                            color: Color(0xffe3dfdf),
-                            blurRadius: 10.0,
-                          ),
-                        ]),
-                    child: Text("Germon",style: TextStyle(fontSize: 14),),
-
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    height: MediaQuery.of(context).size.height * .05,
-                    width: MediaQuery.of(context).size.width * .4,
-                    margin: const EdgeInsets.all(10),
-                    padding: const EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                        color: AppTheme.appBackgroundColor,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: const [
-                          BoxShadow(
-                            color: Color(0xffe3dfdf),
-                            blurRadius: 10.0,
-                          ),
-                        ]),
-                    child: Text("Tamil",style: TextStyle(fontSize: 14),),
-
-                  ),
-                  Container(
-                    height: MediaQuery.of(context).size.height * .05,
-                    width: MediaQuery.of(context).size.width * .4,
-                    margin: const EdgeInsets.all(10),
-                    padding: const EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                        color: AppTheme.appBackgroundColor,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: const [
-                          BoxShadow(
-                            color: Color(0xffe3dfdf),
-                            blurRadius: 10.0,
-                          ),
-                        ]),
-                    child: Text("Hindi",style: TextStyle(fontSize: 14),),
-
-                  )
-                ],
-              ),
-            ],
-          ),
+            ),
+          ),),
         ),
       ),
-       );
+    );
   }
+}
+
+class Language {
+  final String? title;
+  bool? selected;
+
+  Language({this.title, this.selected = false});
 }

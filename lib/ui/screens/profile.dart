@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
+import 'package:woo_driver/ui/screens/app_routes/app_routes.dart';
 
 import '../../res/theme/theme.dart';
 import 'home.dart';
@@ -104,7 +105,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                             ),
                                           ],
                                         ),
-                                        Image.asset("assets/images/edit.png")
+                                        GestureDetector(
+                                          onTap: (){
+                                            Get.toNamed(MyRoutes.editProfileScreen);
+
+                                          },
+                                            child: Image.asset("assets/images/edit.png"))
                                       ],
                                     ),
                                     Row(
@@ -264,7 +270,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Column(
-                                children: [Image.asset("assets/images/user.png")],
+                                children: [
+                                  Image.asset("assets/images/user.png")
+                                ],
                               ),
                               const SizedBox(
                                 width: 5,
@@ -299,9 +307,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                           direction: Axis.horizontal,
                                           allowHalfRating: true,
                                           itemCount: 5,
-                                          itemPadding: const EdgeInsets.symmetric(
-                                              horizontal: 0.0),
-                                          itemBuilder: (context, _) => const Icon(
+                                          itemPadding:
+                                              const EdgeInsets.symmetric(
+                                                  horizontal: 0.0),
+                                          itemBuilder: (context, _) =>
+                                              const Icon(
                                             Icons.star,
                                             color: Colors.amber,
                                           ),

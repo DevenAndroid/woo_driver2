@@ -14,8 +14,13 @@ class ChooseVehicleScreen extends StatefulWidget {
   State<ChooseVehicleScreen> createState() => _ChooseVehicleScreenState();
 }
 
-class _ChooseVehicleScreenState extends State<ChooseVehicleScreen>  {
+class _ChooseVehicleScreenState extends State<ChooseVehicleScreen> {
 
+  List<VehiclsType> vehicls = [
+    VehiclsType(title: "Scooter", image: "assets/images/Scooter.png"),
+    VehiclsType(title: "Motor Cycle", image: "assets/images/Motor_Cycle.png"),
+    VehiclsType(title: "Bicycle", image: "assets/images/Bicycle.png"),
+  ];
 
 
   @override
@@ -41,10 +46,11 @@ class _ChooseVehicleScreenState extends State<ChooseVehicleScreen>  {
               ),
               backgroundColor: AppTheme.primaryColor,
               leading: GestureDetector(
-                  child: const Icon(Icons.arrow_back_ios),
-              onTap: (){
-                Get.to(const AppDetailScreen());
-              },),
+                child: const Icon(Icons.arrow_back_ios),
+                onTap: () {
+                  Get.to(const AppDetailScreen());
+                },
+              ),
               title: const Text(
                 "LOGO",
                 style: TextStyle(
@@ -80,124 +86,95 @@ class _ChooseVehicleScreenState extends State<ChooseVehicleScreen>  {
                 const SizedBox(
                   height: 15,
                 ),
-                GestureDetector(
-                  onTap: (){},
-                  child: Container(
-                    padding: const EdgeInsets.all(15),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: AppTheme.primaryColor,
-                    ),
-                    height: MediaQuery.of(context).size.height * .1,
-                    width: MediaQuery.of(context).size.width,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Image.asset("assets/images/Scooter.png"),
-                        const SizedBox(
-                          width: 50,
+                ListView.builder(
+                    itemCount: vehicls.length,
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemBuilder: (context, index) {
+                      return GestureDetector(
+                        onTap: () {
+                          for (var item in vehicls) {
+                            item.selected = false;
+                          }
+                          vehicls[index].selected = true;
+                          setState(() {});
+                        },
+                        child: Column(
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.all(15),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: vehicls[index].selected == false
+                                    ? Colors.white
+                                    : AppTheme.primaryColor,
+                              ),
+                              height: MediaQuery.of(context).size.height * .1,
+                              width: MediaQuery.of(context).size.width,
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Image.asset(vehicls[index].image.toString()),
+                                  const SizedBox(
+                                    width: 50,
+                                  ),
+                                  Text(
+                                    vehicls[index].title.toString(),
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        color: vehicls[index].selected != false
+                                            ? Colors.white
+                                            : AppTheme.primaryColor),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              height: 35,
+                            )
+                          ],
                         ),
-                        const Text(
-                          "Scooter",
-                          style: TextStyle(
-                              fontSize: 18, color: AppTheme.appBackgroundColor),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 25,
-                ),
-                GestureDetector(
-                  onTap: (){},
-                  child: Container(
-                    padding: const EdgeInsets.all(15),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: AppTheme.appBackgroundColor,
-                    ),
-                    height: MediaQuery.of(context).size.height * .1,
-                    width: MediaQuery.of(context).size.width,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Image.asset("assets/images/Motor_Cycle.png"),
-                        const SizedBox(
-                          width: 50,
-                        ),
-                        const Text(
-                          "Motor Cycle",
-                          style: TextStyle(
-                              fontSize: 18, color: AppTheme.primaryColor),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 25,
-                ),
-                InkWell(
-                  onTap: (){
-                    color : AppTheme.primaryColor;
-
-
-                  },
-                  child: Container(
-                    padding: const EdgeInsets.all(15),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: AppTheme.appBackgroundColor,
-                    ),
-                    height: MediaQuery.of(context).size.height * .1,
-                    width: MediaQuery.of(context).size.width,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Image.asset("assets/images/Bicycle.png"),
-                        const SizedBox(
-                          width: 50,
-                        ),
-                        const Text(
-                          "Bicycle",
-                          style: TextStyle(
-                              fontSize: 18, color: AppTheme.primaryColor),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                      );
+                    }),
                 const SizedBox(
                   height: 130,
                 ),
                 Align(
-                  alignment: Alignment.center,
-                  child: CustomButton(
-                    buttonText: "Continue" ,
-                    onPress: (){
-                      Get.toNamed(MyRoutes.jobPreferencesScreen);
-                    },
-                  )
-                  // ElevatedButton(
-                  //     style: ElevatedButton.styleFrom(
-                  //         shape: const RoundedRectangleBorder(
-                  //             borderRadius:
-                  //             BorderRadius.all(Radius.circular(5))),
-                  //         primary: AppTheme.primaryColor,
-                  //         padding: const EdgeInsets.symmetric(
-                  //             horizontal: 35, vertical: 15),
-                  //         textStyle:
-                  //         const TextStyle(fontWeight: FontWeight.bold)),
-                  //     onPressed: () {},
-                  //     child: const Text(
-                  //       " Continue ",
-                  //       style: TextStyle(fontWeight: FontWeight.w500,fontSize: 14),
-                  //     )),
-                ),
+                    alignment: Alignment.center,
+                    child: CustomButton(
+                      buttonText: "Continue",
+                      onPress: () {
+                        Get.toNamed(MyRoutes.jobPreferencesScreen);
+                      },
+                    )
+                    // ElevatedButton(
+                    //     style: ElevatedButton.styleFrom(
+                    //         shape: const RoundedRectangleBorder(
+                    //             borderRadius:
+                    //             BorderRadius.all(Radius.circular(5))),
+                    //         primary: AppTheme.primaryColor,
+                    //         padding: const EdgeInsets.symmetric(
+                    //             horizontal: 35, vertical: 15),
+                    //         textStyle:
+                    //         const TextStyle(fontWeight: FontWeight.bold)),
+                    //     onPressed: () {},
+                    //     child: const Text(
+                    //       " Continue ",
+                    //       style: TextStyle(fontWeight: FontWeight.w500,fontSize: 14),
+                    //     )),
+                    ),
               ],
             ),
           ),
         ));
   }
+}
+
+class VehiclsType {
+  final String? title;
+  final String? image;
+  bool? selected;
+
+  VehiclsType({this.title, this.image, this.selected = false});
 }
