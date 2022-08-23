@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -505,7 +506,9 @@ class _JobPreferencesScreenState extends State<JobPreferencesScreen> {
                   height: 25,
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    timeAlertDialog(context);
+                  },
                   child: Theme(
                     data: ThemeData().copyWith(
                       dividerColor: Colors.transparent,
@@ -672,7 +675,7 @@ class _JobPreferencesScreenState extends State<JobPreferencesScreen> {
 
 showAlertDialog(BuildContext context, cameraPosition, mapController) {
   Widget okButton = TextButton(
-    child: Text("OK"),
+    child: const Text("OK"),
     onPressed: () {},
   );
 
@@ -714,6 +717,132 @@ showAlertDialog(BuildContext context, cameraPosition, mapController) {
                 ),
               )
             ]),
+          ),
+        ),
+      );
+    },
+  );
+}
+RxString time1 = "".obs;
+RxString time2 = "".obs;
+
+timeAlertDialog(
+  BuildContext context,
+) {
+  Widget okButton = TextButton(
+    child: const Text("OK"),
+    onPressed: () {},
+  );
+
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return Dialog(
+        backgroundColor: Colors.transparent,
+        // shape: RoundedRectangleBorder(
+        //     borderRadius: BorderRadius.circular(30),
+        //     side: BorderSide(color: Colors.red)
+        //       ),
+        insetPadding: EdgeInsets.zero,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(15),
+          child: Container(
+            padding: const EdgeInsets.all(10),
+            height: MediaQuery.of(context).size.height * .5,
+            width: MediaQuery.of(context).size.width * .85,
+            color: AppTheme.appBackgroundColor,
+            // decoration: BoxDecoration(
+            //   border: Border.all(width: 10,color: Colors.white),
+            //     borderRadius: BorderRadius.all(Radius.circular(30))),
+            child: Expanded(
+              child: Obx(() {
+  return Column(
+                children: [
+                  Row(
+                    children: [
+                      const Text(
+                        "Set preferred timing",
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                            color: AppTheme.primaryColor),
+                      )
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              shape: const RoundedRectangleBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(5))),
+                              primary: Color(0xffFFF2ED),
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 35, vertical: 15),
+                              textStyle:
+                                  const TextStyle(fontWeight: FontWeight.bold)),
+                          onPressed: () {},
+                          child: Text(
+                            "$time1 PM",
+                            style: TextStyle(fontWeight: FontWeight.bold,color: AppTheme.primaryColor),
+                          )),
+                      const Text(
+                        "To",
+                        style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
+                            color: AppTheme.primaryColor),
+                      ),
+                      ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              shape: const RoundedRectangleBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(5))),
+                              primary: AppTheme.primaryColor,
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 35, vertical: 15),
+                              textStyle:
+                                  const TextStyle(fontWeight: FontWeight.bold)),
+                          onPressed: () {},
+                          child: Text(
+                            "$time2 PM",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          )),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 25,
+                  ),
+                  Container(
+                    height: MediaQuery.of(context).size.height * .2,
+                    color: AppTheme.textBoxBackgroundColor,
+                    child: CupertinoDatePicker(
+                      initialDateTime: DateTime.now(),
+                      mode: CupertinoDatePickerMode.time,
+                      use24hFormat: true,
+                      // This is called when the user changes the time.
+                      onDateTimeChanged: (DateTime newTime) {
+                        time1.value = newTime.hour.toString();
+                        time2.value = newTime.minute.toString();
+                      },
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 45,
+                  ),
+                  CustomButton(
+                    buttonText: "Save",
+                    onPress: () {},
+                    width: 150,
+                  )
+                ],
+              );
+}),
+            ),
           ),
         ),
       );

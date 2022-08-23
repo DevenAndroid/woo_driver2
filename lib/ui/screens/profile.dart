@@ -37,12 +37,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 statusBarBrightness: Brightness.light, // For iOS (dark icons)
               ),
               backgroundColor: AppTheme.primaryColor,
-              leading: GestureDetector(
-                child: const Icon(Icons.arrow_back_ios),
-                onTap: () {
-                  Get.to(const HomeScreen());
-                },
-              ),
+              // leading: GestureDetector(
+              //   child: const Icon(Icons.arrow_back_ios),
+              //   onTap: () {
+              //     Get.toNamed(MyRoutes.bottomNavBarScreen);
+              //   },
+              // ),
               title: const Text(
                 "History",
                 style: TextStyle(

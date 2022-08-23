@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import '../../res/theme/theme.dart';
+import 'app_routes/app_routes.dart';
 import 'home.dart';
 
 class PrivacyPolicyScreen extends StatefulWidget {
@@ -39,7 +40,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
             leading: GestureDetector(
               child: const Icon(Icons.arrow_back_ios),
               onTap: () {
-                Get.to(const HomeScreen());
+                Get.toNamed(MyRoutes.moreScreen);
               },
             ),
             title: const Text(
@@ -76,7 +77,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Padding(
+                            const Padding(
                               padding: EdgeInsets.only(top: 5),
                               child: Icon(
                                 Icons.circle,
@@ -84,11 +85,11 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
                                 color: AppTheme.primaryColor,
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 10,
                             ),
-                            Expanded(
-                              child: Text(
+                            const Expanded(
+                              child: const Text(
                                 "Lorem Ipsum Dolor Sit Amet,Consectetur Adipiscing Elit,",
                                 style: TextStyle(
                                     fontSize: 16, color: Color(0xff707070)),
@@ -96,7 +97,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         )
                       ],

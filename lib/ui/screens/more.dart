@@ -38,12 +38,12 @@ class _MoreScreenState extends State<MoreScreen> {
                 statusBarBrightness: Brightness.light, // For iOS (dark icons)
               ),
               backgroundColor: AppTheme.primaryColor,
-              leading: GestureDetector(
-                child: const Icon(Icons.arrow_back_ios),
-                onTap: () {
-                  Get.to(const HomeScreen());
-                },
-              ),
+              // leading: GestureDetector(
+              //   child: const Icon(Icons.arrow_back_ios),
+              //   onTap: () {
+              //     Get.toNamed(MyRoutes.bottomNavBarScreen);
+              //   },
+              // ),
               title: const Text(
                 "LOGO",
                 style: TextStyle(
@@ -52,7 +52,7 @@ class _MoreScreenState extends State<MoreScreen> {
                     fontSize: 28),
               ),
             )),
-        bottomNavigationBar:  const CustomBottomNavigationBar(),
+        // bottomNavigationBar:  const CustomBottomNavigationBar(),
         // BottomAppBar(
         //     shape: const AutomaticNotchedShape(RoundedRectangleBorder(
         //         borderRadius: BorderRadius.only(

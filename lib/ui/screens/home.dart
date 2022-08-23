@@ -27,11 +27,13 @@ class _HomeScreenState extends State<HomeScreen> {
     if (isSwitched == false) {
       setState(() {
         isSwitched = true;
+        acceptOrder = false;
         textValue = 'Switch Button is ON';
       });
     } else {
       setState(() {
         isSwitched = false;
+        acceptOrder = true;
         textValue = 'Switch Button is OFF';
       });
     }
@@ -53,6 +55,8 @@ class _HomeScreenState extends State<HomeScreen> {
   int activeStep = 2;
 
   int upperBound = 1;
+
+  bool acceptOrder = true;
 
   @override
   Widget build(BuildContext context) {
@@ -93,13 +97,12 @@ class _HomeScreenState extends State<HomeScreen> {
               Container(
                 padding: const EdgeInsets.only(right: 10),
                 child: GestureDetector(
-                  child: const Icon(Icons.notifications),
-                  onTap: () {},
-                ),
+                    child: const Icon(Icons.notifications),
+                    onTap: () => Get.toNamed(MyRoutes.contactUsScreen)),
               ),
             ],
           )),
-      bottomNavigationBar: CustomBottomNavigationBar(),
+      // bottomNavigationBar: CustomBottomNavigationBar(),
       // BottomAppBar(
       //     shape: const AutomaticNotchedShape(RoundedRectangleBorder(
       //         borderRadius: BorderRadius.only(
@@ -146,263 +149,288 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
           ),
-          // Container(
-          //   child: Align(
-          //     alignment: Alignment.bottomCenter,
-          //     child: Container(
-          //         margin: const EdgeInsets.all(30),
-          //         padding: const EdgeInsets.all(10),
-          //         decoration: BoxDecoration(
-          //           borderRadius: BorderRadius.circular(10),
-          //           color: AppTheme.appBackgroundColor,
-          //         ),
-          //         height: MediaQuery.of(context).size.height * .23,
-          //         width: MediaQuery.of(context).size.width,
-          //         child: Column(
-          //           mainAxisSize: MainAxisSize.min,
-          //           children: [
-          //             Row(
-          //               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //               children: [
-          //                 const Text(
-          //                   "Yesterday",
-          //                   style: TextStyle(
-          //                       fontWeight: FontWeight.w500, fontSize: 16),
-          //                 ),
-          //                 Row(
-          //                   children: [
-          //                     const Text(
-          //                       "Online",
-          //                       style: TextStyle(
-          //                           fontWeight: FontWeight.w500,
-          //                           fontSize: 16,
-          //                           color: AppTheme.primaryColor),
-          //                     ),
-          //                     const SizedBox(
-          //                       width: 10,
-          //                     ),
-          //                     Switch(
-          //                       activeColor: AppTheme.primaryColor,
-          //                       value: isSwitched,
-          //                       onChanged: toggleSwitch,
-          //                     )
-          //                   ],
-          //                 ),
-          //               ],
-          //             ),
-          //             const SizedBox(
-          //               height: 20,
-          //             ),
-          //             Expanded(
-          //               child: SingleChildScrollView(
-          //                 child: Row(
-          //                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //                   children: [
-          //                     Column(
-          //                       crossAxisAlignment: CrossAxisAlignment.start,
-          //                       children: const [
-          //                         Text(
-          //                           "Money Earned",
-          //                           style: TextStyle(fontSize: 12),
-          //                         ),
-          //                         SizedBox(
-          //                           height: 5,
-          //                         ),
-          //                         Text("\$200",
-          //                             style: TextStyle(
-          //                                 fontWeight: FontWeight.w500,
-          //                                 fontSize: 14,
-          //                                 color: AppTheme.primaryColor)),
-          //                         SizedBox(
-          //                           height: 10,
-          //                         ),
-          //                         Text(
-          //                           "Total Distance",
-          //                           style: TextStyle(fontSize: 12),
-          //                         ),
-          //                         SizedBox(
-          //                           height: 5,
-          //                         ),
-          //                         Text("137 km",
-          //                             style: TextStyle(
-          //                                 fontWeight: FontWeight.w500,
-          //                                 fontSize: 14,
-          //                                 color: AppTheme.primaryColor)),
-          //                       ],
-          //                     ),
-          //                     const Align(
-          //                       alignment: Alignment.center,
-          //                       child: SizedBox(
-          //                         height: 80,
-          //                         child: VerticalDivider(
-          //                           thickness: 2,
-          //                           color: AppTheme.dividerColor,
-          //                         ),
-          //                       ),
-          //                     ),
-          //                     Container(
-          //                       padding: const EdgeInsets.only(right: 50),
-          //                       child: Column(
-          //                         crossAxisAlignment: CrossAxisAlignment.start,
-          //                         children: const [
-          //                           Text(
-          //                             "Total Hour",
-          //                             style: TextStyle(fontSize: 12),
-          //                           ),
-          //                           SizedBox(
-          //                             height: 5,
-          //                           ),
-          //                           Text("8 hour",
-          //                               style: TextStyle(
-          //                                   fontWeight: FontWeight.w500,
-          //                                   fontSize: 14,
-          //                                   color: AppTheme.primaryColor)),
-          //                           SizedBox(
-          //                             height: 10,
-          //                           ),
-          //                           Text(
-          //                             "Total Job",
-          //                             style: TextStyle(fontSize: 12),
-          //                           ),
-          //                           SizedBox(
-          //                             height: 5,
-          //                           ),
-          //                           Text("17",
-          //                               style: TextStyle(
-          //                                   fontWeight: FontWeight.w500,
-          //                                   fontSize: 14,
-          //                                   color: AppTheme.primaryColor)),
-          //                         ],
-          //                       ),
-          //                     )
-          //                   ],
-          //                 ),
-          //               ),
-          //             )
-          //           ],
-          //         )),
-          //   ),
-          // )
-
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-                margin: const EdgeInsets.all(30),
-                padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: AppTheme.appBackgroundColor,
-                ),
-                height: MediaQuery.of(context).size.height * .23,
-                width: MediaQuery.of(context).size.width,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      width: 80,
-                      height: 100,
-                      child: IconStepper(
-                        icons: const [
-                          Icon(
-                            Icons.circle,
-                            color: AppTheme.primaryColor,
+          Container(
+            child: acceptOrder == true
+                ? Container(
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Container(
+                          margin: const EdgeInsets.all(30),
+                          padding: const EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: AppTheme.appBackgroundColor,
                           ),
-                          Icon(Icons.circle, color: AppTheme.primaryColor),
-                        ],
-                        direction: Axis.vertical,
-                        lineLength: 30,
-                        lineColor: AppTheme.primaryColor,
-                        activeStepBorderColor: AppTheme.primaryColor,
-                        stepRadius: 10.0,
-                        activeStepColor: AppTheme.primaryColor,
-                        stepColor: AppTheme.primaryColor,
-                        enableNextPreviousButtons: false,
-                      ),
-                    ),
-                    Expanded(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: const [
-                              Text(
-                                "Pick Up",
-                                style: TextStyle(
-                                    fontSize: 12, color: AppTheme.primaryColor),
-                              ),
-                              Text(
-                                "2.7 km",
-                                style: TextStyle(
-                                    fontSize: 12, color: AppTheme.textColor),
-                              ),
-                            ],
-                          ),
-                          const Text(" Rex House, 769 Isadore",
-                              style: TextStyle(
-                                  fontSize: 14, fontWeight: FontWeight.w500)),
-                          const SizedBox(
-                            height: 30,
-                          ),
-                          const Text(
-                            "Drop off",
-                            style: TextStyle(
-                                fontSize: 12, color: AppTheme.primaryColor),
-                          ),
-                          const Text(" Rex House, 769 Isadore",
-                              style: TextStyle(
-                                  fontSize: 14, fontWeight: FontWeight.w500)),
-                          SizedBox(
-                            height: 15,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          height: MediaQuery.of(context).size.height * .23,
+                          width: MediaQuery.of(context).size.width,
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
                             children: [
-                              CustomButton(
-                                buttonText: "Accept",
-                                onPress: () {
-                                  Get.toNamed(MyRoutes.goToPickUpScreen);
-                                },
-                              ),
-                              // CustomButton(
-                              //   buttonText: "Ignore",
-                              //   onPress: () {
-                              //     Get.toNamed(MyRoutes.chatScreen);
-                              //   },
-                              // ),
-                              ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                      side: BorderSide(
-                                        width: 2.0,
-                                        color: AppTheme.primaryColor,
-                                      ),
-                                      shape: const RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(10)),
-                                      ),
-                                      primary: AppTheme.appBackgroundColor,
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 35, vertical: 15),
-                                      textStyle: const TextStyle(
-                                          fontWeight: FontWeight.bold)),
-                                  onPressed: () {
-                                    Get.toNamed(MyRoutes.chatScreen);
-                                  },
-                                  child: Text(
-                                    "Ignore",
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  const Text(
+                                    "Yesterday",
                                     style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        color: AppTheme.primaryColor),
-                                  )),
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 16),
+                                  ),
+                                  Row(
+                                    children: [
+                                      const Text(
+                                        "Online",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 16,
+                                            color: AppTheme.primaryColor),
+                                      ),
+                                      const SizedBox(
+                                        width: 10,
+                                      ),
+                                      Switch(
+                                        activeColor: AppTheme.primaryColor,
+                                        value: isSwitched,
+                                        onChanged: toggleSwitch,
+                                      )
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              Expanded(
+                                child: SingleChildScrollView(
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: const [
+                                          Text(
+                                            "Money Earned",
+                                            style: TextStyle(fontSize: 12),
+                                          ),
+                                          SizedBox(
+                                            height: 5,
+                                          ),
+                                          Text("\$200",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.w500,
+                                                  fontSize: 14,
+                                                  color:
+                                                      AppTheme.primaryColor)),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
+                                          Text(
+                                            "Total Distance",
+                                            style: TextStyle(fontSize: 12),
+                                          ),
+                                          SizedBox(
+                                            height: 5,
+                                          ),
+                                          Text("137 km",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.w500,
+                                                  fontSize: 14,
+                                                  color:
+                                                      AppTheme.primaryColor)),
+                                        ],
+                                      ),
+                                      const Align(
+                                        alignment: Alignment.center,
+                                        child: SizedBox(
+                                          height: 80,
+                                          child: VerticalDivider(
+                                            thickness: 2,
+                                            color: AppTheme.dividerColor,
+                                          ),
+                                        ),
+                                      ),
+                                      Container(
+                                        padding:
+                                            const EdgeInsets.only(right: 50),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: const [
+                                            Text(
+                                              "Total Hour",
+                                              style: TextStyle(fontSize: 12),
+                                            ),
+                                            SizedBox(
+                                              height: 5,
+                                            ),
+                                            Text("8 hour",
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 14,
+                                                    color:
+                                                        AppTheme.primaryColor)),
+                                            SizedBox(
+                                              height: 10,
+                                            ),
+                                            Text(
+                                              "Total Job",
+                                              style: TextStyle(fontSize: 12),
+                                            ),
+                                            SizedBox(
+                                              height: 5,
+                                            ),
+                                            Text("17",
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 14,
+                                                    color:
+                                                        AppTheme.primaryColor)),
+                                          ],
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              )
                             ],
-                          )
-                        ],
-                      ),
+                          )),
                     ),
-                  ],
-                )),
+                  )
+                : Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Container(
+                        margin: const EdgeInsets.all(30),
+                        padding: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: AppTheme.appBackgroundColor,
+                        ),
+                        height: MediaQuery.of(context).size.height * .23,
+                        width: MediaQuery.of(context).size.width,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              width: 80,
+                              height: 100,
+                              child: IconStepper(
+                                icons: const [
+                                  Icon(
+                                    Icons.circle,
+                                    color: AppTheme.primaryColor,
+                                  ),
+                                  Icon(Icons.circle,
+                                      color: AppTheme.primaryColor),
+                                ],
+                                direction: Axis.vertical,
+                                lineLength: 30,
+                                lineColor: AppTheme.primaryColor,
+                                activeStepBorderColor: AppTheme.primaryColor,
+                                stepRadius: 10.0,
+                                activeStepColor: AppTheme.primaryColor,
+                                stepColor: AppTheme.primaryColor,
+                                enableNextPreviousButtons: false,
+                              ),
+                            ),
+                            Expanded(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: const [
+                                      Text(
+                                        "Pick Up",
+                                        style: TextStyle(
+                                            fontSize: 12,
+                                            color: AppTheme.primaryColor),
+                                      ),
+                                      Text(
+                                        "2.7 km",
+                                        style: TextStyle(
+                                            fontSize: 12,
+                                            color: AppTheme.textColor),
+                                      ),
+                                    ],
+                                  ),
+                                  const Text(" Rex House, 769 Isadore",
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w500)),
+                                  const SizedBox(
+                                    height: 30,
+                                  ),
+                                  const Text(
+                                    "Drop off",
+                                    style: TextStyle(
+                                        fontSize: 12,
+                                        color: AppTheme.primaryColor),
+                                  ),
+                                  const Text(" Rex House, 769 Isadore",
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w500)),
+                                  SizedBox(
+                                    height: 15,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      CustomButton(
+                                        buttonText: "Accept",
+                                        onPress: () {
+                                          Get.toNamed(
+                                              MyRoutes.goToPickUpScreen);
+                                        },
+                                      ),
+                                      // CustomButton(
+                                      //   buttonText: "Ignore",
+                                      //   onPress: () {
+                                      //     Get.toNamed(MyRoutes.chatScreen);
+                                      //   },
+                                      // ),
+                                      ElevatedButton(
+                                          style: ElevatedButton.styleFrom(
+                                              side: BorderSide(
+                                                width: 2.0,
+                                                color: AppTheme.primaryColor,
+                                              ),
+                                              shape:
+                                                  const RoundedRectangleBorder(
+                                                borderRadius: BorderRadius.all(
+                                                    Radius.circular(10)),
+                                              ),
+                                              primary:
+                                                  AppTheme.appBackgroundColor,
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      horizontal: 35,
+                                                      vertical: 15),
+                                              textStyle: const TextStyle(
+                                                  fontWeight: FontWeight.bold)),
+                                          onPressed: () {
+                                            Get.toNamed(MyRoutes.chatScreen);
+                                          },
+                                          child: Text(
+                                            "Ignore",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                color: AppTheme.primaryColor),
+                                          )),
+                                    ],
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
+                        )),
+                  ),
           )
         ]),
       ),

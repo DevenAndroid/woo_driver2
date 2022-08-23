@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../../res/theme/theme.dart';
+import '../widget/custom_bottom_navigationbar.dart';
 import '../widget/custom_button.dart';
 import 'app_routes/app_routes.dart';
 import 'home.dart';
@@ -60,7 +61,7 @@ class _DeliveryCompleteScreenState extends State<DeliveryCompleteScreen> {
             leading: GestureDetector(
               child: const Icon(Icons.arrow_back_ios),
               onTap: () {
-                Get.to(const HomeScreen());
+                Get.toNamed(MyRoutes.pickUpLocationScreen);
               },
             ),
             title: const Text(
@@ -71,37 +72,38 @@ class _DeliveryCompleteScreenState extends State<DeliveryCompleteScreen> {
                   fontSize: 16),
             ),
           )),
-      bottomNavigationBar: BottomAppBar(
-          shape: const AutomaticNotchedShape(RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(15),
-                topRight: Radius.circular(15),
-              ))),
-          color: AppTheme.primaryColor,
-          child: Container(
-            margin: const EdgeInsets.only(right: 15),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Image.asset(
-                  "assets/images/home.png",
-                  color: AppTheme.appBackgroundColor,
-                ),
-                Image.asset(
-                  "assets/images/wallet.png",
-                  color: AppTheme.appBackgroundColor,
-                ),
-                Image.asset(
-                  "assets/images/history.png",
-                  color: AppTheme.appBackgroundColor,
-                ),
-                Image.asset(
-                  "assets/images/menu.png",
-                  color: AppTheme.appBackgroundColor,
-                )
-              ],
-            ),
-          )),
+      // bottomNavigationBar: const CustomBottomNavigationBar(),
+      // BottomAppBar(
+      //     shape: const AutomaticNotchedShape(RoundedRectangleBorder(
+      //         borderRadius: BorderRadius.only(
+      //           topLeft: Radius.circular(15),
+      //           topRight: Radius.circular(15),
+      //         ))),
+      //     color: AppTheme.primaryColor,
+      //     child: Container(
+      //       margin: const EdgeInsets.only(right: 15),
+      //       child: Row(
+      //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      //         children: <Widget>[
+      //           Image.asset(
+      //             "assets/images/home.png",
+      //             color: AppTheme.appBackgroundColor,
+      //           ),
+      //           Image.asset(
+      //             "assets/images/wallet.png",
+      //             color: AppTheme.appBackgroundColor,
+      //           ),
+      //           Image.asset(
+      //             "assets/images/history.png",
+      //             color: AppTheme.appBackgroundColor,
+      //           ),
+      //           Image.asset(
+      //             "assets/images/menu.png",
+      //             color: AppTheme.appBackgroundColor,
+      //           )
+      //         ],
+      //       ),
+      //     )),
       body: Stack(children: [
         Expanded(
           child: GoogleMap(
@@ -191,7 +193,7 @@ class _DeliveryCompleteScreenState extends State<DeliveryCompleteScreen> {
                   child: CustomButton(
                     buttonText: "Delivery Complete",
                     onPress: () {
-                      Get.toNamed(MyRoutes.walletHistoryScreen);
+                      Get.toNamed(MyRoutes.myWalletScreen);
                     },
                   ),
                 ),

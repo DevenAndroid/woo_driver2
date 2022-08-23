@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:woo_driver/ui/widget/custom_bottom_navigationbar.dart';
 
 import '../../res/theme/theme.dart';
 import '../widget/custom_button.dart';
@@ -57,7 +58,7 @@ class _PickUpLocationScreenState extends State<PickUpLocationScreen> {
             leading: GestureDetector(
               child: const Icon(Icons.arrow_back_ios),
               onTap: () {
-                Get.to(const HomeScreen());
+                Get.toNamed(MyRoutes.goToPickUpScreen);
               },
             ),
             title: const Text(
@@ -68,37 +69,38 @@ class _PickUpLocationScreenState extends State<PickUpLocationScreen> {
                   fontSize: 16),
             ),
           )),
-      bottomNavigationBar: BottomAppBar(
-          shape: AutomaticNotchedShape(RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(15),
-            topRight: Radius.circular(15),
-          ))),
-          color: AppTheme.primaryColor,
-          child: Container(
-            margin: EdgeInsets.only(right: 15),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Image.asset(
-                  "assets/images/home.png",
-                  color: AppTheme.appBackgroundColor,
-                ),
-                Image.asset(
-                  "assets/images/wallet.png",
-                  color: AppTheme.appBackgroundColor,
-                ),
-                Image.asset(
-                  "assets/images/history.png",
-                  color: AppTheme.appBackgroundColor,
-                ),
-                Image.asset(
-                  "assets/images/menu.png",
-                  color: AppTheme.appBackgroundColor,
-                )
-              ],
-            ),
-          )),
+      // bottomNavigationBar: const CustomBottomNavigationBar(),
+      // BottomAppBar(
+      //     shape: AutomaticNotchedShape(RoundedRectangleBorder(
+      //         borderRadius: BorderRadius.only(
+      //       topLeft: Radius.circular(15),
+      //       topRight: Radius.circular(15),
+      //     ))),
+      //     color: AppTheme.primaryColor,
+      //     child: Container(
+      //       margin: EdgeInsets.only(right: 15),
+      //       child: Row(
+      //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      //         children: <Widget>[
+      //           Image.asset(
+      //             "assets/images/home.png",
+      //             color: AppTheme.appBackgroundColor,
+      //           ),
+      //           Image.asset(
+      //             "assets/images/wallet.png",
+      //             color: AppTheme.appBackgroundColor,
+      //           ),
+      //           Image.asset(
+      //             "assets/images/history.png",
+      //             color: AppTheme.appBackgroundColor,
+      //           ),
+      //           Image.asset(
+      //             "assets/images/menu.png",
+      //             color: AppTheme.appBackgroundColor,
+      //           )
+      //         ],
+      //       ),
+      //     )),
       body: Stack(children: [
         Expanded(
           child: GoogleMap(

@@ -164,7 +164,7 @@ class _OtpScreenState extends State<OtpScreen> {
                           buttonText: "Verify & Proceed",
                           onPress: () {
                             print("Get otp");
-                            Get.toNamed(MyRoutes.homeScreen);
+                            Get.toNamed(MyRoutes.bottomNavBarScreen);
                           }),
                     ],
                   ),

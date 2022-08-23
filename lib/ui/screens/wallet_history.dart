@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:im_stepper/stepper.dart';
-import 'package:table_calendar/table_calendar.dart';
+import 'package:intl/intl.dart';
+import 'package:syncfusion_flutter_datepicker/datepicker.dart';
+import 'package:woo_driver/ui/screens/app_routes/app_routes.dart';
 import 'package:woo_driver/ui/widget/custom_bottom_navigationbar.dart';
 
 import '../../res/theme/theme.dart';
-import 'calendar_screen.dart';
 
 class WalletHistoryScreen extends StatefulWidget {
   const WalletHistoryScreen({Key? key}) : super(key: key);
@@ -14,18 +16,14 @@ class WalletHistoryScreen extends StatefulWidget {
 }
 
 class _WalletHistoryScreenState extends State<WalletHistoryScreen> {
-  CalendarFormat _calendarFormat = CalendarFormat.month;
-  RangeSelectionMode _rangeSelectionMode = RangeSelectionMode
-      .toggledOn; // Can be toggled on/off by longpressing a date
-  DateTime _focusedDay = DateTime.now();
-  DateTime? _selectedDay;
-  DateTime? _rangeStart;
-  DateTime? _rangeEnd;
 
+
+
+  String? _startDateVPG, _endDateVPG;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: const CustomBottomNavigationBar(),
+      // bottomNavigationBar: const CustomBottomNavigationBar(),
       // BottomAppBar(
       //     shape: const AutomaticNotchedShape(RoundedRectangleBorder(
       //         borderRadius: BorderRadius.only(
@@ -74,17 +72,20 @@ class _WalletHistoryScreenState extends State<WalletHistoryScreen> {
                   color: AppTheme.primaryColor,
                 ),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
-                      width: 100,
-                      alignment: Alignment.centerLeft,
-                      padding: const EdgeInsets.all(8.0),
-                      child: const Icon(
-                        Icons.arrow_back_ios,
-                        color: AppTheme.appBackgroundColor,
-                      ),
-                    ),
+                    // GestureDetector(
+                    //   onTap: ()=>Get.toNamed(MyRoutes.bottomNavBarScreen),
+                    //   child: Container(
+                    //     width: 100,
+                    //     alignment: Alignment.centerLeft,
+                    //     padding: const EdgeInsets.all(8.0),
+                    //     child: const Icon(
+                    //       Icons.arrow_back_ios,
+                    //       color: AppTheme.appBackgroundColor,
+                    //     ),
+                    //   ),
+                    // ),
                     const Text(
                       'LOGO',
                       style: TextStyle(
@@ -92,9 +93,9 @@ class _WalletHistoryScreenState extends State<WalletHistoryScreen> {
                           color: Colors.white,
                           fontSize: 26),
                     ),
-                    const SizedBox(
-                      width: 100,
-                    )
+                    // const SizedBox(
+                    //   width: 100,
+                    // )
                   ],
                 ),
               ),
@@ -181,13 +182,34 @@ class _WalletHistoryScreenState extends State<WalletHistoryScreen> {
                 GestureDetector(
                   onTap: () {
                     print("object");
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return Dialog(
-                          child: CalendarScreen(),
-                        );
-                      },
+                    Get.defaultDialog(
+                        title: 'Date Range',
+                        content: Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: MediaQuery.of(context).size.height * 0.5,
+                          child: Column(
+                            children: [
+                              SfDateRangePicker(
+                                showActionButtons: true,
+                                onSubmit: (
+                                    Object? value) {
+                                  Navigator.pop(context);
+                                  // customActivityController
+                                  //     .getCustomActivityReport(
+                                  //     null,
+                                  //     varianceSelectedActivity,
+                                  //     '${_startDateVPG}',
+                                  //     '${_endDateVPG}');
+                                },
+                                onCancel: () {
+                                  Navigator.pop(context);
+                                },
+                                selectionMode: DateRangePickerSelectionMode
+                                    .range,
+                                onSelectionChanged: selectionChangedVPG,
+                              )
+                            ],),
+                        )
                     );
                   },
                   child: Container(
@@ -203,32 +225,32 @@ class _WalletHistoryScreenState extends State<WalletHistoryScreen> {
                         ]),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: const [
-                        Text(
+                      children: [
+                        const Text(
                           "From: ",
-                          style: TextStyle(fontSize: 14),
+                          style: const TextStyle(fontSize: 14),
                         ),
                         Text(
-                          "13 Jan 2020",
-                          style: TextStyle(
+                          _startDateVPG.toString(),
+                          style: const TextStyle(
                               fontSize: 14, fontWeight: FontWeight.w500),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 50,
                         ),
-                        Text(
+                        const Text(
                           "To: ",
-                          style: TextStyle(fontSize: 14),
+                          style: const TextStyle(fontSize: 14),
                         ),
                         Text(
-                          "3 Jan 2021",
-                          style: TextStyle(
+                          _endDateVPG.toString(),
+                          style: const TextStyle(
                               fontSize: 14, fontWeight: FontWeight.w500),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 20,
                         ),
-                        Icon(
+                        const Icon(
                           Icons.calendar_month_outlined,
                           color: AppTheme.primaryColor,
                         )
@@ -241,7 +263,7 @@ class _WalletHistoryScreenState extends State<WalletHistoryScreen> {
                   child: Expanded(
                     child: ListView.builder(
                       shrinkWrap: true,
-                      physics: AlwaysScrollableScrollPhysics(),
+                      physics: const AlwaysScrollableScrollPhysics(),
                       itemCount: 10,
                       itemBuilder: (BuildContext context, int index) {
                         return Container(
@@ -356,59 +378,20 @@ class _WalletHistoryScreenState extends State<WalletHistoryScreen> {
       ]),
     );
   }
-// showAlertDialog(BuildContext context) {
-//   // Create button
-//   Widget okButton = FlatButton(
-//     child: Text("OK"),
-//     onPressed: () {
-//       Navigator.of(context).pop();
-//     },
-//   );
-//
-//   showDialog(
-//     context: context,
-//     builder: (BuildContext context) {
-//       return TableCalendar(
-//         firstDay: kFirstDay,
-//         lastDay: kLastDay,
-//         focusedDay: _focusedDay,
-//         selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
-//         rangeStartDay: _rangeStart,
-//         rangeEndDay: _rangeEnd,
-//         calendarFormat: _calendarFormat,
-//         rangeSelectionMode: _rangeSelectionMode,
-//         onDaySelected: (selectedDay, focusedDay) {
-//           if (!isSameDay(_selectedDay, selectedDay)) {
-//             setState(() {
-//               _selectedDay = selectedDay;
-//               _focusedDay = focusedDay;
-//               _rangeStart = null; // Important to clean those
-//               _rangeEnd = null;
-//               _rangeSelectionMode = RangeSelectionMode.toggledOff;
-//             });
-//           }
-//         },
-//         onRangeSelected: (start, end, focusedDay) {
-//           setState(() {
-//             _selectedDay = null;
-//             _focusedDay = focusedDay;
-//             _rangeStart = start;
-//             _rangeEnd = end;
-//             _rangeSelectionMode = RangeSelectionMode.toggledOn;
-//           });
-//         },
-//         onFormatChanged: (format) {
-//           if (_calendarFormat != format) {
-//             setState(() {
-//               _calendarFormat = format;
-//             });
-//           }
-//         },
-//         onPageChanged: (focusedDay) {
-//           _focusedDay = focusedDay;
-//         },
-//       );
-//     },
-//   );
-// }
+
+  void selectionChangedVPG(DateRangePickerSelectionChangedArgs args) {
+
+    setState(() {
+      _startDateVPG =
+          DateFormat('yyyy-MM-dd').format(args.value.startDate).toString();
+      _endDateVPG = DateFormat('yyyy-MM-dd').format(
+          args.value.endDate ?? args.value.startDate).toString();
+    });
+  }
+
+
+
+
+
 }
+

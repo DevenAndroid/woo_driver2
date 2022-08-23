@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import '../../res/theme/theme.dart';
+import 'app_routes/app_routes.dart';
 import 'home.dart';
 
 class LanguageScreen extends StatefulWidget {
@@ -61,7 +62,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
             leading: GestureDetector(
               child: const Icon(Icons.arrow_back_ios),
               onTap: () {
-                Get.to(const HomeScreen());
+                Get.toNamed(MyRoutes.moreScreen);
               },
             ),
             title: const Text(

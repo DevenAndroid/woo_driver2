@@ -50,7 +50,7 @@ class _DocumentScreenState extends State<DocumentScreen> {
               leading: GestureDetector(
                 child: const Icon(Icons.arrow_back_ios),
                 onTap: () {
-                  Get.to(const HomeScreen());
+                  Get.toNamed(MyRoutes.bottomNavBarScreen);
                 },
               ),
               title: const Text(
@@ -437,7 +437,7 @@ class _DocumentScreenState extends State<DocumentScreen> {
                     buttonText: "Save",
                     onPress: () {
                       if (_formKey.currentState!.validate()) {
-                        Get.toNamed(MyRoutes.homeScreen);
+                        Get.toNamed(MyRoutes.moreScreen);
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(content: Text('Processing Data')),
                         );

@@ -18,6 +18,7 @@ import 'package:woo_driver/ui/screens/pick_up_location.dart';
 import 'package:woo_driver/ui/screens/profile_detail.dart';
 import 'package:woo_driver/ui/screens/wallet_history.dart';
 
+import '../bottam_navbar_screen.dart';
 import '../home.dart';
 import '../log_in_screen.dart';
 import '../privacy_policy.dart';
@@ -27,6 +28,7 @@ import '../sign_up_screen.dart';
 class MyRoutes {
   static const String loginScreen = "/loginScreen";
   static const String getOTPScreen = "/getOTPScreen";
+  static const String bottomNavBarScreen = "/bottomNavBarScreen";
   static const String signUpScreen = "/signUpScreen";
   static const String appDetailScreen = "/appDetailScreen";
   static const String chooseVehicleScreen = "/chooseVehicleScreen";
@@ -55,6 +57,7 @@ class MyRoutes {
     GetPage(name: MyRoutes.loginScreen, page: ()=> const LogInScreen()),
     GetPage(name: MyRoutes.getOTPScreen, page: ()=> const OtpScreen()),
     GetPage(name: MyRoutes.signUpScreen, page: ()=> const SignUpScreen()),
+    GetPage(name: MyRoutes.bottomNavBarScreen, page: ()=> const BottomNavBarScreen()),
     GetPage(name: MyRoutes.appDetailScreen, page: ()=> const AppDetailScreen()),
     GetPage(name: MyRoutes.chooseVehicleScreen, page: ()=> const ChooseVehicleScreen()),
     GetPage(name: MyRoutes.jobPreferencesScreen, page: ()=> const JobPreferencesScreen()),

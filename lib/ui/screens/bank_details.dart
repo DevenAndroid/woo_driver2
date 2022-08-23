@@ -377,7 +377,7 @@ class _BankDetailsScreenState extends State<BankDetailsScreen> {
                       buttonText: " Continue ",
                       onPress: () {
                         if (_formKey.currentState!.validate()) {
-                          Get.toNamed(MyRoutes.homeScreen);
+                          Get.toNamed(MyRoutes.bottomNavBarScreen);
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(content: Text('Processing Data')),
                           );

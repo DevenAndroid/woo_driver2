@@ -50,7 +50,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               leading: GestureDetector(
                 child: const Icon(Icons.arrow_back_ios),
                 onTap: () {
-                  Get.to(const HomeScreen());
+                  Get.toNamed(MyRoutes.bottomNavBarScreen);
                 },
               ),
               title: const Text(
