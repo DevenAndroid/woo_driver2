@@ -61,37 +61,37 @@ class _MyWalletScreenState extends State<MyWalletScreen> {
                   fontSize: 16),
             ),
           )),
-      bottomNavigationBar: BottomAppBar(
-          shape: const AutomaticNotchedShape(RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(15),
-            topRight: Radius.circular(15),
-          ))),
-          color: AppTheme.primaryColor,
-          child: Container(
-            margin: const EdgeInsets.only(right: 15),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Image.asset(
-                  "assets/images/home.png",
-                  color: AppTheme.appBackgroundColor,
-                ),
-                Image.asset(
-                  "assets/images/wallet.png",
-                  color: AppTheme.appBackgroundColor,
-                ),
-                Image.asset(
-                  "assets/images/history.png",
-                  color: AppTheme.appBackgroundColor,
-                ),
-                Image.asset(
-                  "assets/images/menu.png",
-                  color: AppTheme.appBackgroundColor,
-                )
-              ],
-            ),
-          )),
+      // bottomNavigationBar: BottomAppBar(
+      //     shape: const AutomaticNotchedShape(RoundedRectangleBorder(
+      //         borderRadius: BorderRadius.only(
+      //       topLeft: Radius.circular(15),
+      //       topRight: Radius.circular(15),
+      //     ))),
+      //     color: AppTheme.primaryColor,
+      //     child: Container(
+      //       margin: const EdgeInsets.only(right: 15),
+      //       child: Row(
+      //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      //         children: <Widget>[
+      //           Image.asset(
+      //             "assets/images/home.png",
+      //             color: AppTheme.appBackgroundColor,
+      //           ),
+      //           Image.asset(
+      //             "assets/images/wallet.png",
+      //             color: AppTheme.appBackgroundColor,
+      //           ),
+      //           Image.asset(
+      //             "assets/images/history.png",
+      //             color: AppTheme.appBackgroundColor,
+      //           ),
+      //           Image.asset(
+      //             "assets/images/menu.png",
+      //             color: AppTheme.appBackgroundColor,
+      //           )
+      //         ],
+      //       ),
+      //     )),
       body: Container(
         color: Color(0xfff1f1f1),
         padding: const EdgeInsets.all(10),

@@ -10,7 +10,7 @@ class SplashScreenController extends GetxController {
     Future.delayed(const Duration(seconds: 3)).then((value) async {
       // Get.offAndToNamed(MyRouter.customBottomBar);
       // Get.to(AllHostsScreen());
-      Get.to(OnboardingScreen());
+      Get.off(OnboardingScreen());
     });
   }
 

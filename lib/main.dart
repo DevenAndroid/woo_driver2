@@ -22,9 +22,9 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.deepOrange,
-        focusColor: AppTheme.primaryColor,
-      ),
+          primarySwatch: Colors.deepOrange,
+          focusColor: AppTheme.primaryColor,
+          fontFamily: 'Lato'),
       getPages: MyRoutes.routes,
       // home: LogInScreen(),
     );

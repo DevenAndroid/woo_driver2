@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:form_field_validator/form_field_validator.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:woo_driver/ui/screens/job_preferences.dart';
@@ -155,12 +156,10 @@ class _ProfileDetailScreenState extends State<ProfileDetailScreen> {
                             color: AppTheme.primaryColor,
                           ),
                           keyboardType: TextInputType.text,
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return 'Filed is required';
-                            }
-                            return null;
-                          },
+                          validator: MultiValidator([
+                            RequiredValidator(errorText: 'Enter a name'),
+                            MinLengthValidator(3, errorText: "Minimum length is 3")
+                          ]),
                         ),
                         const SizedBox(
                           height: 15,
@@ -222,12 +221,11 @@ class _ProfileDetailScreenState extends State<ProfileDetailScreen> {
                             color: AppTheme.primaryColor,
                           ),
                           keyboardType: TextInputType.text,
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return 'Filed is required';
-                            }
-                            return null;
-                          },
+                          validator: MultiValidator([
+                            RequiredValidator(errorText: 'Enter a last name'),
+                            MinLengthValidator(3, errorText: "Minimum length is 3"),
+
+                          ]),
                         )
                       ],
                     ),

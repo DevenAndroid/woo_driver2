@@ -1,13 +1,17 @@
-import 'package:flutter/cupertino.dart';
+import 'dart:convert';
+import 'dart:io';
+
+import 'package:file_picker/file_picker.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:form_field_validator/form_field_validator.dart';
 import 'package:get/get.dart';
 
 import '../../res/theme/theme.dart';
 import '../widget/custom_button.dart';
 import '../widget/custom_text_field.dart';
 import 'app_routes/app_routes.dart';
-import 'home.dart';
 
 class DocumentScreen extends StatefulWidget {
   const DocumentScreen({Key? key}) : super(key: key);
@@ -17,7 +21,6 @@ class DocumentScreen extends StatefulWidget {
 }
 
 class _DocumentScreenState extends State<DocumentScreen> {
-
   final _formKey = GlobalKey<FormState>();
 
   final _nameController = TextEditingController();
@@ -25,18 +28,110 @@ class _DocumentScreenState extends State<DocumentScreen> {
   final _registrationYearController = TextEditingController();
   final _experiencesController = TextEditingController();
 
+  FilePickerResult? uploadCertificate1;
+  String? uploadcertificateFileName1;
+  PlatformFile? uploadcertificatePickedFile1;
+  bool uploadcertificateLoading1 = false;
+  File? uploadcertificateDisplay1;
+  String? uploadcertificate1;
+
+
+
+  FilePickerResult? uploadCertificate2;
+  String? uploadcertificateFileName2;
+  PlatformFile? uploadcertificatePickedFile2;
+  bool uploadcertificateLoading2 = false;
+  File? uploadcertificateDisplay2;
+  String? uploadcertificate2;
+
+  void uploadCertificateFunction1() async {
+    try {
+      setState(() {
+        uploadcertificateLoading1 = true;
+      });
+      uploadCertificate1 = await FilePicker.platform.pickFiles(
+          type: FileType.custom,
+          allowMultiple: false,
+          allowedExtensions: ['jpg', 'jpeg', 'png', 'pdf', 'docx', 'doc']);
+      if (uploadCertificate1 != null) {
+        uploadcertificateFileName1 = uploadCertificate1!.files.first.name;
+        uploadcertificatePickedFile1 = uploadCertificate1!.files.first;
+        uploadcertificateDisplay1 =
+            File(uploadcertificatePickedFile1!.path.toString());
+
+
+
+
+        List<int> uploadcertificateImage64 =
+            uploadcertificateDisplay1!.readAsBytesSync();
+        uploadcertificate1 = base64Encode(uploadcertificateImage64);
+
+        print("Base 64 image===> $uploadcertificate1");
+
+        if (kDebugMode) {
+          print("File name $uploadcertificateFileName1");
+        }
+      }
+
+      setState(() {
+        uploadcertificateLoading1 = false;
+      });
+    } catch (e) {
+      if (kDebugMode) {
+        print(e);
+      }
+    }
+  }
+
+
+  void uploadCertificateFunction2() async {
+    try {
+      setState(() {
+        uploadcertificateLoading2 = true;
+      });
+      uploadCertificate2 = await FilePicker.platform.pickFiles(
+          type: FileType.custom,
+          allowMultiple: false,
+          allowedExtensions: ['jpg', 'jpeg', 'png', 'pdf', 'docx', 'doc']);
+      if (uploadCertificate2 != null) {
+        uploadcertificateFileName2 = uploadCertificate2!.files.first.name;
+        uploadcertificatePickedFile2 = uploadCertificate2!.files.first;
+        uploadcertificateDisplay2 =
+            File(uploadcertificatePickedFile2!.path.toString());
+
+        List<int> uploadcertificateImage64 =
+        uploadcertificateDisplay2!.readAsBytesSync();
+        uploadcertificate2 = base64Encode(uploadcertificateImage64);
+
+        print("Base 64 image===> $uploadcertificate2");
+
+        if (kDebugMode) {
+          print("File name $uploadcertificateFileName2");
+        }
+      }
+
+      setState(() {
+        uploadcertificateLoading2 = false;
+      });
+    } catch (e) {
+      if (kDebugMode) {
+        print(e);
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: PreferredSize(
             preferredSize:
-            Size.fromHeight(MediaQuery.of(context).size.height * .11),
+                Size.fromHeight(MediaQuery.of(context).size.height * .11),
             child: AppBar(
               centerTitle: true,
               shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.vertical(
-                    bottom: Radius.circular(20),
-                  )),
+                bottom: Radius.circular(20),
+              )),
               systemOverlayStyle: const SystemUiOverlayStyle(
                 // Status bar color
                 statusBarColor: AppTheme.primaryColor,
@@ -73,11 +168,18 @@ class _DocumentScreenState extends State<DocumentScreen> {
                       Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text("Vehicle Details",style: TextStyle(
-                            fontSize: 16,fontWeight: FontWeight.w500,color: AppTheme.primaryColor
-                          ),),
-                          const SizedBox(
+                        children: const [
+                          Text(
+                            "Vehicle Details",
+                            style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                color: AppTheme.primaryColor),
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          SizedBox(
                             width: 40,
                             child: Divider(
                               height: 2,
@@ -104,7 +206,7 @@ class _DocumentScreenState extends State<DocumentScreen> {
                           blurRadius: 10.0,
                         ),
                       ]),
-                  child:  Column(
+                  child: Column(
                     children: [
                       // Material(
                       //   elevation: 1,
@@ -152,15 +254,14 @@ class _DocumentScreenState extends State<DocumentScreen> {
                         controller: _nameController,
                         hintText: "Model name",
                         prefixChildIcon: Padding(
-                          padding: const EdgeInsets.only(right: 4),
+                            padding: const EdgeInsets.only(right: 4),
                             child: Image.asset("assets/images/motorcycle.png")),
                         keyboardType: TextInputType.text,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Filed is required';
-                          }
-                          return null;
-                        },
+                        validator: MultiValidator([
+                          RequiredValidator(errorText: 'Enter model name'),
+                          MinLengthValidator(3,
+                              errorText: "Minimum length is 3"),
+                        ]),
                       ),
 
                       const SizedBox(
@@ -214,12 +315,9 @@ class _DocumentScreenState extends State<DocumentScreen> {
                         hintText: "Vehicle Number",
                         prefixChildIcon: Image.asset("assets/images/car.png"),
                         keyboardType: TextInputType.text,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Filed is required';
-                          }
-                          return null;
-                        },
+                        validator: MultiValidator([
+                          RequiredValidator(errorText: 'Enter vehicle number'),
+                        ]),
                       ),
                       const SizedBox(
                         height: 20,
@@ -269,24 +367,35 @@ class _DocumentScreenState extends State<DocumentScreen> {
                       //   ),
                       // ),
                       CustomTextField(
+                        inputFormatters: [
+                          FilteringTextInputFormatter.digitsOnly
+                        ],
                         controller: _registrationYearController,
                         hintText: "Registration year",
-                        prefixChildIcon: const Icon(Icons.calendar_month_outlined,
-                        color: AppTheme.primaryColor,),
+                        prefixChildIcon: const Icon(
+                          Icons.calendar_month_outlined,
+                          color: AppTheme.primaryColor,
+                        ),
                         keyboardType: TextInputType.number,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Filed is required';
-                          }
-                          return null;
-                        },
+                        validator: MultiValidator([
+                          RequiredValidator(
+                              errorText: 'Enter registration year'),
+                          MinLengthValidator(4,
+                              errorText: 'Minimum 4 numbers required'),
+                          MaxLengthValidator(4,
+                              errorText: 'Maximum numbers length is 4')
+                        ]),
                       ),
                       const SizedBox(
                         height: 20,
                       ),
                       Row(
-                        children: [
-                          const Text("How Many Year of experience?",style: TextStyle(fontSize: 16,fontWeight: FontWeight.w500),),
+                        children: const [
+                          Text(
+                            "How Many Year of experience?",
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.w500),
+                          ),
                         ],
                       ),
                       const SizedBox(
@@ -336,16 +445,21 @@ class _DocumentScreenState extends State<DocumentScreen> {
                       // ),
 
                       CustomTextField(
+                        inputFormatters: [
+                          FilteringTextInputFormatter.digitsOnly
+                        ],
                         controller: _experiencesController,
                         hintText: "Experience Year",
-                        prefixChildIcon: Image.asset("assets/images/brifecase.png"),
+                        prefixChildIcon:
+                            Image.asset("assets/images/brifecase.png"),
                         keyboardType: TextInputType.number,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Filed is required';
-                          }
-                          return null;
-                        },
+                        validator: MultiValidator([
+                          RequiredValidator(errorText: 'Enter a number'),
+                          MinLengthValidator(1,
+                              errorText: 'Minimum 1 numbers required'),
+                          MaxLengthValidator(2,
+                              errorText: 'Maximum numbers length is 2')
+                        ]),
                       ),
                       const SizedBox(
                         height: 20,
@@ -358,52 +472,198 @@ class _DocumentScreenState extends State<DocumentScreen> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Text("RC",style: const TextStyle(fontSize: 16,fontWeight: FontWeight.w500),),
+
+                               Text(
+                                "Rc",
+                                style: const TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.w500),
+                              ),
                               const SizedBox(
                                 height: 10,
                               ),
-                              Container(
-                                height: MediaQuery.of(context).size.height * .15,
-                                width: MediaQuery.of(context).size.width* .4,
+                              GestureDetector(
+                                onTap: () async {
+                                  uploadCertificateFunction1();
+                                },
+                                child: uploadcertificatePickedFile1 != null
+                                    ? Stack(
+                                      children: [Container(
+                                          height:
+                                              MediaQuery.of(context).size.height *
+                                                  .15,
+                                          width:
+                                              MediaQuery.of(context).size.width *
+                                                  .4,
+                                          padding: const EdgeInsets.all(10),
+                                          decoration: BoxDecoration(
+                                              color: AppTheme.appBackgroundColor,
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                              image: DecorationImage(
+                                                fit: BoxFit.cover,
+                                                  image: FileImage(
+                                                      uploadcertificateDisplay1!)),
+                                              boxShadow: const [
+                                                BoxShadow(
+                                                  color: Color(0xffe3dfdf),
+                                                  blurRadius: 10.0,
+                                                ),
+                                              ]),
+                                          // child: Image.asset(
+                                          //     "assets/images/add_file.png"),
+                                        ),
 
-                                padding: const EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                    color: AppTheme.appBackgroundColor,
-                                    borderRadius: BorderRadius.circular(10),
-                                    boxShadow: const [
-                                      BoxShadow(
-                                        color: Color(0xffe3dfdf),
-                                        blurRadius: 10.0,
+                                        Positioned(
+                                            top: 0,
+                                            left: 0,
+                                            child: InkWell(
+                                              onTap: () {
+                                                setState(() {
+                                                  uploadcertificatePickedFile1 =
+                                                  null;
+                                                  uploadcertificateDisplay1 =
+                                                  null;
+                                                });
+                                              },
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                  color: Colors.black
+                                                      .withOpacity(.6),
+                                                  shape: BoxShape.circle,
+                                                ),
+                                                padding: const EdgeInsets.all(8),
+                                                child: const Icon(
+                                                  Icons.clear,
+                                                  color: Colors.white,
+                                                ),
+                                              ),
+                                            )),]
+                                    )
+                                    : Container(
+                                        height:
+                                            MediaQuery.of(context).size.height *
+                                                .15,
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                .4,
+                                        padding: const EdgeInsets.all(10),
+                                        decoration: BoxDecoration(
+                                            color: AppTheme.appBackgroundColor,
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            // image: DecorationImage(
+                                            //     image: FileImage(
+                                            //         uploadcertificateDisplay2!
+                                            //     )
+                                            // ),
+                                            boxShadow: const [
+                                              BoxShadow(
+                                                color: Color(0xffe3dfdf),
+                                                blurRadius: 10.0,
+                                              ),
+                                            ]),
+                                        child: Image.asset(
+                                            "assets/images/add_file.png"),
                                       ),
-                                    ]),
-                                child: Image.asset("assets/images/add_file.png"),
                               )
                             ],
                           ),
-
                           Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Text("Insurance",style: const TextStyle(fontSize: 16,fontWeight: FontWeight.w500),),
+                              const Text(
+                                "Insurance",
+                                style: const TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.w500),
+                              ),
                               const SizedBox(
                                 height: 10,
                               ),
-                              Container(
-                                height: MediaQuery.of(context).size.height * .15,
-                                width: MediaQuery.of(context).size.width* .4,
+                              GestureDetector(
+                                onTap: () async {
+                                  uploadCertificateFunction2();
+                                },
+                                child: uploadcertificatePickedFile2 != null
+                                    ? Stack(
+                                    children: [Container(
+                                      height:
+                                      MediaQuery.of(context).size.height *
+                                          .15,
+                                      width:
+                                      MediaQuery.of(context).size.width *
+                                          .4,
+                                      padding: const EdgeInsets.all(10),
+                                      decoration: BoxDecoration(
+                                          color: AppTheme.appBackgroundColor,
+                                          borderRadius:
+                                          BorderRadius.circular(10),
+                                          image: DecorationImage(
+                                              fit: BoxFit.cover,
+                                              image: FileImage(
+                                                  uploadcertificateDisplay2!)),
+                                          boxShadow: const [
+                                            BoxShadow(
+                                              color: Color(0xffe3dfdf),
+                                              blurRadius: 10.0,
+                                            ),
+                                          ]),
+                                      // child: Image.asset(
+                                      //     "assets/images/add_file.png"),
+                                    ),
 
-                                padding: const EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                    color: AppTheme.appBackgroundColor,
-                                    borderRadius: BorderRadius.circular(10),
-                                    boxShadow: const [
-                                      BoxShadow(
-                                        color: Color(0xffe3dfdf),
-                                        blurRadius: 10.0,
-                                      ),
-                                    ]),
-                                child: Image.asset("assets/images/add_file.png"),
+                                      Positioned(
+                                          top: 0,
+                                          left: 0,
+                                          child: InkWell(
+                                            onTap: () {
+                                              setState(() {
+                                                uploadcertificatePickedFile2 =
+                                                null;
+                                                uploadcertificateDisplay2 =
+                                                null;
+                                              });
+                                            },
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                color: Colors.black
+                                                    .withOpacity(.6),
+                                                shape: BoxShape.circle,
+                                              ),
+                                              padding: const EdgeInsets.all(8),
+                                              child: const Icon(
+                                                Icons.clear,
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                          )),]
+                                )
+                                    : Container(
+                                  height:
+                                  MediaQuery.of(context).size.height *
+                                      .15,
+                                  width:
+                                  MediaQuery.of(context).size.width *
+                                      .4,
+                                  padding: const EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                      color: AppTheme.appBackgroundColor,
+                                      borderRadius:
+                                      BorderRadius.circular(10),
+                                      // image: DecorationImage(
+                                      //     image: FileImage(
+                                      //         uploadcertificateDisplay2!
+                                      //     )
+                                      // ),
+                                      boxShadow: const [
+                                        BoxShadow(
+                                          color: Color(0xffe3dfdf),
+                                          blurRadius: 10.0,
+                                        ),
+                                      ]),
+                                  child: Image.asset(
+                                      "assets/images/add_file.png"),
+                                ),
                               )
                             ],
                           ),
@@ -411,7 +671,6 @@ class _DocumentScreenState extends State<DocumentScreen> {
                       )
                     ],
                   ),
-
                 ),
                 const SizedBox(
                   height: 20,
@@ -442,7 +701,6 @@ class _DocumentScreenState extends State<DocumentScreen> {
                           const SnackBar(content: Text('Processing Data')),
                         );
                       }
-
                     },
                   ),
                 ),

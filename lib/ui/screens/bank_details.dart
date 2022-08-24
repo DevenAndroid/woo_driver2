@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:form_field_validator/form_field_validator.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:woo_driver/ui/screens/profile_detail.dart';
@@ -151,12 +152,10 @@ class _BankDetailsScreenState extends State<BankDetailsScreen> {
                           prefixChildIcon:
                               Image.asset("assets/images/bank.png"),
                           keyboardType: TextInputType.text,
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return 'Filed is required';
-                            }
-                            return null;
-                          },
+                          validator:  MultiValidator([
+                            RequiredValidator(errorText: 'Enter bank name'),
+                            MinLengthValidator(3, errorText: "Minimum length is 8"),
+                          ]),
                         ),
 
                         const SizedBox(
@@ -209,16 +208,16 @@ class _BankDetailsScreenState extends State<BankDetailsScreen> {
                         //   ),
                         // ),
                         CustomTextField(
+                          inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                           controller: _accountController,
                           hintText: "Enter your account number",
                           prefixChildIcon: Image.asset("assets/images/id.png"),
                           keyboardType: TextInputType.number,
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return 'Filed is required';
-                            }
-                            return null;
-                          },
+                          validator:  MultiValidator([
+                            RequiredValidator(errorText: 'Enter a number'),
+                            MinLengthValidator(10, errorText: 'Minimum 10 numbers required'),
+                            MaxLengthValidator(15, errorText: 'Maximum numbers length is 15')
+                          ]),
                         ),
 
                         SizedBox(
@@ -271,16 +270,16 @@ class _BankDetailsScreenState extends State<BankDetailsScreen> {
                         //   ),
                         // ),
                         CustomTextField(
+                          inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                           controller: _reAccountController,
                           hintText: "Enter your account number",
                           prefixChildIcon: Image.asset("assets/images/id.png"),
                           keyboardType: TextInputType.number,
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return 'Filed is required';
-                            }
-                            return null;
-                          },
+                          validator: MultiValidator([
+                            RequiredValidator(errorText: 'Enter a number'),
+                            MinLengthValidator(10, errorText: 'Minimum 10 numbers required'),
+                            MaxLengthValidator(15, errorText: 'Maximum numbers length is 15')
+                          ]),
                         ),
 
                         const SizedBox(
@@ -336,13 +335,12 @@ class _BankDetailsScreenState extends State<BankDetailsScreen> {
                           controller: _ifscController,
                           hintText: "Enter IFSC code",
                           prefixChildIcon: Image.asset("assets/images/id.png"),
-                          keyboardType: TextInputType.number,
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return 'Filed is required';
-                            }
-                            return null;
-                          },
+                          keyboardType: TextInputType.text,
+                          validator: MultiValidator([
+                            RequiredValidator(errorText: 'Enter IFSC'),
+                            MinLengthValidator(6, errorText: 'Minimum 6 numbers required'),
+                            MaxLengthValidator(15, errorText: 'Maximum numbers length is 10')
+                          ]),
                         ),
                       ],
                     ),

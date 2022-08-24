@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../res/theme/theme.dart';
 
@@ -7,13 +8,16 @@ class CustomTextField extends StatelessWidget {
  final bool? obscureText;
  final FormFieldValidator<String>? validator;
   final String? hintText;
+  final List<TextInputFormatter>? inputFormatters;
   final String? labelText;
   final Widget? prefixChildIcon;
   final Widget? suffixIcon;
   final TextInputType? keyboardType;
 
   const CustomTextField({super.key,
-    this.obscureText = false, required this.controller, this.validator, this.hintText, this.labelText, this.prefixChildIcon, this.suffixIcon, this.keyboardType});
+    this.obscureText = false, required this.controller,
+    this.inputFormatters,
+    this.validator, this.hintText, this.labelText, this.prefixChildIcon, this.suffixIcon, this.keyboardType});
 
 
   @override
@@ -29,6 +33,8 @@ class CustomTextField extends StatelessWidget {
         controller: controller,
         obscureText: obscureText!,
         validator: validator,
+        // FilteringTextInputFormatter.digitsOnly
+        inputFormatters: inputFormatters,
         decoration: InputDecoration(
             contentPadding: const EdgeInsets.all(10),
             fillColor: AppTheme.textBoxBackgroundColor,

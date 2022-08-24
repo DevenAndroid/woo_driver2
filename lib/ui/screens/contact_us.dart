@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:form_field_validator/form_field_validator.dart';
 import 'package:get/get.dart';
 
 import '../../res/theme/theme.dart';
@@ -146,12 +147,10 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                       color: AppTheme.primaryColor,
                     ),
                     keyboardType: TextInputType.text,
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return 'Filed is required';
-                      }
-                      return null;
-                    },
+                    validator: MultiValidator([
+                      RequiredValidator(errorText: 'Enter a  name'),
+                      MinLengthValidator(3, errorText: "Minimum length is 3"),
+                    ]),
                   ),
                   const SizedBox(
                     height: 20,
@@ -210,12 +209,11 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                       color: AppTheme.primaryColor,
                     ),
                     keyboardType: TextInputType.emailAddress,
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return 'Filed is required';
-                      }
-                      return null;
-                    },
+                    validator: MultiValidator([
+                      RequiredValidator(errorText: 'Enter a Email'),
+                      EmailValidator(errorText: 'Enter a valid Email'),
+
+                    ]),
                   ),
                   const SizedBox(
                     height: 20,
@@ -274,12 +272,11 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                       color: AppTheme.primaryColor,
                     ),
                     keyboardType: TextInputType.text,
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return 'Filed is required';
-                      }
-                      return null;
-                    },
+                    validator:  MultiValidator([
+                      RequiredValidator(errorText: 'Enter a text'),
+
+
+                    ]),
                   ),
                   const SizedBox(
                     height: 40,

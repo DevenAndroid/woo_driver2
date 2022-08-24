@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:form_field_validator/form_field_validator.dart';
 import 'package:get/get.dart';
 import 'package:woo_driver/res/theme/theme.dart';
 import 'package:woo_driver/ui/screens/app_routes/app_routes.dart';
@@ -167,18 +169,18 @@ class _LogInScreenState extends State<LogInScreen> {
                       // ),
                       CustomTextField(
                         controller: _numberController,
+                        inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                         prefixChildIcon: Icon(
                           Icons.phone,
                           color: AppTheme.primaryColor,
                         ),
                         hintText: "Enter your number",
                         keyboardType: TextInputType.number,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Field is required';
-                          }
-                          return null;
-                        },
+                        validator:  MultiValidator([
+                          RequiredValidator(errorText: 'Enter a number'),
+                          MinLengthValidator(10, errorText: 'Minimum 10 numbers required'),
+                          MaxLengthValidator(15, errorText: 'Maximum numbers length is 15')
+                        ]),
                       ),
                       const SizedBox(
                         height: 10,
@@ -317,4 +319,16 @@ class _LogInScreenState extends State<LogInScreen> {
       ),
     );
   }
+}
+
+bool isMobileNumberValid(String phoneNumber) {
+  String regexPattern = r'^(?:[+0][1-9])?[0-9]{10,12}$';
+  var regExp = new RegExp(regexPattern);
+
+  if (phoneNumber.length == 0) {
+    return false;
+  } else if (regExp.hasMatch(phoneNumber)) {
+    return true;
+  }
+  return false;
 }

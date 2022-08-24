@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
@@ -14,8 +13,8 @@ class OtpScreen extends StatefulWidget {
 }
 
 class _OtpScreenState extends State<OtpScreen> {
-
   final _formKey = GlobalKey<FormState>();
+  String otpController = "";
 
   @override
   Widget build(BuildContext context) {
@@ -66,8 +65,8 @@ class _OtpScreenState extends State<OtpScreen> {
                       ),
                       const Text(
                         'OTP',
-                        style:
-                            TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
                         textAlign: TextAlign.center,
                       ),
                       const SizedBox(
@@ -95,7 +94,8 @@ class _OtpScreenState extends State<OtpScreen> {
 
                       OtpTextField(
                         focusedBorderColor: AppTheme.primaryColor,
-                        borderRadius: const BorderRadius.all(Radius.circular(10)),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(10)),
                         numberOfFields: 4,
                         borderColor: const Color(0xFF512DA8),
                         //set to true to show as box or false to show as dash
@@ -103,29 +103,41 @@ class _OtpScreenState extends State<OtpScreen> {
 
                         //runs when a code is typed in
                         onCodeChanged: (String code) {
+                          otpController = code;
+                          // if (code.isEmpty) {
+                          //   showDialog(
+                          //       context: context,
+                          //       builder: (context) {
+                          //         return const AboutDialog(
+                          //           children: [Text("Field is required!")],
+                          //         );
+                          //       });
+                          // }
+
                           //handle validation or checks here
                         },
                         //runs when every textfield is filled
-                        onSubmit: (String verificationCode) {
-                          if (verificationCode!.isEmpty) {
-                            showDialog(
-                                context: context,
-                                builder: (context) {
-                                  return AboutDialog(
-                                    children: [Text("Field is required!")],
-                                  );
-                                });
-                          } else {
-                            showDialog(
-                                context: context,
-                                builder: (context) {
-                                  return AlertDialog(
-                                    title: const Text("Verification Code"),
-                                    content:
-                                        Text('Code entered is $verificationCode'),
-                                  );
-                                });
-                          }
+                        onSubmit: (String code) {
+                          otpController = code;
+                          // if (verificationCode!.isEmpty) {
+                          //   showDialog(
+                          //       context: context,
+                          //       builder: (context) {
+                          //         return const AboutDialog(
+                          //           children: [Text("Field is required!")],
+                          //         );
+                          //       });
+                          // } else {
+                          //   showDialog(
+                          //       context: context,
+                          //       builder: (context) {
+                          //         return AlertDialog(
+                          //           title: const Text("Verification Code"),
+                          //           content: Text(
+                          //               'Code entered is $verificationCode'),
+                          //         );
+                          //       });
+                          // }
                         }, // end onSubmit
                       ),
 
@@ -134,11 +146,11 @@ class _OtpScreenState extends State<OtpScreen> {
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text("Resend OTP In "),
-                          const Text(
+                        children: const [
+                          Text("Resend OTP In "),
+                          Text(
                             "00:20",
-                            style: const TextStyle(color: AppTheme.primaryColor),
+                            style: TextStyle(color: AppTheme.primaryColor),
                           )
                         ],
                       ),
@@ -163,8 +175,23 @@ class _OtpScreenState extends State<OtpScreen> {
                       CustomButton(
                           buttonText: "Verify & Proceed",
                           onPress: () {
+                            ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                            if (otpController == "") {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                      content: Text('Please enter otp')));
+                            } else if (otpController.length < 4) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                      content: Text('Please enter valid otp')));
+                            }
+                            else {
+
+                              Get.toNamed(MyRoutes.bottomNavBarScreen);
+
+                            }
+
                             print("Get otp");
-                            Get.toNamed(MyRoutes.bottomNavBarScreen);
                           }),
                     ],
                   ),

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:form_field_validator/form_field_validator.dart';
 import 'package:get/get.dart';
 
 import '../../res/theme/theme.dart';
 import '../widget/custom_button.dart';
 import '../widget/custom_text_field.dart';
 import 'app_routes/app_routes.dart';
-import 'home.dart';
+
 
 class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({Key? key}) : super(key: key);
@@ -158,12 +159,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                           color: AppTheme.primaryColor,
                         ),
                         keyboardType: TextInputType.text,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Filed is required';
-                          }
-                          return null;
-                        },
+                        validator: MultiValidator([
+                          RequiredValidator(errorText: 'Enter a  name'),
+                          MinLengthValidator(3, errorText: "Minimum length is 3"),
+                        ]),
                       ),
 
                       const SizedBox(
@@ -228,12 +227,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                           color: AppTheme.primaryColor,
                         ),
                         keyboardType: TextInputType.emailAddress,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Filed is required';
-                          }
-                          return null;
-                        },
+                        validator: MultiValidator([
+                          RequiredValidator(errorText: 'Enter a Email'),
+                          EmailValidator(errorText: 'Enter a valid Email'),
+
+                        ]),
                       ),
 
                       const SizedBox(
@@ -292,6 +290,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       // ),
 
                       CustomTextField(
+                        inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                         controller: _phoneController,
                         hintText: "Enter your mobile number",
                         prefixChildIcon: const Icon(
@@ -299,12 +298,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                           color: AppTheme.primaryColor,
                         ),
                         keyboardType: TextInputType.number,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Filed is required';
-                          }
-                          return null;
-                        },
+                        validator:  MultiValidator([
+                          RequiredValidator(errorText: 'Enter a number'),
+                          MinLengthValidator(10, errorText: 'Minimum 10 numbers required'),
+                          MaxLengthValidator(15, errorText: 'Maximum numbers length is 15')
+                        ]),
                       ),
 
                       const SizedBox(
@@ -363,6 +361,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       // ),
 
                       CustomTextField(
+                        inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                         controller: _customerController,
                         hintText: "Total customer",
                         prefixChildIcon: const Icon(
@@ -370,12 +369,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                           color: AppTheme.primaryColor,
                         ),
                         keyboardType: TextInputType.number,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Filed is required';
-                          }
-                          return null;
-                        },
+                        validator: MultiValidator([
+                          RequiredValidator(errorText: 'Enter a number'),
+                          MinLengthValidator(1, errorText: 'Minimum 1 numbers required'),
+                          MaxLengthValidator(4, errorText: 'Maximum numbers length is 4')
+                        ]),
                       ),
 
 
@@ -434,19 +432,18 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       //   ),
                       // ),
                       CustomTextField(
+                        inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                         controller: _yearController,
                         hintText: "Experience Year",
                         prefixChildIcon: Image.asset("assets/images/brifecase.png"),
                         keyboardType: TextInputType.number,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Filed is required';
-                          }
-                          return null;
-                        },
-                      ),
+                        validator: MultiValidator([
+                        RequiredValidator(errorText: 'Enter a number'),
+                          MinLengthValidator(1, errorText: 'Minimum 1 numbers required'),
+                          MaxLengthValidator(2, errorText: 'Maximum numbers length is 2')
+                      ]),
 
-                    ],
+                      )],
                   ),
                 ),
                 const SizedBox(

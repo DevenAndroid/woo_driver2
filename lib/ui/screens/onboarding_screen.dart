@@ -45,7 +45,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           "Order Online",
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              fontSize: 35,
+                              fontSize: 24,
                               color: AppTheme.primaryColor),
                           textAlign: TextAlign.center,
                         ),
@@ -55,7 +55,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           child: Text(
                             "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, and get whole ipsum. ",
                             style: TextStyle(
-                              fontSize: 20,
+                              fontSize: 16,
                             ),
                             textAlign: TextAlign.center,
                           ),
@@ -69,6 +69,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       // crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
+                        SizedBox(
+                          height: 35,
+                        ),
                         Image.asset(
                           'assets/images/onboarding_screen_2.png',
                           height: MediaQuery.of(context).size.height * .3,
@@ -80,7 +83,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           "Fast Delivery",
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              fontSize: 35,
+                              fontSize: 24,
                               color: AppTheme.primaryColor),
                           textAlign: TextAlign.center,
                         ),
@@ -90,7 +93,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           child: Text(
                             "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, and get whole ipsum. ",
                             style: TextStyle(
-                              fontSize: 20,
+                              fontSize: 16,
                             ),
                             textAlign: TextAlign.center,
                           ),
@@ -118,7 +121,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           "Your Choice",
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              fontSize: 35,
+                              fontSize: 24,
                               color: AppTheme.primaryColor),
                           textAlign: TextAlign.center,
                         ),
@@ -128,7 +131,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           child: Text(
                             "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, and get whole ipsum. ",
                             style: TextStyle(
-                              fontSize: 20,
+                              fontSize: 16,
                             ),
                             textAlign: TextAlign.center,
                           ),

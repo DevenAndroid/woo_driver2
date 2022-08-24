@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:form_field_validator/form_field_validator.dart';
 import 'package:get/get.dart';
 import 'package:woo_driver/ui/widget/custom_button.dart';
 import 'package:woo_driver/ui/widget/custom_text_field.dart';
@@ -173,12 +175,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           color: AppTheme.primaryColor,
                         ),
                         keyboardType: TextInputType.text,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Filed is required';
-                          }
-                          return null;
-                        },
+                        validator: MultiValidator([
+                          RequiredValidator(errorText: 'Enter a  name'),
+                          MinLengthValidator(3, errorText: "Minimum length is 3"),
+                        ]),
                       ),
                       const SizedBox(
                         height: 10,
@@ -231,19 +231,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       //   ),
                       // ),
                       CustomTextField(
+                        inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                         controller: _numberController,
                         hintText: "Enter your number",
                         prefixChildIcon: const Icon(
                           Icons.phone,
                           color: AppTheme.primaryColor,
                         ),
-                        keyboardType: TextInputType.text,
-                        validator: (name) {
-                          if (name!.isEmpty) {
-                            return 'Filed is required';
-                          }
-                          return null;
-                        },
+                        keyboardType: TextInputType.number,
+                        validator: MultiValidator([
+                          RequiredValidator(errorText: 'Enter a number'),
+                          MinLengthValidator(10, errorText: 'Minimum 10 numbers required'),
+                          MaxLengthValidator(15, errorText: 'Maximum numbers length is 15')
+                        ]),
                       ),
 
                       const SizedBox(
@@ -316,12 +316,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           color: AppTheme.primaryColor,
                         ),
                         keyboardType: TextInputType.text,
-                        validator: (email) {
-                          if (email!.isEmpty) {
-                            return 'Filed is required';
-                          }
-                          return null;
-                        },
+                        validator: MultiValidator([
+                          RequiredValidator(errorText: 'Enter a Email'),
+                          EmailValidator(errorText: 'Enter a valid Email'),
+
+                        ]),
                       ),
                       const SizedBox(
                         height: 10,
@@ -392,23 +391,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           Icons.lock_outline,
                           color: AppTheme.primaryColor,
                         ),
-                        suffixIcon:  InkWell(
-                                      onTap: () {
-                                        setState(() {
-                                          eyeHide = !eyeHide;
-                                        });
-                                      },
-                                      child: eyeHide == true
-                                          ? const Icon(Icons.remove_red_eye_outlined)
-                                          : const Icon(
-                                              Icons.visibility_off_outlined)),
+                        suffixIcon: InkWell(
+                            onTap: () {
+                              setState(() {
+                                eyeHide = !eyeHide;
+                              });
+                            },
+                            child: eyeHide == true
+                                ? const Icon(Icons.remove_red_eye_outlined)
+                                : const Icon(Icons.visibility_off_outlined)),
                         keyboardType: TextInputType.text,
-                        validator: (password) {
-                          if (password!.isEmpty) {
-                            return 'Filed is required';
-                          }
-                          return null;
-                        },
+                        validator:MultiValidator([
+                          RequiredValidator(errorText: 'Enter a  password'),
+                          MinLengthValidator(8, errorText: "Minimum length is 8")
+                        ]),
                       ),
                       const SizedBox(
                         height: 10,
