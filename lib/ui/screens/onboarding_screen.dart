@@ -56,6 +56,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, and get whole ipsum. ",
                             style: TextStyle(
                               fontSize: 16,
+                              color: Color(0xff242424),
                             ),
                             textAlign: TextAlign.center,
                           ),
@@ -70,7 +71,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       // crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         SizedBox(
-                          height: 35,
+                          height: 30,
                         ),
                         Image.asset(
                           'assets/images/onboarding_screen_2.png',
@@ -93,6 +94,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           child: Text(
                             "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, and get whole ipsum. ",
                             style: TextStyle(
+                              color: Color(0xff242424),
                               fontSize: 16,
                             ),
                             textAlign: TextAlign.center,
@@ -131,6 +133,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           child: Text(
                             "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, and get whole ipsum. ",
                             style: TextStyle(
+                              color: Color(0xff242424),
                               fontSize: 16,
                             ),
                             textAlign: TextAlign.center,

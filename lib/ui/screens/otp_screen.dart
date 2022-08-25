@@ -97,6 +97,8 @@ class _OtpScreenState extends State<OtpScreen> {
                         borderRadius:
                             const BorderRadius.all(Radius.circular(10)),
                         numberOfFields: 4,
+                        fieldWidth: 50,
+                        margin: EdgeInsets.symmetric(horizontal: 8),
                         borderColor: const Color(0xFF512DA8),
                         //set to true to show as box or false to show as dash
                         showFieldAsBox: true,
@@ -184,11 +186,8 @@ class _OtpScreenState extends State<OtpScreen> {
                               ScaffoldMessenger.of(context).showSnackBar(
                                   const SnackBar(
                                       content: Text('Please enter valid otp')));
-                            }
-                            else {
-
+                            } else {
                               Get.toNamed(MyRoutes.bottomNavBarScreen);
-
                             }
 
                             print("Get otp");

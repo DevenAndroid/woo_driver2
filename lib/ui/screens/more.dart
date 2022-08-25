@@ -3,10 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:woo_driver/ui/screens/app_routes/app_routes.dart';
-import 'package:woo_driver/ui/widget/custom_bottom_navigationbar.dart';
 
 import '../../res/theme/theme.dart';
-import 'home.dart';
 
 class MoreScreen extends StatefulWidget {
   const MoreScreen({Key? key}) : super(key: key);
@@ -302,8 +300,8 @@ class _MoreScreenState extends State<MoreScreen> {
                       showMaterialModalBottomSheet(
                         context: context,
                         shape: const RoundedRectangleBorder(
-                          borderRadius: const BorderRadius.only(topRight: const Radius.circular(20),
-                          topLeft:const Radius.circular(20) )
+                          borderRadius: BorderRadius.only(topRight: Radius.circular(20),
+                          topLeft:Radius.circular(20) )
                         ),
                         builder: (context) => Container(
                           height: MediaQuery.of(context).size.height * .2,
@@ -385,34 +383,37 @@ class _MoreScreenState extends State<MoreScreen> {
                       ),
                     ),
                   ),
-                  Container(
-                    margin: const EdgeInsets.only(top: 15),
-                    padding: const EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                        color: AppTheme.appBackgroundColor,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: const [
-                          BoxShadow(
-                            color: Color(0xffe3dfdf),
-                            blurRadius: 10.0,
+                  GestureDetector(
+                    onTap: ()=> Get.toNamed(MyRoutes.contactUsScreen),
+                    child: Container(
+                      margin: const EdgeInsets.only(top: 15),
+                      padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                          color: AppTheme.appBackgroundColor,
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: const [
+                            BoxShadow(
+                              color: Color(0xffe3dfdf),
+                              blurRadius: 10.0,
+                            ),
+                          ]),
+                      child: Row(
+                        children: const [
+                          Icon(
+                            Icons.phone,
+                            color: AppTheme.primaryColor,
                           ),
-                        ]),
-                    child: Row(
-                      children: const [
-                        Icon(
-                          Icons.phone,
-                          color: AppTheme.primaryColor,
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          "Contact us",
-                          style: TextStyle(
-                            fontSize: 14,
+                          SizedBox(
+                            width: 10,
                           ),
-                        ),
-                      ],
+                          Text(
+                            "Contact us",
+                            style: TextStyle(
+                              fontSize: 14,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],

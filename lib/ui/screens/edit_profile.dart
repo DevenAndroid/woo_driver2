@@ -1,3 +1,8 @@
+import 'dart:convert';
+import 'dart:io';
+
+import 'package:file_picker/file_picker.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:form_field_validator/form_field_validator.dart';
@@ -8,7 +13,6 @@ import '../widget/custom_button.dart';
 import '../widget/custom_text_field.dart';
 import 'app_routes/app_routes.dart';
 
-
 class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({Key? key}) : super(key: key);
 
@@ -17,7 +21,6 @@ class EditProfileScreen extends StatefulWidget {
 }
 
 class _EditProfileScreenState extends State<EditProfileScreen> {
-
   final _formKey = GlobalKey<FormState>();
 
   final _nameController = TextEditingController();
@@ -25,6 +28,49 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   final _phoneController = TextEditingController();
   final _customerController = TextEditingController();
   final _yearController = TextEditingController();
+
+  FilePickerResult? uploadCertificate1;
+  String? uploadcertificateFileName1;
+  PlatformFile? uploadcertificatePickedFile1;
+  bool uploadcertificateLoading1 = false;
+  File? uploadcertificateDisplay1;
+  String? uploadcertificate1;
+
+  void uploadCertificateFunction1() async {
+    try {
+      setState(() {
+        uploadcertificateLoading1 = true;
+      });
+      uploadCertificate1 = await FilePicker.platform.pickFiles(
+          type: FileType.custom,
+          allowMultiple: false,
+          allowedExtensions: ['jpg', 'jpeg', 'png',]);
+      if (uploadCertificate1 != null) {
+        uploadcertificateFileName1 = uploadCertificate1!.files.first.name;
+        uploadcertificatePickedFile1 = uploadCertificate1!.files.first;
+        uploadcertificateDisplay1 =
+            File(uploadcertificatePickedFile1!.path.toString());
+
+        List<int> uploadcertificateImage64 =
+            uploadcertificateDisplay1!.readAsBytesSync();
+        uploadcertificate1 = base64Encode(uploadcertificateImage64);
+
+        print("Base 64 image===> $uploadcertificate1");
+
+        if (kDebugMode) {
+          print("File name $uploadcertificateFileName1");
+        }
+      }
+
+      setState(() {
+        uploadcertificateLoading1 = false;
+      });
+    } catch (e) {
+      if (kDebugMode) {
+        print(e);
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -84,22 +130,69 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Stack(children: [
-                        Image.asset(
-                          height: 150,
-                          width: 150,
-                          "assets/images/user2.png",
-                        ),
-                        Positioned(
-                          bottom: 22,
-                          right: 25,
-                          child: Image.asset(
-                            height: 50,
-                            width: 50,
-                            "assets/images/edit.png",
-                          ),
-                        )
-                      ]),
+                      Container(
+                        child: uploadcertificatePickedFile1 != null
+                            ? Stack(children: [
+                                Container(
+                                  margin: const EdgeInsets.all(30),
+                                  height:
+                                      MediaQuery.of(context).size.height * .15,
+                                  width: MediaQuery.of(context).size.width * .32,
+                                  padding: const EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                      color: AppTheme.appBackgroundColor,
+                                      borderRadius: BorderRadius.circular(100 ),
+                                      image: DecorationImage(
+                                          fit: BoxFit.cover,
+                                          image: FileImage(
+                                              uploadcertificateDisplay1!)),
+                                      boxShadow: const [
+                                        BoxShadow(
+                                          color: Color(0xffe3dfdf),
+                                          blurRadius: 10.0,
+                                        ),
+                                      ]),
+                                  child: SizedBox(
+                                    height: 50,
+                                  ),
+                                ),
+                                Positioned(
+                                  bottom: 22,
+                                  right: 25,
+                                  child: GestureDetector(
+                                    onTap: () async {
+                                      uploadCertificateFunction1();
+                                    },
+                                    child: Image.asset(
+                                      height: 50,
+                                      width: 50,
+                                      "assets/images/edit.png",
+                                    ),
+                                  ),
+                                )
+                              ])
+                            : Stack(children: [
+                                Image.asset(
+                                  height: 150,
+                                  width: 150,
+                                  "assets/images/user2.png",
+                                ),
+                                Positioned(
+                                  bottom: 22,
+                                  right: 25,
+                                  child: GestureDetector(
+                                    onTap: () async {
+                                      uploadCertificateFunction1();
+                                    },
+                                    child: Image.asset(
+                                      height: 50,
+                                      width: 50,
+                                      "assets/images/edit.png",
+                                    ),
+                                  ),
+                                )
+                              ]),
+                      ),
                       Row(
                         children: const [
                           Text(
@@ -161,7 +254,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         keyboardType: TextInputType.text,
                         validator: MultiValidator([
                           RequiredValidator(errorText: 'Enter a  name'),
-                          MinLengthValidator(3, errorText: "Minimum length is 3"),
+                          MinLengthValidator(3,
+                              errorText: "Minimum length is 3"),
                         ]),
                       ),
 
@@ -230,7 +324,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         validator: MultiValidator([
                           RequiredValidator(errorText: 'Enter a Email'),
                           EmailValidator(errorText: 'Enter a valid Email'),
-
                         ]),
                       ),
 
@@ -290,7 +383,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       // ),
 
                       CustomTextField(
-                        inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                        inputFormatters: [
+                          FilteringTextInputFormatter.digitsOnly
+                        ],
                         controller: _phoneController,
                         hintText: "Enter your mobile number",
                         prefixChildIcon: const Icon(
@@ -298,10 +393,12 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                           color: AppTheme.primaryColor,
                         ),
                         keyboardType: TextInputType.number,
-                        validator:  MultiValidator([
+                        validator: MultiValidator([
                           RequiredValidator(errorText: 'Enter a number'),
-                          MinLengthValidator(10, errorText: 'Minimum 10 numbers required'),
-                          MaxLengthValidator(15, errorText: 'Maximum numbers length is 15')
+                          MinLengthValidator(10,
+                              errorText: 'Minimum 10 numbers required'),
+                          MaxLengthValidator(15,
+                              errorText: 'Maximum numbers length is 15')
                         ]),
                       ),
 
@@ -361,7 +458,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       // ),
 
                       CustomTextField(
-                        inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                        inputFormatters: [
+                          FilteringTextInputFormatter.digitsOnly
+                        ],
                         controller: _customerController,
                         hintText: "Total customer",
                         prefixChildIcon: const Icon(
@@ -371,11 +470,12 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         keyboardType: TextInputType.number,
                         validator: MultiValidator([
                           RequiredValidator(errorText: 'Enter a number'),
-                          MinLengthValidator(1, errorText: 'Minimum 1 numbers required'),
-                          MaxLengthValidator(4, errorText: 'Maximum numbers length is 4')
+                          MinLengthValidator(1,
+                              errorText: 'Minimum 1 numbers required'),
+                          MaxLengthValidator(4,
+                              errorText: 'Maximum numbers length is 4')
                         ]),
                       ),
-
 
                       const SizedBox(
                         height: 10,
@@ -432,18 +532,23 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       //   ),
                       // ),
                       CustomTextField(
-                        inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                        inputFormatters: [
+                          FilteringTextInputFormatter.digitsOnly
+                        ],
                         controller: _yearController,
                         hintText: "Experience Year",
-                        prefixChildIcon: Image.asset("assets/images/brifecase.png"),
+                        prefixChildIcon:
+                            Image.asset("assets/images/brifecase.png"),
                         keyboardType: TextInputType.number,
                         validator: MultiValidator([
-                        RequiredValidator(errorText: 'Enter a number'),
-                          MinLengthValidator(1, errorText: 'Minimum 1 numbers required'),
-                          MaxLengthValidator(2, errorText: 'Maximum numbers length is 2')
-                      ]),
-
-                      )],
+                          RequiredValidator(errorText: 'Enter a number'),
+                          MinLengthValidator(1,
+                              errorText: 'Minimum 1 numbers required'),
+                          MaxLengthValidator(2,
+                              errorText: 'Maximum numbers length is 2')
+                        ]),
+                      )
+                    ],
                   ),
                 ),
                 const SizedBox(
@@ -475,8 +580,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                           const SnackBar(content: Text('Processing Data')),
                         );
                       }
-
-
                     },
                   ),
                 ),

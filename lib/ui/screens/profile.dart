@@ -288,12 +288,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       children: const [
                                         Text(
                                           "Eric Widget",
-                                          style: TextStyle(fontSize: 14),
+                                          style: TextStyle(fontSize: 14
+                                          ,
+                                          color: Color(0xff3D3D3D)),
                                         ),
                                         Text(
-                                          "Eric Widget",
+                                          "21 sept 2021",
                                           style: TextStyle(
-                                              fontSize: 14,
+                                              fontSize: 12,
                                               color: AppTheme.textColor),
                                         )
                                       ],

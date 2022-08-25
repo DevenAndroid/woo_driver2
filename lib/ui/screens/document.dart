@@ -35,8 +35,6 @@ class _DocumentScreenState extends State<DocumentScreen> {
   File? uploadcertificateDisplay1;
   String? uploadcertificate1;
 
-
-
   FilePickerResult? uploadCertificate2;
   String? uploadcertificateFileName2;
   PlatformFile? uploadcertificatePickedFile2;
@@ -59,9 +57,6 @@ class _DocumentScreenState extends State<DocumentScreen> {
         uploadcertificateDisplay1 =
             File(uploadcertificatePickedFile1!.path.toString());
 
-
-
-
         List<int> uploadcertificateImage64 =
             uploadcertificateDisplay1!.readAsBytesSync();
         uploadcertificate1 = base64Encode(uploadcertificateImage64);
@@ -83,7 +78,6 @@ class _DocumentScreenState extends State<DocumentScreen> {
     }
   }
 
-
   void uploadCertificateFunction2() async {
     try {
       setState(() {
@@ -100,7 +94,7 @@ class _DocumentScreenState extends State<DocumentScreen> {
             File(uploadcertificatePickedFile2!.path.toString());
 
         List<int> uploadcertificateImage64 =
-        uploadcertificateDisplay2!.readAsBytesSync();
+            uploadcertificateDisplay2!.readAsBytesSync();
         uploadcertificate2 = base64Encode(uploadcertificateImage64);
 
         print("Base 64 image===> $uploadcertificate2");
@@ -472,8 +466,7 @@ class _DocumentScreenState extends State<DocumentScreen> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-
-                               Text(
+                              Text(
                                 "Rc",
                                 style: const TextStyle(
                                     fontSize: 16, fontWeight: FontWeight.w500),
@@ -486,21 +479,24 @@ class _DocumentScreenState extends State<DocumentScreen> {
                                   uploadCertificateFunction1();
                                 },
                                 child: uploadcertificatePickedFile1 != null
-                                    ? Stack(
-                                      children: [Container(
-                                          height:
-                                              MediaQuery.of(context).size.height *
-                                                  .15,
-                                          width:
-                                              MediaQuery.of(context).size.width *
-                                                  .4,
+                                    ? Stack(children: [
+                                        Container(
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              .15,
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              .4,
                                           padding: const EdgeInsets.all(10),
                                           decoration: BoxDecoration(
-                                              color: AppTheme.appBackgroundColor,
+                                              color:
+                                                  AppTheme.appBackgroundColor,
                                               borderRadius:
                                                   BorderRadius.circular(10),
                                               image: DecorationImage(
-                                                fit: BoxFit.cover,
+                                                  fit: BoxFit.cover,
                                                   image: FileImage(
                                                       uploadcertificateDisplay1!)),
                                               boxShadow: const [
@@ -512,7 +508,6 @@ class _DocumentScreenState extends State<DocumentScreen> {
                                           // child: Image.asset(
                                           //     "assets/images/add_file.png"),
                                         ),
-
                                         Positioned(
                                             top: 0,
                                             left: 0,
@@ -520,9 +515,9 @@ class _DocumentScreenState extends State<DocumentScreen> {
                                               onTap: () {
                                                 setState(() {
                                                   uploadcertificatePickedFile1 =
-                                                  null;
+                                                      null;
                                                   uploadcertificateDisplay1 =
-                                                  null;
+                                                      null;
                                                 });
                                               },
                                               child: Container(
@@ -531,14 +526,15 @@ class _DocumentScreenState extends State<DocumentScreen> {
                                                       .withOpacity(.6),
                                                   shape: BoxShape.circle,
                                                 ),
-                                                padding: const EdgeInsets.all(8),
+                                                padding:
+                                                    const EdgeInsets.all(8),
                                                 child: const Icon(
                                                   Icons.clear,
                                                   color: Colors.white,
                                                 ),
                                               ),
-                                            )),]
-                                    )
+                                            )),
+                                      ])
                                     : Container(
                                         height:
                                             MediaQuery.of(context).size.height *
@@ -585,85 +581,88 @@ class _DocumentScreenState extends State<DocumentScreen> {
                                   uploadCertificateFunction2();
                                 },
                                 child: uploadcertificatePickedFile2 != null
-                                    ? Stack(
-                                    children: [Container(
-                                      height:
-                                      MediaQuery.of(context).size.height *
-                                          .15,
-                                      width:
-                                      MediaQuery.of(context).size.width *
-                                          .4,
-                                      padding: const EdgeInsets.all(10),
-                                      decoration: BoxDecoration(
-                                          color: AppTheme.appBackgroundColor,
-                                          borderRadius:
-                                          BorderRadius.circular(10),
-                                          image: DecorationImage(
-                                              fit: BoxFit.cover,
-                                              image: FileImage(
-                                                  uploadcertificateDisplay2!)),
-                                          boxShadow: const [
-                                            BoxShadow(
-                                              color: Color(0xffe3dfdf),
-                                              blurRadius: 10.0,
-                                            ),
-                                          ]),
-                                      // child: Image.asset(
-                                      //     "assets/images/add_file.png"),
-                                    ),
-
-                                      Positioned(
-                                          top: 0,
-                                          left: 0,
-                                          child: InkWell(
-                                            onTap: () {
-                                              setState(() {
-                                                uploadcertificatePickedFile2 =
-                                                null;
-                                                uploadcertificateDisplay2 =
-                                                null;
-                                              });
-                                            },
-                                            child: Container(
-                                              decoration: BoxDecoration(
-                                                color: Colors.black
-                                                    .withOpacity(.6),
-                                                shape: BoxShape.circle,
-                                              ),
-                                              padding: const EdgeInsets.all(8),
-                                              child: const Icon(
-                                                Icons.clear,
-                                                color: Colors.white,
-                                              ),
-                                            ),
-                                          )),]
-                                )
-                                    : Container(
-                                  height:
-                                  MediaQuery.of(context).size.height *
-                                      .15,
-                                  width:
-                                  MediaQuery.of(context).size.width *
-                                      .4,
-                                  padding: const EdgeInsets.all(10),
-                                  decoration: BoxDecoration(
-                                      color: AppTheme.appBackgroundColor,
-                                      borderRadius:
-                                      BorderRadius.circular(10),
-                                      // image: DecorationImage(
-                                      //     image: FileImage(
-                                      //         uploadcertificateDisplay2!
-                                      //     )
-                                      // ),
-                                      boxShadow: const [
-                                        BoxShadow(
-                                          color: Color(0xffe3dfdf),
-                                          blurRadius: 10.0,
+                                    ? Stack(children: [
+                                        Container(
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              .15,
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              .4,
+                                          padding: const EdgeInsets.all(10),
+                                          decoration: BoxDecoration(
+                                              color:
+                                                  AppTheme.appBackgroundColor,
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                              image: DecorationImage(
+                                                  fit: BoxFit.cover,
+                                                  image: FileImage(
+                                                      uploadcertificateDisplay2!)),
+                                              boxShadow: const [
+                                                BoxShadow(
+                                                  color: Color(0xffe3dfdf),
+                                                  blurRadius: 10.0,
+                                                ),
+                                              ]),
+                                          // child: Image.asset(
+                                          //     "assets/images/add_file.png"),
                                         ),
-                                      ]),
-                                  child: Image.asset(
-                                      "assets/images/add_file.png"),
-                                ),
+                                        Positioned(
+                                            top: 0,
+                                            left: 0,
+                                            child: InkWell(
+                                              onTap: () {
+                                                setState(() {
+                                                  uploadcertificatePickedFile2 =
+                                                      null;
+                                                  uploadcertificateDisplay2 =
+                                                      null;
+                                                });
+                                              },
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                  color: Colors.black
+                                                      .withOpacity(.6),
+                                                  shape: BoxShape.circle,
+                                                ),
+                                                padding:
+                                                    const EdgeInsets.all(8),
+                                                child: const Icon(
+                                                  Icons.clear,
+                                                  color: Colors.white,
+                                                ),
+                                              ),
+                                            )),
+                                      ])
+                                    : Container(
+                                        height:
+                                            MediaQuery.of(context).size.height *
+                                                .15,
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                .4,
+                                        padding: const EdgeInsets.all(10),
+                                        decoration: BoxDecoration(
+                                            color: AppTheme.appBackgroundColor,
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            // image: DecorationImage(
+                                            //     image: FileImage(
+                                            //         uploadcertificateDisplay2!
+                                            //     )
+                                            // ),
+                                            boxShadow: const [
+                                              BoxShadow(
+                                                color: Color(0xffe3dfdf),
+                                                blurRadius: 10.0,
+                                              ),
+                                            ]),
+                                        child: Image.asset(
+                                            "assets/images/add_file.png"),
+                                      ),
                               )
                             ],
                           ),
@@ -695,11 +694,20 @@ class _DocumentScreenState extends State<DocumentScreen> {
                   child: CustomButton(
                     buttonText: "Save",
                     onPress: () {
-                      if (_formKey.currentState!.validate()) {
-                        Get.toNamed(MyRoutes.moreScreen);
+                      if (uploadcertificateDisplay1 == null &&
+                          uploadcertificateDisplay1 == null) {
                         ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Processing Data')),
+                          const SnackBar(
+                              duration: Duration(milliseconds: 350),
+                              content: Text('Please fill the form')),
                         );
+                      } else {
+                        if (_formKey.currentState!.validate()) {
+                          Get.toNamed(MyRoutes.moreScreen);
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text('Processing Data')),
+                          );
+                        }
                       }
                     },
                   ),

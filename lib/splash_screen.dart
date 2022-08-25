@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:woo_driver/res/theme/theme.dart';
 
 import 'controller/splash_screen_controller.dart';
 
@@ -23,7 +24,7 @@ class SplashScreen extends StatelessWidget {
               "LOGO",
               style: TextStyle(
                   fontSize: 50,
-                  color: Colors.white,
+                  color: AppTheme.appBackgroundColor,
                   fontWeight: FontWeight.bold),
             ),
           ),
