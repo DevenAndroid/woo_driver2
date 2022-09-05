@@ -173,6 +173,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     height: 35,
                   ),
                   CustomButton(
+                    height: 40,
+                    width: 120,
                     buttonText: "Next",
                     onPress: () {
                       if (_pageController.page == 2) {

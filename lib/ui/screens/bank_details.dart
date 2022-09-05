@@ -346,7 +346,7 @@ class _BankDetailsScreenState extends State<BankDetailsScreen> {
                     ),
                   ),
                   const SizedBox(
-                    height: 100,
+                    height: 70,
                   ),
                   // Align(
                   //   alignment: Alignment.center,
@@ -382,6 +382,9 @@ class _BankDetailsScreenState extends State<BankDetailsScreen> {
                         }
                       },
                     ),
+                  ),
+                  const SizedBox(
+                    height: 30,
                   ),
                 ],
               ),
