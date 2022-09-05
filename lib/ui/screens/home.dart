@@ -307,7 +307,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           borderRadius: BorderRadius.circular(10),
                           color: AppTheme.appBackgroundColor,
                         ),
-                        height: MediaQuery.of(context).size.height * .23,
+
                         width: MediaQuery.of(context).size.width,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -337,6 +337,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             Expanded(
                               child: Column(
+                                mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -379,8 +380,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     height: 15,
                                   ),
                                   Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+
                                     children: [
                                       CustomButton(
                                         buttonText: "Accept",
@@ -395,6 +395,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                       //     Get.toNamed(MyRoutes.chatScreen);
                                       //   },
                                       // ),
+                                      SizedBox(
+                                        width: 20,
+                                      ),
                                       ElevatedButton(
                                           style: ElevatedButton.styleFrom(
                                               side: BorderSide(
@@ -410,8 +413,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                                   AppTheme.appBackgroundColor,
                                               padding:
                                                   const EdgeInsets.symmetric(
-                                                      horizontal: 35,
-                                                      vertical: 15),
+                                                      horizontal: 20,
+                                                      vertical: 5),
                                               textStyle: const TextStyle(
                                                   fontWeight: FontWeight.bold)),
                                           onPressed: () {

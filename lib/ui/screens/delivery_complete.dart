@@ -125,9 +125,10 @@ class _DeliveryCompleteScreenState extends State<DeliveryCompleteScreen> {
               borderRadius: BorderRadius.circular(10),
               color: AppTheme.appBackgroundColor,
             ),
-            height: MediaQuery.of(context).size.height * .2,
+
             width: MediaQuery.of(context).size.width,
             child: Column(
+              mainAxisSize: MainAxisSize.min,
               children: [
 
                 Row(

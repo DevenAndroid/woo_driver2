@@ -54,7 +54,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             ),
           ),
           Positioned(
-            top: 110,
+            top: MediaQuery.of(context).size.height*.14,
             bottom: 0,
             right: 0,
             left: 0,

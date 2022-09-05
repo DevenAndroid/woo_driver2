@@ -89,7 +89,7 @@ class _BankDetailsScreenState extends State<BankDetailsScreen> {
                     ),
                   ),
                   const SizedBox(
-                    height: 25,
+                    height: 15,
                   ),
                   Container(
                     decoration: BoxDecoration(
@@ -370,8 +370,8 @@ class _BankDetailsScreenState extends State<BankDetailsScreen> {
                   Align(
                     alignment: Alignment.center,
                     child: CustomButton(
-                      height: 50,
-                      width: 150,
+
+                      width: 120,
                       buttonText: " Continue ",
                       onPress: () {
                         if (_formKey.currentState!.validate()) {

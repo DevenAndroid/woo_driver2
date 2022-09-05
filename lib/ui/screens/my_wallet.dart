@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 
 import '../../res/theme/theme.dart';
 import 'app_routes/app_routes.dart';
-import 'home.dart';
 
 class MyWalletScreen extends StatefulWidget {
   const MyWalletScreen({Key? key}) : super(key: key);
@@ -93,7 +92,7 @@ class _MyWalletScreenState extends State<MyWalletScreen> {
       //       ),
       //     )),
       body: Container(
-        color: Color(0xfff1f1f1),
+        color: const Color(0xfff1f1f1),
         padding: const EdgeInsets.all(10),
         child: Column(
           children: [
@@ -102,7 +101,6 @@ class _MyWalletScreenState extends State<MyWalletScreen> {
             ),
             Container(
                 padding: const EdgeInsets.all(10),
-                height: MediaQuery.of(context).size.height * .13,
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                     color: AppTheme.appBackgroundColor,
@@ -114,6 +112,7 @@ class _MyWalletScreenState extends State<MyWalletScreen> {
                       fit: BoxFit.fill,
                     )),
                 child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: const [
@@ -167,37 +166,72 @@ class _MyWalletScreenState extends State<MyWalletScreen> {
               child: ListView.builder(
                 shrinkWrap: true,
                 itemCount: 7,
-                physics: AlwaysScrollableScrollPhysics(),
+                physics: const AlwaysScrollableScrollPhysics(),
                 itemBuilder: (BuildContext context, int index) {
                   return Column(
                     children: [
                       Container(
-                          margin: EdgeInsets.only(top: 10),
-                          height: MediaQuery.of(context).size.height * .09,
+                          margin: const EdgeInsets.only(top: 10),
+                          padding: const EdgeInsets.all(10),
                           width: MediaQuery.of(context).size.width,
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: AppTheme.appBackgroundColor
+                              borderRadius: BorderRadius.circular(10),
+                              color: AppTheme.appBackgroundColor),
 
-                          ),
-                          child: ListTile(
-                            leading: Image.asset(
-                              'assets/images/human2.png',
-                            ),
-                            title: const Text(
-                              "Ian Somerhalder",
-                              style: TextStyle(fontSize: 14),
-                            ),
-                            subtitle: const Text(
-                              "22:21, 21 sept 2021",
-                              style: TextStyle(fontSize: 12),
-                            ),
-                            trailing: const Text("\$200",
-                                style: TextStyle(
-                                    fontSize: 14,
-                                    color: AppTheme.primaryColor)),
+                          // ListTile(
+                          //   leading: Image.asset(
+                          //     'assets/images/human2.png',
+                          //   ),
+                          //   title: const Text(
+                          //     "Ian Somerhalder",
+                          //     style: TextStyle(fontSize: 14),
+                          //   ),
+                          //   subtitle: const Text(
+                          //     "22:21, 21 sept 2021",
+                          //     style: TextStyle(fontSize: 12),
+                          //   ),
+                          //   trailing: const ,
+                          // )
+
+                          child: Row(
+                            children: [
+                              Image.asset("assets/images/human2.png"),
+                              const SizedBox(
+                                width: 20,
+                              ),
+                              Expanded(
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: const [
+                                        Text(
+                                          "Ian Somerhalder",
+                                          style: TextStyle(fontSize: 14),
+                                        ),
+                                        Text("\$200",
+                                            style: TextStyle(
+                                                fontSize: 14,
+                                                color: AppTheme.primaryColor)),
+                                      ],
+                                    ),
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
+                                    const Text(
+                                      "22:21, 21 sept 2021",
+                                      style: TextStyle(fontSize: 12),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
                           )),
-
                     ],
                   );
                 },

@@ -251,7 +251,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   itemCount: 4,
                   itemBuilder: (BuildContext context, int index) {
                     return Container(
-                      height: MediaQuery.of(context).size.height * .13,
+
                       margin: const EdgeInsets.only(top: 15),
                       padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
@@ -264,6 +264,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ),
                           ]),
                       child: Column(
+                        mainAxisSize: MainAxisSize.min,
                         children: [
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,

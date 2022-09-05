@@ -85,7 +85,6 @@ class _LanguageScreenState extends State<LanguageScreen> {
           setState(() {});
           },
             child: Container(
-              height: MediaQuery.of(context).size.height * .05,
               width: MediaQuery.of(context).size.width * .4,
               margin: const EdgeInsets.all(10),
               padding: const EdgeInsets.all(10),

@@ -50,7 +50,7 @@ class _LogInScreenState extends State<LogInScreen> {
             ),
           ),
           Positioned(
-            top: 110,
+            top: MediaQuery.of(context).size.height*.14,
             bottom: 0,
             right: 0,
             left: 0,
@@ -117,7 +117,7 @@ class _LogInScreenState extends State<LogInScreen> {
                         height: 30,
                       ),
                       Row(
-                        children: const [Text("Mobile Number")],
+                        children: const [Text("Mobile Number",style: TextStyle(fontWeight: FontWeight.w400),)],
                       ),
                       const SizedBox(
                         height: 10,

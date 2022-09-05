@@ -1,9 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:woo_driver/ui/screens/job_preferences.dart';
 
 import '../../res/theme/theme.dart';
@@ -88,7 +86,7 @@ class _ProfileDetailScreenState extends State<ProfileDetailScreen> {
                     ),
                   ),
                   const SizedBox(
-                    height: 25,
+                    height: 15,
                   ),
                   Container(
                     decoration: BoxDecoration(
@@ -231,13 +229,12 @@ class _ProfileDetailScreenState extends State<ProfileDetailScreen> {
                     ),
                   ),
                   const SizedBox(
-                    height: 250,
+                    height: 120,
                   ),
                   Align(
                     alignment: Alignment.center,
                     child: CustomButton(
-                      height: 50,
-                      width: 150,
+
                       buttonText: " Continue ",
                       onPress: () {
                         if (_formKey.currentState!.validate()) {
@@ -250,6 +247,9 @@ class _ProfileDetailScreenState extends State<ProfileDetailScreen> {
                       },
                     ),
                   ),
+                  const SizedBox(
+                    height: 30,
+                  )
                   // Align(
                   //   alignment: Alignment.center,
                   //   child: ElevatedButton(

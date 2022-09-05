@@ -658,8 +658,8 @@ class _JobPreferencesScreenState extends State<JobPreferencesScreen> {
                 Align(
                   alignment: Alignment.center,
                   child: CustomButton(
-                    height: 50,
-                    width: 150,
+
+                    width: 120,
                     buttonText: " Continue ",
                     onPress: () {
                       Get.toNamed(MyRoutes.profileDetailScreen);
@@ -723,6 +723,7 @@ showAlertDialog(BuildContext context, cameraPosition, mapController) {
     },
   );
 }
+
 RxString time1 = "".obs;
 RxString time2 = "".obs;
 
@@ -748,15 +749,15 @@ timeAlertDialog(
           borderRadius: BorderRadius.circular(15),
           child: Container(
             padding: const EdgeInsets.all(10),
-            height: MediaQuery.of(context).size.height * .5,
+            // height: MediaQuery.of(context).size.height * .5,
             width: MediaQuery.of(context).size.width * .85,
             color: AppTheme.appBackgroundColor,
             // decoration: BoxDecoration(
             //   border: Border.all(width: 10,color: Colors.white),
             //     borderRadius: BorderRadius.all(Radius.circular(30))),
-            child: Expanded(
-              child: Obx(() {
-  return Column(
+            child: Obx(() {
+              return Column(
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   Row(
                     children: [
@@ -783,12 +784,14 @@ timeAlertDialog(
                               primary: Color(0xffFFF2ED),
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 35, vertical: 15),
-                              textStyle:
-                                  const TextStyle(fontWeight: FontWeight.bold)),
+                              textStyle: const TextStyle(
+                                  fontWeight: FontWeight.bold)),
                           onPressed: () {},
                           child: Text(
                             "$time1 PM",
-                            style: TextStyle(fontWeight: FontWeight.bold,color: AppTheme.primaryColor),
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: AppTheme.primaryColor),
                           )),
                       const Text(
                         "To",
@@ -805,8 +808,8 @@ timeAlertDialog(
                               primary: AppTheme.primaryColor,
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 35, vertical: 15),
-                              textStyle:
-                                  const TextStyle(fontWeight: FontWeight.bold)),
+                              textStyle: const TextStyle(
+                                  fontWeight: FontWeight.bold)),
                           onPressed: () {},
                           child: Text(
                             "$time2 PM",
@@ -841,8 +844,7 @@ timeAlertDialog(
                   )
                 ],
               );
-}),
-            ),
+            }),
           ),
         ),
       );

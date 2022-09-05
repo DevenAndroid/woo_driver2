@@ -25,12 +25,12 @@ class _GoToPickUpScreenState extends State<GoToPickUpScreen> {
 
   Completer<GoogleMapController> _controller = Completer();
 
-  static final CameraPosition _kGooglePlex = const CameraPosition(
+  static const CameraPosition _kGooglePlex = CameraPosition(
     target: LatLng(26.9112472, 75.7296486),
     zoom: 14.4746,
   );
 
-  static final CameraPosition _kLake = const CameraPosition(
+  static const CameraPosition _kLake = CameraPosition(
       bearing: 192.8334901395799,
       target: LatLng(26.9112472, 75.7296486),
       tilt: 59.440717697143555,
@@ -435,9 +435,9 @@ class _GoToPickUpScreenState extends State<GoToPickUpScreen> {
               borderRadius: BorderRadius.circular(10),
               color: AppTheme.appBackgroundColor,
             ),
-            height: MediaQuery.of(context).size.height * .38,
             width: MediaQuery.of(context).size.width,
             child: Column(
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Row(
                   children: [

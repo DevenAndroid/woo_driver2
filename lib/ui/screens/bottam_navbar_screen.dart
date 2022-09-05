@@ -57,11 +57,13 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
                   updatePageIndex(0);
                 });
               },
-              child: Image.asset(
-                "assets/images/home.png",
-                color:
-                    pageIndex == 0 ? Colors.white : Colors.white.withOpacity(1),
-              ),
+              child: pageIndex == 0
+                  ? Image.asset(
+                      "assets/images/home.png",
+                    )
+                  : Image.asset(
+                      "assets/images/home2.png",
+                    ),
             ),
             GestureDetector(
               onTap: () {
@@ -69,11 +71,13 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
                   updatePageIndex(1);
                 });
               },
-              child: Image.asset(
+              child: pageIndex == 1
+                  ?Image.asset(
+                "assets/images/wallet2.png",
+              )
+                  : Image.asset(
                 "assets/images/wallet.png",
-                color:
-                    pageIndex == 1 ? Colors.white : Colors.white.withOpacity(1),
-              ),
+              )
             ),
             GestureDetector(
               onTap: () {
@@ -81,11 +85,13 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
                   updatePageIndex(2);
                 });
               },
-              child: Image.asset(
-                "assets/images/history.png",
-                color:
-                    pageIndex == 2 ? Colors.white : Colors.white.withOpacity(1),
-              ),
+              child: pageIndex == 2
+                  ? Image.asset(
+                      "assets/images/history2.png",
+                    )
+                  : Image.asset(
+                      "assets/images/history.png",
+                    ),
             ),
             GestureDetector(
               onTap: () {
@@ -93,11 +99,13 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
                   updatePageIndex(3);
                 });
               },
-              child: Image.asset(
-                "assets/images/menu.png",
-                color:
-                    pageIndex == 3 ? Colors.white : Colors.white.withOpacity(1),
-              ),
+              child: pageIndex == 3
+                  ? Image.asset(
+                      "assets/images/menu2.png",
+                    )
+                  : Image.asset(
+                      "assets/images/menu.png",
+                    ),
             ),
           ],
         ),

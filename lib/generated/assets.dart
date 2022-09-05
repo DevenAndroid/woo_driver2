@@ -2,6 +2,7 @@
 class Assets {
   Assets._();
 
+
   static const String imagesAddFile = 'assets/images/add_file.png';
   static const String imagesAppDetail = 'assets/images/app_detail.png';
   static const String imagesBank = 'assets/images/bank.png';
@@ -15,7 +16,9 @@ class Assets {
   static const String imagesFb = 'assets/images/fb.png';
   static const String imagesGoogle = 'assets/images/google.png';
   static const String imagesHistory = 'assets/images/history.png';
+  static const String imagesHistory2 = 'assets/images/history2.png';
   static const String imagesHome = 'assets/images/home.png';
+  static const String imagesHome2 = 'assets/images/home2.png';
   static const String imagesHuman = 'assets/images/human.png';
   static const String imagesHuman2 = 'assets/images/human2.png';
   static const String imagesId = 'assets/images/id.png';
@@ -25,6 +28,7 @@ class Assets {
   static const String imagesLinkdin = 'assets/images/linkdin.png';
   static const String imagesLoading = 'assets/images/loading.png';
   static const String imagesMenu = 'assets/images/menu.png';
+  static const String imagesMenu2 = 'assets/images/menu2.png';
   static const String imagesMotorCycle = 'assets/images/Motor_Cycle.png';
   static const String imagesMotorcycle = 'assets/images/motorcycle.png';
   static const String imagesOnboardingScreen1 = 'assets/images/onboarding_screen_1.png';
@@ -39,6 +43,7 @@ class Assets {
   static const String imagesUser2 = 'assets/images/user2.png';
   static const String imagesVideo = 'assets/images/video.png';
   static const String imagesWallet = 'assets/images/wallet.png';
+  static const String imagesWallet2 = 'assets/images/wallet2.png';
   static const String imagesWhatsApp = 'assets/images/whatsApp.png';
 
 }

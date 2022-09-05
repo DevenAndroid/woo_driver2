@@ -122,9 +122,9 @@ class _PickUpLocationScreenState extends State<PickUpLocationScreen> {
               borderRadius: BorderRadius.circular(10),
               color: AppTheme.appBackgroundColor,
             ),
-            height: MediaQuery.of(context).size.height * .29,
             width: MediaQuery.of(context).size.width,
             child: Column(
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

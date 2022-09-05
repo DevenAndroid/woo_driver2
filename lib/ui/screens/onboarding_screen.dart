@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:woo_driver/ui/widget/custom_button.dart';
 
@@ -28,8 +27,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               child: PageView(
                 controller: _pageController,
                 children: <Widget>[
-                  Container(
-                      child: Center(
+                  Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       // crossAxisAlignment: CrossAxisAlignment.center,
@@ -63,14 +61,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         ),
                       ],
                     ),
-                  )),
-                  Container(
-                      child: Center(
+                  ),
+                  Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       // crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        SizedBox(
+                        const SizedBox(
                           height: 30,
                         ),
                         Image.asset(
@@ -105,9 +102,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         ),
                       ],
                     ),
-                  )),
-                  Container(
-                      child: Center(
+                  ),
+                  Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       // crossAxisAlignment: CrossAxisAlignment.center,
@@ -141,12 +137,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         ),
                       ],
                     ),
-                  )),
+                  ),
                 ],
               ),
             ),
             Positioned(
-              top: MediaQuery.of(context).size.height * .86,
+              top: MediaQuery.of(context).size.height * .82,
               child: Column(
                 children: [
                   Container(
@@ -173,7 +169,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                               activeDotColor: AppTheme
                                   .primaryColor), // your preferred effect
                           onDotClicked: (index) {})),
-                  SizedBox(
+                  const SizedBox(
                     height: 35,
                   ),
                   CustomButton(
@@ -185,13 +181,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         print("object");
                       } else {
                         _pageController.nextPage(
-                            duration: Duration(seconds: 1), curve: Curves.ease);
+                            duration: const Duration(seconds: 1),
+                            curve: Curves.ease);
                       }
                     },
-                  )
+                  ),
                 ],
               ),
             ),
+
           ],
         ),
       ),

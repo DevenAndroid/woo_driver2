@@ -24,7 +24,7 @@ class CustomButton extends StatelessWidget {
                   BorderRadius.all(Radius.circular(10))),
               primary: AppTheme.primaryColor,
               padding: const EdgeInsets.symmetric(
-                  horizontal: 35, vertical: 15),
+                  horizontal: 20, vertical: 5),
               textStyle:
               const TextStyle(fontWeight: FontWeight.bold)),
           onPressed: onPress,

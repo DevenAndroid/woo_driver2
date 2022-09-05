@@ -16,10 +16,8 @@ class WalletHistoryScreen extends StatefulWidget {
 }
 
 class _WalletHistoryScreenState extends State<WalletHistoryScreen> {
-
-
-
   String? _startDateVPG, _endDateVPG;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -191,8 +189,7 @@ class _WalletHistoryScreenState extends State<WalletHistoryScreen> {
                             children: [
                               SfDateRangePicker(
                                 showActionButtons: true,
-                                onSubmit: (
-                                    Object? value) {
+                                onSubmit: (Object? value) {
                                   Navigator.pop(context);
                                   // customActivityController
                                   //     .getCustomActivityReport(
@@ -204,13 +201,13 @@ class _WalletHistoryScreenState extends State<WalletHistoryScreen> {
                                 onCancel: () {
                                   Navigator.pop(context);
                                 },
-                                selectionMode: DateRangePickerSelectionMode
-                                    .range,
+                                selectionMode:
+                                    DateRangePickerSelectionMode.range,
                                 onSelectionChanged: selectionChangedVPG,
                               )
-                            ],),
-                        )
-                    );
+                            ],
+                          ),
+                        ));
                   },
                   child: Container(
                     padding: const EdgeInsets.all(10),
@@ -224,32 +221,39 @@ class _WalletHistoryScreenState extends State<WalletHistoryScreen> {
                           ),
                         ]),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Text(
-                          "From: ",
-                          style: const TextStyle(fontSize: 14),
+                        Row(
+                          children: [
+                            const Text(
+                              "From: ",
+                              style: const TextStyle(fontSize: 14, color: AppTheme.primaryColor,),
+                            ),
+                            Text(
+                              _startDateVPG.toString(),
+                              style: const TextStyle(
+                                  fontSize: 14, fontWeight: FontWeight.w500),
+                            ),
+                          ],
+
                         ),
-                        Text(
-                          _startDateVPG.toString(),
-                          style: const TextStyle(
-                              fontSize: 14, fontWeight: FontWeight.w500),
+
+
+                        Row(
+                          children: [
+                            const Text(
+                              "To: ",
+                              style: const TextStyle(fontSize: 14, color: AppTheme.primaryColor,),
+                            ),
+                            Text(
+                              _endDateVPG.toString(),
+                              style: const TextStyle(
+                                  fontSize: 14, fontWeight: FontWeight.w500,),
+                            ),
+                          ],
                         ),
-                        const SizedBox(
-                          width: 50,
-                        ),
-                        const Text(
-                          "To: ",
-                          style: const TextStyle(fontSize: 14),
-                        ),
-                        Text(
-                          _endDateVPG.toString(),
-                          style: const TextStyle(
-                              fontSize: 14, fontWeight: FontWeight.w500),
-                        ),
-                        const SizedBox(
-                          width: 20,
-                        ),
+
+
                         const Icon(
                           Icons.calendar_month_outlined,
                           color: AppTheme.primaryColor,
@@ -380,18 +384,12 @@ class _WalletHistoryScreenState extends State<WalletHistoryScreen> {
   }
 
   void selectionChangedVPG(DateRangePickerSelectionChangedArgs args) {
-
     setState(() {
       _startDateVPG =
           DateFormat('yyyy-MM-dd').format(args.value.startDate).toString();
-      _endDateVPG = DateFormat('yyyy-MM-dd').format(
-          args.value.endDate ?? args.value.startDate).toString();
+      _endDateVPG = DateFormat('yyyy-MM-dd')
+          .format(args.value.endDate ?? args.value.startDate)
+          .toString();
     });
   }
-
-
-
-
-
 }
-

@@ -127,13 +127,15 @@ class _AppDetailScreenState extends State<AppDetailScreen> {
                 Align(
                   alignment: Alignment.center,
                   child: CustomButton(
-                    height: 50,
-                    width: 150,
+
                     buttonText: " Continue ",
                     onPress: () {
                       Get.toNamed(MyRoutes.chooseVehicleScreen);
                     },
                   ),
+                ),
+                SizedBox(
+                  height: 30,
                 ),
               ],
             ),
