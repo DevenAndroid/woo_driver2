@@ -3,8 +3,6 @@ import 'package:get/get.dart';
 import 'package:im_stepper/stepper.dart';
 import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
-import 'package:woo_driver/ui/screens/app_routes/app_routes.dart';
-import 'package:woo_driver/ui/widget/custom_bottom_navigationbar.dart';
 
 import '../../res/theme/theme.dart';
 
@@ -21,38 +19,6 @@ class _WalletHistoryScreenState extends State<WalletHistoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // bottomNavigationBar: const CustomBottomNavigationBar(),
-      // BottomAppBar(
-      //     shape: const AutomaticNotchedShape(RoundedRectangleBorder(
-      //         borderRadius: BorderRadius.only(
-      //       topLeft: Radius.circular(15),
-      //       topRight: Radius.circular(15),
-      //     ))),
-      //     color: AppTheme.primaryColor,
-      //     child: Container(
-      //       margin: const EdgeInsets.only(right: 15),
-      //       child: Row(
-      //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      //         children: <Widget>[
-      //           Image.asset(
-      //             "assets/images/home.png",
-      //             color: AppTheme.appBackgroundColor,
-      //           ),
-      //           Image.asset(
-      //             "assets/images/wallet.png",
-      //             color: AppTheme.appBackgroundColor,
-      //           ),
-      //           Image.asset(
-      //             "assets/images/history.png",
-      //             color: AppTheme.appBackgroundColor,
-      //           ),
-      //           Image.asset(
-      //             "assets/images/menu.png",
-      //             color: AppTheme.appBackgroundColor,
-      //           )
-      //         ],
-      //       ),
-      //     )),
       body: Stack(children: [
         SizedBox(
           height: MediaQuery.of(context).size.height,
@@ -71,20 +37,8 @@ class _WalletHistoryScreenState extends State<WalletHistoryScreen> {
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    // GestureDetector(
-                    //   onTap: ()=>Get.toNamed(MyRoutes.bottomNavBarScreen),
-                    //   child: Container(
-                    //     width: 100,
-                    //     alignment: Alignment.centerLeft,
-                    //     padding: const EdgeInsets.all(8.0),
-                    //     child: const Icon(
-                    //       Icons.arrow_back_ios,
-                    //       color: AppTheme.appBackgroundColor,
-                    //     ),
-                    //   ),
-                    // ),
-                    const Text(
+                  children: const [
+                    Text(
                       'LOGO',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
@@ -191,12 +145,6 @@ class _WalletHistoryScreenState extends State<WalletHistoryScreen> {
                                 showActionButtons: true,
                                 onSubmit: (Object? value) {
                                   Navigator.pop(context);
-                                  // customActivityController
-                                  //     .getCustomActivityReport(
-                                  //     null,
-                                  //     varianceSelectedActivity,
-                                  //     '${_startDateVPG}',
-                                  //     '${_endDateVPG}');
                                 },
                                 onCancel: () {
                                   Navigator.pop(context);
@@ -227,7 +175,10 @@ class _WalletHistoryScreenState extends State<WalletHistoryScreen> {
                           children: [
                             const Text(
                               "From: ",
-                              style: const TextStyle(fontSize: 14, color: AppTheme.primaryColor,),
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: AppTheme.primaryColor,
+                              ),
                             ),
                             Text(
                               _startDateVPG.toString(),
@@ -235,25 +186,25 @@ class _WalletHistoryScreenState extends State<WalletHistoryScreen> {
                                   fontSize: 14, fontWeight: FontWeight.w500),
                             ),
                           ],
-
                         ),
-
-
                         Row(
                           children: [
                             const Text(
                               "To: ",
-                              style: const TextStyle(fontSize: 14, color: AppTheme.primaryColor,),
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: AppTheme.primaryColor,
+                              ),
                             ),
                             Text(
                               _endDateVPG.toString(),
                               style: const TextStyle(
-                                  fontSize: 14, fontWeight: FontWeight.w500,),
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
                           ],
                         ),
-
-
                         const Icon(
                           Icons.calendar_month_outlined,
                           color: AppTheme.primaryColor,

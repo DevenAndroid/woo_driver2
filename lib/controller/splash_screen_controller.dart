@@ -13,15 +13,4 @@ class SplashScreenController extends GetxController {
       Get.off(const OnboardingScreen());
     });
   }
-
-// Future<void> _getClientInformation() async {
-//   ClientInformation? info;
-//   try {
-//     info = await ClientInformation.fetch();
-//   } on PlatformException {
-//     log('Failed to get client information');
-//   }
-//   SharedPreferences prefs = await SharedPreferences.getInstance();
-//   prefs.setString('deviceId', info!.deviceId.toString());
-// }
 }

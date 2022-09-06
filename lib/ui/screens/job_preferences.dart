@@ -21,14 +21,14 @@ class JobPreferencesScreen extends StatefulWidget {
 class _JobPreferencesScreenState extends State<JobPreferencesScreen> {
   bool arrowDown = false;
 
-  Completer<GoogleMapController> _controller = Completer();
+  final Completer<GoogleMapController> _controller = Completer();
 
-  static final CameraPosition _kGooglePlex = const CameraPosition(
+  static const CameraPosition _kGooglePlex = CameraPosition(
     target: LatLng(26.9112472, 75.7296486),
     zoom: 14.4746,
   );
 
-  static final CameraPosition _kLake = const CameraPosition(
+  static const CameraPosition _kLake = CameraPosition(
       bearing: 192.8334901395799,
       target: LatLng(26.9112472, 75.7296486),
       tilt: 59.440717697143555,
@@ -143,18 +143,7 @@ class _JobPreferencesScreenState extends State<JobPreferencesScreen> {
                           ),
                         ],
                       ),
-                      trailing:
-                          // InkWell(
-                          //     onTap: () {
-                          //       setState(() {
-                          //    arrowDown = !arrowDown;
-                          //       });
-                          //     },
-                          //     child: arrowDown == true
-                          //         ? const Icon(Icons.keyboard_arrow_down)
-                          //         : const Icon(
-                          //         Icons.keyboard_arrow_up)),
-                          const Icon(
+                      trailing: const Icon(
                         Icons.keyboard_arrow_down,
                         color: AppTheme.blackTextColor,
                       ),
@@ -167,15 +156,15 @@ class _JobPreferencesScreenState extends State<JobPreferencesScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Row(
-                                children: [
-                                  const Icon(
+                                children: const [
+                                  Icon(
                                     Icons.location_on_outlined,
                                     color: AppTheme.primaryColor,
                                   ),
-                                  const SizedBox(
+                                  SizedBox(
                                     width: 25,
                                   ),
-                                  const Text(
+                                  Text(
                                     "Toronto",
                                     style: TextStyle(
                                         fontWeight: FontWeight.w500,
@@ -197,135 +186,9 @@ class _JobPreferencesScreenState extends State<JobPreferencesScreen> {
                     ),
                   ),
                 ),
-
-                // GestureDetector(
-                //   onTap: (){
-                //
-                //   },
-                //   child: Container(
-                //     padding: const EdgeInsets.all(15),
-                //     decoration: BoxDecoration(
-                //       borderRadius: BorderRadius.circular(10),
-                //       color: AppTheme.appBackgroundColor,
-                //     ),
-                //     height: MediaQuery.of(context).size.height * .065,
-                //     width: MediaQuery.of(context).size.width,
-                //     child: Row(
-                //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //       children: [
-                //         Row(
-                //           children: const [
-                //             Icon(
-                //               Icons.location_on_outlined,
-                //               color: AppTheme.primaryColor,
-                //             ),
-                //             SizedBox(
-                //               width: 10,
-                //             ),
-                //             VerticalDivider(
-                //                 width: 2,
-                //                 thickness: 2,
-                //                 color: AppTheme.dividerColor),
-                //             SizedBox(
-                //               width: 10,
-                //             ),
-                //             Text(
-                //               "Choose Location",
-                //               style: TextStyle(
-                //                   fontSize: 14, fontWeight: FontWeight.w500),
-                //             ),
-                //           ],
-                //         ),
-                //         const Icon(Icons.keyboard_arrow_up)
-                //       ],
-                //     ),
-                //   ),
-                // ),
-
-                // Container(
-                //   padding: const EdgeInsets.all(15),
-                //   decoration: BoxDecoration(
-                //     borderRadius: BorderRadius.circular(10),
-                //     color: AppTheme.appBackgroundColor,
-                //   ),
-                //   height: MediaQuery.of(context).size.height * .065,
-                //   width: MediaQuery.of(context).size.width,
-                //   child: Row(
-                //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //     children: [
-                //       Row(
-                //         children: const [
-                //           Icon(
-                //             Icons.location_on_outlined,
-                //             color: AppTheme.primaryColor,
-                //           ),
-                //           // SizedBox(
-                //           //   width: 10,
-                //           // ),
-                //           // VerticalDivider(
-                //           //     width: 2,
-                //           //     thickness: 2,
-                //           //     color: AppTheme.dividerColor),
-                //           SizedBox(
-                //             width: 10,
-                //           ),
-                //           Text(
-                //             "Toronto",
-                //             style: TextStyle(
-                //                 fontSize: 14, fontWeight: FontWeight.w500),
-                //           ),
-                //         ],
-                //       ),
-                //       const Text(
-                //         "Change",
-                //         style: TextStyle(
-                //             color: Color(0xff2B7AF1),
-                //             fontWeight: FontWeight.w500),
-                //       )
-                //     ],
-                //   ),
-                // ),
                 const SizedBox(
                   height: 25,
                 ),
-                // Container(
-                //   padding: const EdgeInsets.all(15),
-                //   decoration: BoxDecoration(
-                //     borderRadius: BorderRadius.circular(10),
-                //     color: AppTheme.appBackgroundColor,
-                //   ),
-                //   height: MediaQuery.of(context).size.height * .065,
-                //   width: MediaQuery.of(context).size.width,
-                //   child: Row(
-                //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //     children: [
-                //       Row(
-                //         children: const [
-                //           Icon(
-                //             Icons.gps_fixed,
-                //             color: AppTheme.primaryColor,
-                //           ),
-                //           SizedBox(
-                //             width: 10,
-                //           ),
-                //           VerticalDivider(
-                //               width: 2,
-                //               thickness: 2,
-                //               color: AppTheme.dividerColor),
-                //           SizedBox(
-                //             width: 10,
-                //           ),
-                //           Text(
-                //             "Choose area",
-                //             style: TextStyle(
-                //                 fontSize: 14, fontWeight: FontWeight.w500),
-                //           ),
-                //         ],
-                //       ),
-                //       const Icon(Icons.keyboard_arrow_down)
-                //     ],
-                //   ),
-                // ),
                 Theme(
                   data: ThemeData().copyWith(
                     dividerColor: Colors.transparent,
@@ -595,70 +458,12 @@ class _JobPreferencesScreenState extends State<JobPreferencesScreen> {
                     ),
                   ),
                 ),
-                // Container(
-                //   padding: const EdgeInsets.all(15),
-                //   decoration: BoxDecoration(
-                //     borderRadius: BorderRadius.circular(10),
-                //     color: AppTheme.appBackgroundColor,
-                //   ),
-                //   height: MediaQuery.of(context).size.height * .065,
-                //   width: MediaQuery.of(context).size.width,
-                //   child: Row(
-                //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //     children: [
-                //       Row(
-                //         children: const [
-                //           Icon(
-                //             Icons.watch_later_outlined,
-                //             color: AppTheme.primaryColor,
-                //           ),
-                //           SizedBox(
-                //             width: 10,
-                //           ),
-                //           VerticalDivider(
-                //               width: 2,
-                //               thickness: 2,
-                //               color: AppTheme.dividerColor),
-                //           SizedBox(
-                //             width: 10,
-                //           ),
-                //           Text(
-                //             "Time selection",
-                //             style: TextStyle(
-                //                 fontSize: 14, fontWeight: FontWeight.w500),
-                //           ),
-                //         ],
-                //       ),
-                //       const Icon(Icons.keyboard_arrow_down)
-                //     ],
-                //   ),
-                // ),
                 const SizedBox(
                   height: 150,
                 ),
-                // Align(
-                //   alignment: Alignment.center,
-                //   child: ElevatedButton(
-                //       style: ElevatedButton.styleFrom(
-                //           shape: const RoundedRectangleBorder(
-                //               borderRadius:
-                //                   BorderRadius.all(Radius.circular(5))),
-                //           primary: AppTheme.primaryColor,
-                //           padding: const EdgeInsets.symmetric(
-                //               horizontal: 35, vertical: 15),
-                //           textStyle:
-                //               const TextStyle(fontWeight: FontWeight.bold)),
-                //       onPressed: () {},
-                //       child: const Text(
-                //         " Continue ",
-                //         style: TextStyle(
-                //             fontWeight: FontWeight.w500, fontSize: 14),
-                //       )),
-                // ),
                 Align(
                   alignment: Alignment.center,
                   child: CustomButton(
-
                     width: 120,
                     buttonText: " Continue ",
                     onPress: () {
@@ -760,8 +565,8 @@ timeAlertDialog(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Row(
-                    children: [
-                      const Text(
+                    children: const [
+                      Text(
                         "Set preferred timing",
                         style: TextStyle(
                             fontSize: 14,
@@ -781,21 +586,21 @@ timeAlertDialog(
                               shape: const RoundedRectangleBorder(
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(5))),
-                              primary: Color(0xffFFF2ED),
+                              primary: const Color(0xffFFF2ED),
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 35, vertical: 15),
-                              textStyle: const TextStyle(
-                                  fontWeight: FontWeight.bold)),
+                              textStyle:
+                                  const TextStyle(fontWeight: FontWeight.bold)),
                           onPressed: () {},
                           child: Text(
                             "$time1 PM",
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: AppTheme.primaryColor),
                           )),
                       const Text(
                         "To",
-                        style: const TextStyle(
+                        style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w500,
                             color: AppTheme.primaryColor),
@@ -808,12 +613,12 @@ timeAlertDialog(
                               primary: AppTheme.primaryColor,
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 35, vertical: 15),
-                              textStyle: const TextStyle(
-                                  fontWeight: FontWeight.bold)),
+                              textStyle:
+                                  const TextStyle(fontWeight: FontWeight.bold)),
                           onPressed: () {},
                           child: Text(
                             "$time2 PM",
-                            style: TextStyle(fontWeight: FontWeight.bold),
+                            style: const TextStyle(fontWeight: FontWeight.bold),
                           )),
                     ],
                   ),

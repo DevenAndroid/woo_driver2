@@ -76,41 +76,7 @@ class _ChatScreenState extends State<ChatScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            // Expanded(
-            //     flex: 10,
-            //     child: Column(
-            //       mainAxisAlignment: MainAxisAlignment.end,
-            //       children: [
-            //         Container(
-            //           color: const Color(0xffFFF2ED),
-            //           margin: const EdgeInsets.all(10),
-            //           padding: const EdgeInsets.all(5),
-            //           child: Row(
-            //             children: const [
-            //               Text("Lorem ipsum dolor sit "),
-            //             ],
-            //           ),
-            //         ),
-            //         const SizedBox(
-            //           height: 10,
-            //         ),
-            //         Container(
-            //           width: MediaQuery.of(context).size.width * .40,
-            //           color: AppTheme.primaryColor,
-            //           margin: const EdgeInsets.all(10),
-            //           padding: const EdgeInsets.all(5),
-            //           child: Row(
-            //             mainAxisAlignment: MainAxisAlignment.end,
-            //             children: const [
-            //               Text("Lorem ipsum dolor sit "),
-            //             ],
-            //           ),
-            //         ),
-            //       ],
-            //     )),
-            // const SizedBox(
-            //   height: 10,
-            // ),
+
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 10),
               child: Row(

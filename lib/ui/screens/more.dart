@@ -50,44 +50,12 @@ class _MoreScreenState extends State<MoreScreen> {
                     fontSize: 28),
               ),
             )),
-        // bottomNavigationBar:  const CustomBottomNavigationBar(),
-        // BottomAppBar(
-        //     shape: const AutomaticNotchedShape(RoundedRectangleBorder(
-        //         borderRadius: BorderRadius.only(
-        //       topLeft: Radius.circular(15),
-        //       topRight: Radius.circular(15),
-        //     ))),
-        //     color: AppTheme.primaryColor,
-        //     child: Container(
-        //       margin: const EdgeInsets.only(right: 15),
-        //       child: Row(
-        //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        //         children: <Widget>[
-        //           Image.asset(
-        //             "assets/images/home.png",
-        //             color: AppTheme.appBackgroundColor,
-        //           ),
-        //           Image.asset(
-        //             "assets/images/wallet.png",
-        //             color: AppTheme.appBackgroundColor,
-        //           ),
-        //           Image.asset(
-        //             "assets/images/history.png",
-        //             color: AppTheme.appBackgroundColor,
-        //           ),
-        //           Image.asset(
-        //             "assets/images/menu.png",
-        //             color: AppTheme.appBackgroundColor,
-        //           )
-        //         ],
-        //       ),
-        //     )),
         body: Container(
           padding: const EdgeInsets.all(10),
           child: Column(
             children: [
               GestureDetector(
-                onTap: ()=> Get.toNamed(MyRoutes.profileHistoryScreen),
+                onTap: () => Get.toNamed(MyRoutes.profileHistoryScreen),
                 child: Container(
                   margin: const EdgeInsets.only(top: 15),
                   padding: const EdgeInsets.all(10),
@@ -137,7 +105,7 @@ class _MoreScreenState extends State<MoreScreen> {
                 ),
               ),
               GestureDetector(
-                onTap: ()=> Get.toNamed(MyRoutes.documentScreen),
+                onTap: () => Get.toNamed(MyRoutes.documentScreen),
                 child: Container(
                   margin: const EdgeInsets.only(top: 15),
                   padding: const EdgeInsets.all(10),
@@ -187,7 +155,7 @@ class _MoreScreenState extends State<MoreScreen> {
                 ),
               ),
               GestureDetector(
-                onTap: ()=> Get.toNamed(MyRoutes.languageScreen),
+                onTap: () => Get.toNamed(MyRoutes.languageScreen),
                 child: Container(
                   margin: const EdgeInsets.only(top: 15),
                   padding: const EdgeInsets.all(10),
@@ -236,7 +204,7 @@ class _MoreScreenState extends State<MoreScreen> {
                 ),
               ),
               GestureDetector(
-                onTap: ()=> Get.toNamed(MyRoutes.privacyPolicyScreen),
+                onTap: () => Get.toNamed(MyRoutes.privacyPolicyScreen),
                 child: Container(
                   margin: const EdgeInsets.only(top: 15),
                   padding: const EdgeInsets.all(10),
@@ -300,9 +268,9 @@ class _MoreScreenState extends State<MoreScreen> {
                       showMaterialModalBottomSheet(
                         context: context,
                         shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(topRight: Radius.circular(20),
-                          topLeft:Radius.circular(20) )
-                        ),
+                            borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(20),
+                                topLeft: Radius.circular(20))),
                         builder: (context) => Container(
                           height: MediaQuery.of(context).size.height * .2,
                           child: Column(
@@ -320,7 +288,6 @@ class _MoreScreenState extends State<MoreScreen> {
                               ),
                               Container(
                                 margin: const EdgeInsets.all(10),
-
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
@@ -384,7 +351,7 @@ class _MoreScreenState extends State<MoreScreen> {
                     ),
                   ),
                   GestureDetector(
-                    onTap: ()=> Get.toNamed(MyRoutes.contactUsScreen),
+                    onTap: () => Get.toNamed(MyRoutes.contactUsScreen),
                     child: Container(
                       margin: const EdgeInsets.only(top: 15),
                       padding: const EdgeInsets.all(10),

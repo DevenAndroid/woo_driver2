@@ -4,7 +4,6 @@ import 'package:form_field_validator/form_field_validator.dart';
 import 'package:get/get.dart';
 import 'package:woo_driver/res/theme/theme.dart';
 import 'package:woo_driver/ui/screens/app_routes/app_routes.dart';
-import 'package:woo_driver/ui/screens/home.dart';
 import 'package:woo_driver/ui/widget/custom_button.dart';
 
 import '../widget/custom_text_field.dart';
@@ -123,54 +122,11 @@ class _LogInScreenState extends State<LogInScreen> {
                         height: 10,
                       ),
 
-                      // Material(
-                      //   elevation: 1,
-                      //   child: TextFormField(
-                      //     autofocus: false,
-                      //     decoration: InputDecoration(
-                      //         contentPadding: const EdgeInsets.all(10),
-                      //         fillColor: AppTheme.textBoxBackgroundColor,
-                      //         filled: true,
-                      //         labelText: "Enter your number",
-                      //         // border: OutlineInputBorder(
-                      //         //     borderRadius: BorderRadius.only(
-                      //         //         topLeft: Radius.circular(10),
-                      //         //         topRight: Radius.circular(10))),
-                      //         prefixIcon: Container(
-                      //           width: 30,
-                      //           margin: const EdgeInsets.all(8),
-                      //           decoration: BoxDecoration(
-                      //             border: Border(
-                      //                 right: BorderSide(
-                      //                     color: Colors.grey.shade300)),
-                      //           ),
-                      //           child: Icon(
-                      //             Icons.phone,
-                      //             color: AppTheme.primaryColor,
-                      //             size: MediaQuery.of(context).size.width * 0.06,
-                      //           ),
-                      //         ),
-                      //         border: InputBorder.none,
-                      //         // hintText: 'Enter your number',
-                      //         hintStyle: TextStyle(
-                      //           color: Colors.grey[400],
-                      //           fontSize:
-                      //               MediaQuery.of(context).size.width * 0.040,
-                      //         ),
-                      //         focusColor: AppTheme.primaryColor,
-                      //         hoverColor: AppTheme.primaryColor),
-                      //     keyboardType: TextInputType.number,
-                      //     controller: _numberController,
-                      //     cursorColor: AppTheme.primaryColor,
-                      //   ),
-                      // ),
-                      // const SizedBox(
-                      //   height: 10,
-                      // ),
+                 
                       CustomTextField(
                         controller: _numberController,
                         inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                        prefixChildIcon: Icon(
+                        prefixChildIcon: const Icon(
                           Icons.phone,
                           color: AppTheme.primaryColor,
                         ),
@@ -212,21 +168,7 @@ class _LogInScreenState extends State<LogInScreen> {
 
                             print("Get otp");
                           }),
-                      /*ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              shape: const RoundedRectangleBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10))),
-                              primary: AppTheme.primaryColor,
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 45, vertical: 15),
-                              textStyle:
-                                  const TextStyle(fontWeight: FontWeight.bold)),
-                          onPressed: () {},
-                          child: const Text(
-                            "Got OTP",
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          )),*/
+
                       const SizedBox(
                         height: 25,
                       ),
@@ -288,18 +230,18 @@ class _LogInScreenState extends State<LogInScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
+                          const Text(
                             "Don't have an account?",
                             textAlign: TextAlign.center,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 45,
                           ),
                           GestureDetector(
                             onTap: () {
                               Get.toNamed(MyRoutes.signUpScreen);
                             },
-                            child: Text(
+                            child: const Text(
                               ' Sign up',
                               style: TextStyle(
                                 color: AppTheme.primaryColor,
@@ -323,7 +265,7 @@ class _LogInScreenState extends State<LogInScreen> {
 
 bool isMobileNumberValid(String phoneNumber) {
   String regexPattern = r'^(?:[+0][1-9])?[0-9]{10,12}$';
-  var regExp = new RegExp(regexPattern);
+  var regExp = RegExp(regexPattern);
 
   if (phoneNumber.length == 0) {
     return false;

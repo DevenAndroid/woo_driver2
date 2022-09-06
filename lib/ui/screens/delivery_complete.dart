@@ -6,10 +6,8 @@ import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../../res/theme/theme.dart';
-import '../widget/custom_bottom_navigationbar.dart';
 import '../widget/custom_button.dart';
 import 'app_routes/app_routes.dart';
-import 'home.dart';
 
 class DeliveryCompleteScreen extends StatefulWidget {
   const DeliveryCompleteScreen({Key? key}) : super(key: key);
@@ -19,9 +17,7 @@ class DeliveryCompleteScreen extends StatefulWidget {
 }
 
 class _DeliveryCompleteScreenState extends State<DeliveryCompleteScreen> {
-
-  double _currentRangeValues =  0.0;
-
+  double _currentRangeValues = 0.0;
 
   final Completer<GoogleMapController> _controller = Completer();
 
@@ -41,13 +37,13 @@ class _DeliveryCompleteScreenState extends State<DeliveryCompleteScreen> {
     return Scaffold(
       appBar: PreferredSize(
           preferredSize:
-          Size.fromHeight(MediaQuery.of(context).size.height * .11),
+              Size.fromHeight(MediaQuery.of(context).size.height * .11),
           child: AppBar(
             centerTitle: true,
             shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.vertical(
-                  bottom: Radius.circular(20),
-                )),
+              bottom: Radius.circular(20),
+            )),
             systemOverlayStyle: const SystemUiOverlayStyle(
               // Status bar color
               statusBarColor: AppTheme.primaryColor,
@@ -72,38 +68,6 @@ class _DeliveryCompleteScreenState extends State<DeliveryCompleteScreen> {
                   fontSize: 16),
             ),
           )),
-      // bottomNavigationBar: const CustomBottomNavigationBar(),
-      // BottomAppBar(
-      //     shape: const AutomaticNotchedShape(RoundedRectangleBorder(
-      //         borderRadius: BorderRadius.only(
-      //           topLeft: Radius.circular(15),
-      //           topRight: Radius.circular(15),
-      //         ))),
-      //     color: AppTheme.primaryColor,
-      //     child: Container(
-      //       margin: const EdgeInsets.only(right: 15),
-      //       child: Row(
-      //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      //         children: <Widget>[
-      //           Image.asset(
-      //             "assets/images/home.png",
-      //             color: AppTheme.appBackgroundColor,
-      //           ),
-      //           Image.asset(
-      //             "assets/images/wallet.png",
-      //             color: AppTheme.appBackgroundColor,
-      //           ),
-      //           Image.asset(
-      //             "assets/images/history.png",
-      //             color: AppTheme.appBackgroundColor,
-      //           ),
-      //           Image.asset(
-      //             "assets/images/menu.png",
-      //             color: AppTheme.appBackgroundColor,
-      //           )
-      //         ],
-      //       ),
-      //     )),
       body: Stack(children: [
         Expanded(
           child: GoogleMap(
@@ -125,24 +89,21 @@ class _DeliveryCompleteScreenState extends State<DeliveryCompleteScreen> {
               borderRadius: BorderRadius.circular(10),
               color: AppTheme.appBackgroundColor,
             ),
-
             width: MediaQuery.of(context).size.width,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: const [
                     Text(
                       "Destination",
                       style:
-                      TextStyle(fontSize: 12, color: AppTheme.primaryColor),
+                          TextStyle(fontSize: 12, color: AppTheme.primaryColor),
                     ),
                     Text(
                       "Total Fare:",
-                      style:
-                      TextStyle(fontSize: 12, color: AppTheme.textColor),
+                      style: TextStyle(fontSize: 12, color: AppTheme.textColor),
                     ),
                   ],
                 ),
@@ -152,16 +113,15 @@ class _DeliveryCompleteScreenState extends State<DeliveryCompleteScreen> {
                     Text(
                       "Rex House, 769 Isadore",
                       style:
-                      TextStyle(fontSize: 14,fontWeight: FontWeight.w500),
+                          TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
                     ),
                     Text(
                       "\$25.50",
                       style:
-                      TextStyle(fontSize: 12, color: AppTheme.primaryColor),
+                          TextStyle(fontSize: 12, color: AppTheme.primaryColor),
                     ),
                   ],
                 ),
-
                 Slider(
                   activeColor: AppTheme.primaryColor,
                   // values: _currentRangeValues,
@@ -175,20 +135,6 @@ class _DeliveryCompleteScreenState extends State<DeliveryCompleteScreen> {
                   },
                   value: _currentRangeValues,
                 ),
-                // ElevatedButton(
-                //     style: ElevatedButton.styleFrom(
-                //         shape: const RoundedRectangleBorder(
-                //             borderRadius: BorderRadius.all(Radius.circular(10))),
-                //         primary: AppTheme.primaryColor,
-                //         padding: const EdgeInsets.symmetric(
-                //             horizontal: 25, vertical: 10),
-                //         textStyle:
-                //             const TextStyle(fontWeight: FontWeight.bold)),
-                //     onPressed: () {},
-                //     child: const Text(
-                //       "Go to Pick up",
-                //       style: TextStyle(fontWeight: FontWeight.bold),
-                //     )),
                 Align(
                   alignment: Alignment.center,
                   child: CustomButton(

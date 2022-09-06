@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'package:woo_driver/ui/screens/app_routes/app_routes.dart';
 
 import '../../res/theme/theme.dart';
-import 'home.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -37,12 +36,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 statusBarBrightness: Brightness.light, // For iOS (dark icons)
               ),
               backgroundColor: AppTheme.primaryColor,
-              // leading: GestureDetector(
-              //   child: const Icon(Icons.arrow_back_ios),
-              //   onTap: () {
-              //     Get.toNamed(MyRoutes.bottomNavBarScreen);
-              //   },
-              // ),
               title: const Text(
                 "History",
                 style: TextStyle(
@@ -106,11 +99,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                           ],
                                         ),
                                         GestureDetector(
-                                          onTap: (){
-                                            Get.toNamed(MyRoutes.editProfileScreen);
-
-                                          },
-                                            child: Image.asset("assets/images/edit.png"))
+                                            onTap: () {
+                                              Get.toNamed(
+                                                  MyRoutes.editProfileScreen);
+                                            },
+                                            child: Image.asset(
+                                                "assets/images/edit.png"))
                                       ],
                                     ),
                                     Row(
@@ -251,7 +245,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   itemCount: 4,
                   itemBuilder: (BuildContext context, int index) {
                     return Container(
-
                       margin: const EdgeInsets.only(top: 15),
                       padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
@@ -289,9 +282,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       children: const [
                                         Text(
                                           "Eric Widget",
-                                          style: TextStyle(fontSize: 14
-                                          ,
-                                          color: Color(0xff3D3D3D)),
+                                          style: TextStyle(
+                                              fontSize: 14,
+                                              color: Color(0xff3D3D3D)),
                                         ),
                                         Text(
                                           "21 sept 2021",
@@ -328,8 +321,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       height: 10,
                                     ),
                                     Row(
-                                      children: [
-                                        const Expanded(
+                                      children: const [
+                                        Expanded(
                                             child: Text(
                                           "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                                           style: TextStyle(

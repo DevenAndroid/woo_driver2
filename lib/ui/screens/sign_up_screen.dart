@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:form_field_validator/form_field_validator.dart';
@@ -54,7 +53,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             ),
           ),
           Positioned(
-            top: MediaQuery.of(context).size.height*.14,
+            top: MediaQuery.of(context).size.height * .14,
             bottom: 0,
             right: 0,
             left: 0,
@@ -125,48 +124,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       const SizedBox(
                         height: 10,
                       ),
-                      // Material(
-                      //   elevation: 1,
-                      //   child: TextFormField(
-                      //     autofocus: false,
-                      //     decoration: InputDecoration(
-                      //         contentPadding: const EdgeInsets.all(10),
-                      //         fillColor: AppTheme.textBoxBackgroundColor,
-                      //         filled: true,
-                      //         labelText: "Enter your name",
-                      //         // border: OutlineInputBorder(
-                      //         //     borderRadius: BorderRadius.only(
-                      //         //         topLeft: Radius.circular(10),
-                      //         //         topRight: Radius.circular(10))),
-                      //         prefixIcon: Container(
-                      //           width: 30,
-                      //           margin: const EdgeInsets.all(8),
-                      //           decoration: BoxDecoration(
-                      //             border: Border(
-                      //                 right: BorderSide(
-                      //                     color: Colors.grey.shade300)),
-                      //           ),
-                      //           child: Icon(
-                      //             Icons.person_outline_rounded,
-                      //             color: AppTheme.primaryColor,
-                      //             size: MediaQuery.of(context).size.width * 0.06,
-                      //           ),
-                      //         ),
-                      //         border: InputBorder.none,
-                      //         // hintText: 'Enter your number',
-                      //         hintStyle: TextStyle(
-                      //           color: Colors.grey[400],
-                      //           fontSize:
-                      //               MediaQuery.of(context).size.width * 0.040,
-                      //         ),
-                      //         focusColor: AppTheme.primaryColor,
-                      //         hoverColor: AppTheme.primaryColor),
-                      //     keyboardType: TextInputType.text,
-                      //     // controller: _numberController,
-                      //     cursorColor: AppTheme.primaryColor,
-                      //   ),
-                      // ),
-
                       CustomTextField(
                         controller: _nameController,
                         hintText: "Enter your name",
@@ -177,7 +134,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         keyboardType: TextInputType.text,
                         validator: MultiValidator([
                           RequiredValidator(errorText: 'Enter a  name'),
-                          MinLengthValidator(3, errorText: "Minimum length is 3"),
+                          MinLengthValidator(3,
+                              errorText: "Minimum length is 3"),
                         ]),
                       ),
                       const SizedBox(
@@ -189,49 +147,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       const SizedBox(
                         height: 10,
                       ),
-                      // Material(
-                      //   elevation: 1,
-                      //   child: TextFormField(
-                      //     autofocus: false,
-                      //     decoration: InputDecoration(
-                      //         contentPadding: const EdgeInsets.all(10),
-                      //         fillColor: AppTheme.textBoxBackgroundColor,
-                      //         filled: true,
-                      //         labelText: "Enter your number",
-                      //         // border: OutlineInputBorder(
-                      //         //     borderRadius: BorderRadius.only(
-                      //         //         topLeft: Radius.circular(10),
-                      //         //         topRight: Radius.circular(10))),
-                      //         prefixIcon: Container(
-                      //           width: 30,
-                      //           margin: const EdgeInsets.all(8),
-                      //           decoration: BoxDecoration(
-                      //             border: Border(
-                      //                 right: BorderSide(
-                      //                     color: Colors.grey.shade300)),
-                      //           ),
-                      //           child: Icon(
-                      //             Icons.phone,
-                      //             color: AppTheme.primaryColor,
-                      //             size: MediaQuery.of(context).size.width * 0.06,
-                      //           ),
-                      //         ),
-                      //         border: InputBorder.none,
-                      //         // hintText: 'Enter your number',
-                      //         hintStyle: TextStyle(
-                      //           color: Colors.grey[400],
-                      //           fontSize:
-                      //               MediaQuery.of(context).size.width * 0.040,
-                      //         ),
-                      //         focusColor: AppTheme.primaryColor,
-                      //         hoverColor: AppTheme.primaryColor),
-                      //     keyboardType: TextInputType.number,
-                      //     // controller: _numberController,
-                      //     cursorColor: AppTheme.primaryColor,
-                      //   ),
-                      // ),
                       CustomTextField(
-                        inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                        inputFormatters: [
+                          FilteringTextInputFormatter.digitsOnly
+                        ],
                         controller: _numberController,
                         hintText: "Enter your number",
                         prefixChildIcon: const Icon(
@@ -241,11 +160,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         keyboardType: TextInputType.number,
                         validator: MultiValidator([
                           RequiredValidator(errorText: 'Enter a number'),
-                          MinLengthValidator(10, errorText: 'Minimum 10 numbers required'),
-                          MaxLengthValidator(15, errorText: 'Maximum numbers length is 15')
+                          MinLengthValidator(10,
+                              errorText: 'Minimum 10 numbers required'),
+                          MaxLengthValidator(15,
+                              errorText: 'Maximum numbers length is 15')
                         ]),
                       ),
-
                       const SizedBox(
                         height: 10,
                       ),
@@ -267,47 +187,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       const SizedBox(
                         height: 10,
                       ),
-                      // Material(
-                      //   elevation: 1,
-                      //   child: TextFormField(
-                      //     autofocus: false,
-                      //     decoration: InputDecoration(
-                      //         contentPadding: const EdgeInsets.all(10),
-                      //         fillColor: AppTheme.textBoxBackgroundColor,
-                      //         filled: true,
-                      //         labelText: "Enter your Email",
-                      //         // border: OutlineInputBorder(
-                      //         //     borderRadius: BorderRadius.only(
-                      //         //         topLeft: Radius.circular(10),
-                      //         //         topRight: Radius.circular(10))),
-                      //         prefixIcon: Container(
-                      //           width: 30,
-                      //           margin: const EdgeInsets.all(8),
-                      //           decoration: BoxDecoration(
-                      //             border: Border(
-                      //                 right: BorderSide(
-                      //                     color: Colors.grey.shade300)),
-                      //           ),
-                      //           child: Icon(
-                      //             Icons.email_outlined,
-                      //             color: AppTheme.primaryColor,
-                      //             size: MediaQuery.of(context).size.width * 0.06,
-                      //           ),
-                      //         ),
-                      //         border: InputBorder.none,
-                      //         // hintText: 'Enter your number',
-                      //         hintStyle: TextStyle(
-                      //           color: Colors.grey[400],
-                      //           fontSize:
-                      //               MediaQuery.of(context).size.width * 0.040,
-                      //         ),
-                      //         focusColor: AppTheme.primaryColor,
-                      //         hoverColor: AppTheme.primaryColor),
-                      //     keyboardType: TextInputType.emailAddress,
-                      //     // controller: _numberController,
-                      //     cursorColor: AppTheme.primaryColor,
-                      //   ),
-                      // ),
                       CustomTextField(
                         controller: _emailController,
                         hintText: "Enter your Email",
@@ -319,7 +198,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         validator: MultiValidator([
                           RequiredValidator(errorText: 'Enter a Email'),
                           EmailValidator(errorText: 'Enter a valid Email'),
-
                         ]),
                       ),
                       const SizedBox(
@@ -331,58 +209,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       const SizedBox(
                         height: 10,
                       ),
-                      // Material(
-                      //   elevation: 1,
-                      //   child: TextFormField(
-                      //     obscureText: eyeHide,
-                      //     autofocus: false,
-                      //     decoration: InputDecoration(
-                      //         contentPadding: const EdgeInsets.all(10),
-                      //         fillColor: AppTheme.textBoxBackgroundColor,
-                      //         filled: true,
-                      //         labelText: "Enter your Password",
-                      //         // border: OutlineInputBorder(
-                      //         //     borderRadius: BorderRadius.only(
-                      //         //         topLeft: Radius.circular(10),
-                      //         //         topRight: Radius.circular(10))),
-                      //         prefixIcon: Container(
-                      //           width: 30,
-                      //           margin: const EdgeInsets.all(8),
-                      //           decoration: BoxDecoration(
-                      //             border: Border(
-                      //                 right: BorderSide(
-                      //                     color: Colors.grey.shade300)),
-                      //           ),
-                      //           child: Icon(
-                      //             Icons.lock_outline,
-                      //             color: AppTheme.primaryColor,
-                      //             size: MediaQuery.of(context).size.width * 0.06,
-                      //           ),
-                      //         ),
-                      //         suffixIcon: InkWell(
-                      //             onTap: () {
-                      //               setState(() {
-                      //                 eyeHide = !eyeHide;
-                      //               });
-                      //             },
-                      //             child: eyeHide == true
-                      //                 ? const Icon(Icons.remove_red_eye_outlined)
-                      //                 : const Icon(
-                      //                     Icons.visibility_off_outlined)),
-                      //         border: InputBorder.none,
-                      //         // hintText: 'Enter your number',
-                      //         hintStyle: TextStyle(
-                      //           color: Colors.grey[400],
-                      //           fontSize:
-                      //               MediaQuery.of(context).size.width * 0.040,
-                      //         ),
-                      //         focusColor: AppTheme.primaryColor,
-                      //         hoverColor: AppTheme.primaryColor),
-                      //     keyboardType: TextInputType.text,
-                      //     // controller: _numberController,
-                      //     cursorColor: AppTheme.primaryColor,
-                      //   ),
-                      // ),
                       CustomTextField(
                         obscureText: eyeHide,
                         controller: _passwordController,
@@ -401,9 +227,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 ? const Icon(Icons.remove_red_eye_outlined)
                                 : const Icon(Icons.visibility_off_outlined)),
                         keyboardType: TextInputType.text,
-                        validator:MultiValidator([
+                        validator: MultiValidator([
                           RequiredValidator(errorText: 'Enter a  password'),
-                          MinLengthValidator(8, errorText: "Minimum length is 8")
+                          MinLengthValidator(8,
+                              errorText: "Minimum length is 8")
                         ]),
                       ),
                       const SizedBox(
@@ -412,21 +239,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       const SizedBox(
                         height: 30,
                       ),
-                      // ElevatedButton(
-                      //     style: ElevatedButton.styleFrom(
-                      //         shape: const RoundedRectangleBorder(
-                      //             borderRadius:
-                      //                 BorderRadius.all(Radius.circular(5))),
-                      //         primary: AppTheme.primaryColor,
-                      //         padding: const EdgeInsets.symmetric(
-                      //             horizontal: 35, vertical: 15),
-                      //         textStyle:
-                      //             const TextStyle(fontWeight: FontWeight.bold)),
-                      //     onPressed: () {},
-                      //     child: const Text(
-                      //       "Sign up",
-                      //       style: TextStyle(fontWeight: FontWeight.bold),
-                      //     )),
                       CustomButton(
                         height: 50,
                         width: 150,
@@ -440,7 +252,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           }
                         },
                       ),
-
                       const SizedBox(
                         height: 25,
                       ),

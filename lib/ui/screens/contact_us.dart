@@ -7,7 +7,6 @@ import '../../res/theme/theme.dart';
 import '../widget/custom_button.dart';
 import '../widget/custom_text_field.dart';
 import 'app_routes/app_routes.dart';
-import 'home.dart';
 
 class ContactUsScreen extends StatefulWidget {
   const ContactUsScreen({Key? key}) : super(key: key);
@@ -78,8 +77,8 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                     height: 15,
                   ),
                   Row(
-                    children: [
-                      const Expanded(
+                    children: const [
+                      Expanded(
                           child: Text(
                         "Lorem Ipsum Dolor Sit Amet,Consectetur Adipiscing Elit,",
                         style: TextStyle(fontSize: 16),
@@ -99,46 +98,6 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                   const SizedBox(
                     height: 10,
                   ),
-                  // Material(
-                  //   elevation: 1,
-                  //   child: TextFormField(
-                  //     autofocus: false,
-                  //     decoration: InputDecoration(
-                  //         contentPadding: const EdgeInsets.all(10),
-                  //         fillColor: AppTheme.textBoxBackgroundColor,
-                  //         filled: true,
-                  //         labelText: "Your name",
-                  //         labelStyle: const TextStyle(color: AppTheme.textColor,fontSize: 12),
-                  //         // border: OutlineInputBorder(
-                  //         //     borderRadius: BorderRadius.only(
-                  //         //         topLeft: Radius.circular(10),
-                  //         //         topRight: Radius.circular(10))),
-                  //         prefixIcon: Container(
-                  //             width: 30,
-                  //             margin: const EdgeInsets.all(8),
-                  //             decoration: BoxDecoration(
-                  //               border: Border(
-                  //                   right:
-                  //                       BorderSide(color: Colors.grey.shade300)),
-                  //             ),
-                  //             child: Container(
-                  //               margin: const EdgeInsets.only(right: 8.0),
-                  //               child:
-                  //                  Icon(Icons.person_outline_rounded,color: AppTheme.primaryColor,)
-                  //             )),
-                  //         border: InputBorder.none,
-                  //         // hintText: 'Enter your number',
-                  //         hintStyle: TextStyle(
-                  //           color: Colors.grey[400],
-                  //           fontSize: MediaQuery.of(context).size.width * 0.040,
-                  //         ),
-                  //         focusColor: AppTheme.primaryColor,
-                  //         hoverColor: AppTheme.primaryColor),
-                  //     keyboardType: TextInputType.text,
-                  //     // controller: _numberController,
-                  //     cursorColor: AppTheme.primaryColor,
-                  //   ),
-                  // ),
                   CustomTextField(
                     controller: _nameController,
                     hintText: "Your name",
@@ -155,52 +114,9 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                   const SizedBox(
                     height: 20,
                   ),
-
                   const SizedBox(
                     height: 10,
                   ),
-                  // Material(
-                  //   elevation: 1,
-                  //   child: TextFormField(
-                  //     autofocus: false,
-                  //     decoration: InputDecoration(
-                  //         contentPadding: const EdgeInsets.all(10),
-                  //         fillColor: AppTheme.textBoxBackgroundColor,
-                  //         filled: true,
-                  //         labelText: "Email",
-                  //         labelStyle: const TextStyle(
-                  //             color: AppTheme.textColor, fontSize: 12),
-                  //         // border: OutlineInputBorder(
-                  //         //     borderRadius: BorderRadius.only(
-                  //         //         topLeft: Radius.circular(10),
-                  //         //         topRight: Radius.circular(10))),
-                  //         prefixIcon: Container(
-                  //             width: 30,
-                  //             margin: const EdgeInsets.all(8),
-                  //             decoration: BoxDecoration(
-                  //               border: Border(
-                  //                   right:
-                  //                       BorderSide(color: Colors.grey.shade300)),
-                  //             ),
-                  //             child: Container(
-                  //                 margin: const EdgeInsets.only(right: 8.0),
-                  //                 child: Icon(
-                  //                   Icons.email_outlined,
-                  //                   color: AppTheme.primaryColor,
-                  //                 ))),
-                  //         border: InputBorder.none,
-                  //         // hintText: 'Enter your number',
-                  //         hintStyle: TextStyle(
-                  //           color: Colors.grey[400],
-                  //           fontSize: MediaQuery.of(context).size.width * 0.040,
-                  //         ),
-                  //         focusColor: AppTheme.primaryColor,
-                  //         hoverColor: AppTheme.primaryColor),
-                  //     keyboardType: TextInputType.text,
-                  //     // controller: _numberController,
-                  //     cursorColor: AppTheme.primaryColor,
-                  //   ),
-                  // ),
                   CustomTextField(
                     controller: _emailController,
                     hintText: "Email",
@@ -212,58 +128,14 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                     validator: MultiValidator([
                       RequiredValidator(errorText: 'Enter a Email'),
                       EmailValidator(errorText: 'Enter a valid Email'),
-
                     ]),
                   ),
                   const SizedBox(
                     height: 20,
                   ),
-
                   const SizedBox(
                     height: 10,
                   ),
-                  // Material(
-                  //   elevation: 1,
-                  //   child: TextFormField(
-                  //     autofocus: false,
-                  //     decoration: InputDecoration(
-                  //         contentPadding: const EdgeInsets.all(10),
-                  //         fillColor: AppTheme.textBoxBackgroundColor,
-                  //         filled: true,
-                  //         labelText: "What do you tell us about?",
-                  //         labelStyle: const TextStyle(
-                  //             color: AppTheme.textColor, fontSize: 12),
-                  //         // border: OutlineInputBorder(
-                  //         //     borderRadius: BorderRadius.only(
-                  //         //         topLeft: Radius.circular(10),
-                  //         //         topRight: Radius.circular(10))),
-                  //         prefixIcon: Container(
-                  //             width: 30,
-                  //             margin: const EdgeInsets.all(8),
-                  //             decoration: BoxDecoration(
-                  //               border: Border(
-                  //                   right:
-                  //                       BorderSide(color: Colors.grey.shade300)),
-                  //             ),
-                  //             child: Container(
-                  //                 margin: const EdgeInsets.only(right: 8.0),
-                  //                 child: Icon(
-                  //                   Icons.message,
-                  //                   color: AppTheme.primaryColor,
-                  //                 ))),
-                  //         border: InputBorder.none,
-                  //         // hintText: 'Enter your number',
-                  //         hintStyle: TextStyle(
-                  //           color: Colors.grey[400],
-                  //           fontSize: MediaQuery.of(context).size.width * 0.040,
-                  //         ),
-                  //         focusColor: AppTheme.primaryColor,
-                  //         hoverColor: AppTheme.primaryColor),
-                  //     keyboardType: TextInputType.text,
-                  //     // controller: _numberController,
-                  //     cursorColor: AppTheme.primaryColor,
-                  //   ),
-                  // ),
                   CustomTextField(
                     controller: _dataController,
                     hintText: "What do you tell us about?",
@@ -272,34 +144,13 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                       color: AppTheme.primaryColor,
                     ),
                     keyboardType: TextInputType.text,
-                    validator:  MultiValidator([
+                    validator: MultiValidator([
                       RequiredValidator(errorText: 'Enter a text'),
-
-
                     ]),
                   ),
                   const SizedBox(
                     height: 40,
                   ),
-
-                  // Align(
-                  //   alignment: Alignment.center,
-                  //   child: ElevatedButton(
-                  //       style: ElevatedButton.styleFrom(
-                  //           shape: const RoundedRectangleBorder(
-                  //               borderRadius:
-                  //               BorderRadius.all(Radius.circular(5))),
-                  //           primary: AppTheme.primaryColor,
-                  //           padding: const EdgeInsets.symmetric(
-                  //               horizontal: 35, vertical: 15),
-                  //           textStyle:
-                  //           const TextStyle(fontWeight: FontWeight.bold)),
-                  //       onPressed: () {},
-                  //       child: const Text(
-                  //         "Save",
-                  //         style: TextStyle(fontWeight: FontWeight.bold),
-                  //       )),
-                  // ),
                   Align(
                     alignment: Alignment.center,
                     child: CustomButton(

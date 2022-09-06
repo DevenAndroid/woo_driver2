@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 
 import '../../res/theme/theme.dart';
 import 'app_routes/app_routes.dart';
-import 'home.dart';
 
 class LanguageScreen extends StatefulWidget {
   const LanguageScreen({Key? key}) : super(key: key);

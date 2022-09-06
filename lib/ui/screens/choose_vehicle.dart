@@ -15,13 +15,11 @@ class ChooseVehicleScreen extends StatefulWidget {
 }
 
 class _ChooseVehicleScreenState extends State<ChooseVehicleScreen> {
-
   List<VehiclsType> vehicls = [
     VehiclsType(title: "Scooter", image: "assets/images/Scooter.png"),
     VehiclsType(title: "Motor Cycle", image: "assets/images/Motor_Cycle.png"),
     VehiclsType(title: "Bicycle", image: "assets/images/Bicycle.png"),
   ];
-
 
   @override
   Widget build(BuildContext context) {
@@ -147,23 +145,7 @@ class _ChooseVehicleScreenState extends State<ChooseVehicleScreen> {
                       onPress: () {
                         Get.toNamed(MyRoutes.jobPreferencesScreen);
                       },
-                    )
-                    // ElevatedButton(
-                    //     style: ElevatedButton.styleFrom(
-                    //         shape: const RoundedRectangleBorder(
-                    //             borderRadius:
-                    //             BorderRadius.all(Radius.circular(5))),
-                    //         primary: AppTheme.primaryColor,
-                    //         padding: const EdgeInsets.symmetric(
-                    //             horizontal: 35, vertical: 15),
-                    //         textStyle:
-                    //         const TextStyle(fontWeight: FontWeight.bold)),
-                    //     onPressed: () {},
-                    //     child: const Text(
-                    //       " Continue ",
-                    //       style: TextStyle(fontWeight: FontWeight.w500,fontSize: 14),
-                    //     )),
-                    ),
+                    )),
               ],
             ),
           ),

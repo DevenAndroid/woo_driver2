@@ -22,7 +22,6 @@ class _ProfileDetailScreenState extends State<ProfileDetailScreen> {
 
   final _formKey = GlobalKey<FormState>();
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -104,48 +103,6 @@ class _ProfileDetailScreenState extends State<ProfileDetailScreen> {
                         const SizedBox(
                           height: 10,
                         ),
-                        // Material(
-                        //   elevation: 1,
-                        //   child: TextFormField(
-                        //     autofocus: false,
-                        //     decoration: InputDecoration(
-                        //         contentPadding: const EdgeInsets.all(10),
-                        //         fillColor: AppTheme.textBoxBackgroundColor,
-                        //         filled: true,
-                        //         labelText: "Enter your name",
-                        //         // border: OutlineInputBorder(
-                        //         //     borderRadius: BorderRadius.only(
-                        //         //         topLeft: Radius.circular(10),
-                        //         //         topRight: Radius.circular(10))),
-                        //         prefixIcon: Container(
-                        //           width: 30,
-                        //           margin: const EdgeInsets.all(8),
-                        //           decoration: BoxDecoration(
-                        //             border: Border(
-                        //                 right: BorderSide(
-                        //                     color: Colors.grey.shade300)),
-                        //           ),
-                        //           child: Icon(
-                        //             Icons.person_outline_rounded,
-                        //             color: AppTheme.primaryColor,
-                        //             size:
-                        //                 MediaQuery.of(context).size.width * 0.06,
-                        //           ),
-                        //         ),
-                        //         border: InputBorder.none,
-                        //         // hintText: 'Enter your number',
-                        //         hintStyle: TextStyle(
-                        //           color: Colors.grey[400],
-                        //           fontSize:
-                        //               MediaQuery.of(context).size.width * 0.040,
-                        //         ),
-                        //         focusColor: AppTheme.primaryColor,
-                        //         hoverColor: AppTheme.primaryColor),
-                        //     keyboardType: TextInputType.text,
-                        //     // controller: _numberController,
-                        //     cursorColor: AppTheme.primaryColor,
-                        //   ),
-                        // ),
                         CustomTextField(
                           controller: _firstNameController,
                           hintText: "Enter your name",
@@ -156,7 +113,8 @@ class _ProfileDetailScreenState extends State<ProfileDetailScreen> {
                           keyboardType: TextInputType.text,
                           validator: MultiValidator([
                             RequiredValidator(errorText: 'Enter a name'),
-                            MinLengthValidator(3, errorText: "Minimum length is 3")
+                            MinLengthValidator(3,
+                                errorText: "Minimum length is 3")
                           ]),
                         ),
                         const SizedBox(
@@ -169,48 +127,6 @@ class _ProfileDetailScreenState extends State<ProfileDetailScreen> {
                         const SizedBox(
                           height: 10,
                         ),
-                        // Material(
-                        //   elevation: 1,
-                        //   child: TextFormField(
-                        //     autofocus: false,
-                        //     decoration: InputDecoration(
-                        //         contentPadding: const EdgeInsets.all(10),
-                        //         fillColor: AppTheme.textBoxBackgroundColor,
-                        //         filled: true,
-                        //         labelText: "Enter your name",
-                        //         // border: OutlineInputBorder(
-                        //         //     borderRadius: BorderRadius.only(
-                        //         //         topLeft: Radius.circular(10),
-                        //         //         topRight: Radius.circular(10))),
-                        //         prefixIcon: Container(
-                        //           width: 30,
-                        //           margin: const EdgeInsets.all(8),
-                        //           decoration: BoxDecoration(
-                        //             border: Border(
-                        //                 right: BorderSide(
-                        //                     color: Colors.grey.shade300)),
-                        //           ),
-                        //           child: Icon(
-                        //             Icons.person_outline_rounded,
-                        //             color: AppTheme.primaryColor,
-                        //             size:
-                        //                 MediaQuery.of(context).size.width * 0.06,
-                        //           ),
-                        //         ),
-                        //         border: InputBorder.none,
-                        //         // hintText: 'Enter your number',
-                        //         hintStyle: TextStyle(
-                        //           color: Colors.grey[400],
-                        //           fontSize:
-                        //               MediaQuery.of(context).size.width * 0.040,
-                        //         ),
-                        //         focusColor: AppTheme.primaryColor,
-                        //         hoverColor: AppTheme.primaryColor),
-                        //     keyboardType: TextInputType.text,
-                        //     // controller: _numberController,
-                        //     cursorColor: AppTheme.primaryColor,
-                        //   ),
-                        // ),
                         CustomTextField(
                           controller: _lastNameController,
                           hintText: "Enter your name",
@@ -221,8 +137,8 @@ class _ProfileDetailScreenState extends State<ProfileDetailScreen> {
                           keyboardType: TextInputType.text,
                           validator: MultiValidator([
                             RequiredValidator(errorText: 'Enter a last name'),
-                            MinLengthValidator(3, errorText: "Minimum length is 3"),
-
+                            MinLengthValidator(3,
+                                errorText: "Minimum length is 3"),
                           ]),
                         )
                       ],
@@ -234,7 +150,6 @@ class _ProfileDetailScreenState extends State<ProfileDetailScreen> {
                   Align(
                     alignment: Alignment.center,
                     child: CustomButton(
-
                       buttonText: " Continue ",
                       onPress: () {
                         if (_formKey.currentState!.validate()) {
@@ -243,32 +158,12 @@ class _ProfileDetailScreenState extends State<ProfileDetailScreen> {
                             const SnackBar(content: Text('Processing Data')),
                           );
                         }
-
                       },
                     ),
                   ),
                   const SizedBox(
                     height: 30,
                   )
-                  // Align(
-                  //   alignment: Alignment.center,
-                  //   child: ElevatedButton(
-                  //       style: ElevatedButton.styleFrom(
-                  //           shape: const RoundedRectangleBorder(
-                  //               borderRadius:
-                  //               BorderRadius.all(Radius.circular(5))),
-                  //           primary: AppTheme.primaryColor,
-                  //           padding: const EdgeInsets.symmetric(
-                  //               horizontal: 35, vertical: 15),
-                  //           textStyle:
-                  //           const TextStyle(fontWeight: FontWeight.bold)),
-                  //       onPressed: () {},
-                  //       child: const Text(
-                  //         " Continue ",
-                  //         style: TextStyle(
-                  //             fontWeight: FontWeight.w500, fontSize: 14),
-                  //       )),
-                  // ),
                 ],
               ),
             ),

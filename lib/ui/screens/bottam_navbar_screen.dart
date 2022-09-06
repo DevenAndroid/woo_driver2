@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:woo_driver/ui/screens/profile.dart';
-import 'package:woo_driver/ui/screens/profile_detail.dart';
 import 'package:woo_driver/ui/screens/wallet_history.dart';
 
 import '../../res/theme/theme.dart';

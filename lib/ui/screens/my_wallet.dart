@@ -13,17 +13,6 @@ class MyWalletScreen extends StatefulWidget {
 }
 
 class _MyWalletScreenState extends State<MyWalletScreen> {
-// var time = "";
-// var format = DateFormat.yMd('yyyy, MMMM, dd');
-//   @override
-//   void initState() {
-//     super.initState();
-//     print(DateTime.now());
-//     var time1 = DateTime.now();
-//     time = format.format(DateTime.now());
-//     print(time);
-//   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,37 +49,6 @@ class _MyWalletScreenState extends State<MyWalletScreen> {
                   fontSize: 16),
             ),
           )),
-      // bottomNavigationBar: BottomAppBar(
-      //     shape: const AutomaticNotchedShape(RoundedRectangleBorder(
-      //         borderRadius: BorderRadius.only(
-      //       topLeft: Radius.circular(15),
-      //       topRight: Radius.circular(15),
-      //     ))),
-      //     color: AppTheme.primaryColor,
-      //     child: Container(
-      //       margin: const EdgeInsets.only(right: 15),
-      //       child: Row(
-      //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      //         children: <Widget>[
-      //           Image.asset(
-      //             "assets/images/home.png",
-      //             color: AppTheme.appBackgroundColor,
-      //           ),
-      //           Image.asset(
-      //             "assets/images/wallet.png",
-      //             color: AppTheme.appBackgroundColor,
-      //           ),
-      //           Image.asset(
-      //             "assets/images/history.png",
-      //             color: AppTheme.appBackgroundColor,
-      //           ),
-      //           Image.asset(
-      //             "assets/images/menu.png",
-      //             color: AppTheme.appBackgroundColor,
-      //           )
-      //         ],
-      //       ),
-      //     )),
       body: Container(
         color: const Color(0xfff1f1f1),
         padding: const EdgeInsets.all(10),
@@ -177,22 +135,6 @@ class _MyWalletScreenState extends State<MyWalletScreen> {
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                               color: AppTheme.appBackgroundColor),
-
-                          // ListTile(
-                          //   leading: Image.asset(
-                          //     'assets/images/human2.png',
-                          //   ),
-                          //   title: const Text(
-                          //     "Ian Somerhalder",
-                          //     style: TextStyle(fontSize: 14),
-                          //   ),
-                          //   subtitle: const Text(
-                          //     "22:21, 21 sept 2021",
-                          //     style: TextStyle(fontSize: 12),
-                          //   ),
-                          //   trailing: const ,
-                          // )
-
                           child: Row(
                             children: [
                               Image.asset("assets/images/human2.png"),

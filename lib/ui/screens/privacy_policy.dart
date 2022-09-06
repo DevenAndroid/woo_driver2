@@ -1,11 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import '../../res/theme/theme.dart';
 import 'app_routes/app_routes.dart';
-import 'home.dart';
 
 class PrivacyPolicyScreen extends StatefulWidget {
   const PrivacyPolicyScreen({Key? key}) : super(key: key);
@@ -76,8 +74,8 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
                       children: [
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Padding(
+                          children: const [
+                            Padding(
                               padding: EdgeInsets.only(top: 5),
                               child: Icon(
                                 Icons.circle,
@@ -85,11 +83,11 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
                                 color: AppTheme.primaryColor,
                               ),
                             ),
-                            const SizedBox(
+                            SizedBox(
                               width: 10,
                             ),
-                            const Expanded(
-                              child: const Text(
+                            Expanded(
+                              child: Text(
                                 "Lorem Ipsum Dolor Sit Amet,Consectetur Adipiscing Elit,",
                                 style: TextStyle(
                                     fontSize: 16, color: Color(0xff707070)),

@@ -44,7 +44,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       uploadCertificate1 = await FilePicker.platform.pickFiles(
           type: FileType.custom,
           allowMultiple: false,
-          allowedExtensions: ['jpg', 'jpeg', 'png',]);
+          allowedExtensions: [
+            'jpg',
+            'jpeg',
+            'png',
+          ]);
       if (uploadCertificate1 != null) {
         uploadcertificateFileName1 = uploadCertificate1!.files.first.name;
         uploadcertificatePickedFile1 = uploadCertificate1!.files.first;
@@ -137,11 +141,12 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                   margin: const EdgeInsets.all(30),
                                   height:
                                       MediaQuery.of(context).size.height * .15,
-                                  width: MediaQuery.of(context).size.width * .32,
+                                  width:
+                                      MediaQuery.of(context).size.width * .32,
                                   padding: const EdgeInsets.all(10),
                                   decoration: BoxDecoration(
                                       color: AppTheme.appBackgroundColor,
-                                      borderRadius: BorderRadius.circular(100 ),
+                                      borderRadius: BorderRadius.circular(100),
                                       image: DecorationImage(
                                           fit: BoxFit.cover,
                                           image: FileImage(
@@ -152,7 +157,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                           blurRadius: 10.0,
                                         ),
                                       ]),
-                                  child: SizedBox(
+                                  child: const SizedBox(
                                     height: 50,
                                   ),
                                 ),
@@ -204,46 +209,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       const SizedBox(
                         height: 10,
                       ),
-                      // Material(
-                      //   elevation: 1,
-                      //   child: TextFormField(
-                      //     autofocus: false,
-                      //     decoration: InputDecoration(
-                      //         contentPadding: const EdgeInsets.all(10),
-                      //         fillColor: AppTheme.textBoxBackgroundColor,
-                      //         filled: true,
-                      //         labelText: "Enter your name",
-                      //         labelStyle: const TextStyle(color: AppTheme.textColor),
-                      //         // border: OutlineInputBorder(
-                      //         //     borderRadius: BorderRadius.only(
-                      //         //         topLeft: Radius.circular(10),
-                      //         //         topRight: Radius.circular(10))),
-                      //         prefixIcon: Container(
-                      //           width: 30,
-                      //           margin: const EdgeInsets.all(8),
-                      //           decoration: BoxDecoration(
-                      //             border: Border(
-                      //                 right: BorderSide(color: Colors.grey.shade300)),
-                      //           ),
-                      //           child: Icon(
-                      //             Icons.person_outline_rounded,
-                      //             color: AppTheme.primaryColor,
-                      //             size: MediaQuery.of(context).size.width * 0.06,
-                      //           ),
-                      //         ),
-                      //         border: InputBorder.none,
-                      //         // hintText: 'Enter your number',
-                      //         hintStyle: TextStyle(
-                      //           color: Colors.grey[400],
-                      //           fontSize: MediaQuery.of(context).size.width * 0.040,
-                      //         ),
-                      //         focusColor: AppTheme.primaryColor,
-                      //         hoverColor: AppTheme.primaryColor),
-                      //     keyboardType: TextInputType.text,
-                      //     // controller: _numberController,
-                      //     cursorColor: AppTheme.primaryColor,
-                      //   ),
-                      // ),
                       CustomTextField(
                         controller: _nameController,
                         hintText: "Enter your name",
@@ -258,7 +223,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                               errorText: "Minimum length is 3"),
                         ]),
                       ),
-
                       const SizedBox(
                         height: 10,
                       ),
@@ -273,46 +237,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       const SizedBox(
                         height: 10,
                       ),
-                      // Material(
-                      //   elevation: 1,
-                      //   child: TextFormField(
-                      //     autofocus: false,
-                      //     decoration: InputDecoration(
-                      //         contentPadding: const EdgeInsets.all(10),
-                      //         fillColor: AppTheme.textBoxBackgroundColor,
-                      //         filled: true,
-                      //         labelText: "Enter your email",
-                      //         labelStyle: const TextStyle(color: AppTheme.textColor),
-                      //         // border: OutlineInputBorder(
-                      //         //     borderRadius: BorderRadius.only(
-                      //         //         topLeft: Radius.circular(10),
-                      //         //         topRight: Radius.circular(10))),
-                      //         prefixIcon: Container(
-                      //           width: 30,
-                      //           margin: const EdgeInsets.all(8),
-                      //           decoration: BoxDecoration(
-                      //             border: Border(
-                      //                 right: BorderSide(color: Colors.grey.shade300)),
-                      //           ),
-                      //           child: Icon(
-                      //             Icons.mail_outline_rounded,
-                      //             color: AppTheme.primaryColor,
-                      //             size: MediaQuery.of(context).size.width * 0.06,
-                      //           ),
-                      //         ),
-                      //         border: InputBorder.none,
-                      //         // hintText: 'Enter your number',
-                      //         hintStyle: TextStyle(
-                      //           color: Colors.grey[400],
-                      //           fontSize: MediaQuery.of(context).size.width * 0.040,
-                      //         ),
-                      //         focusColor: AppTheme.primaryColor,
-                      //         hoverColor: AppTheme.primaryColor),
-                      //     keyboardType: TextInputType.emailAddress,
-                      //     // controller: _numberController,
-                      //     cursorColor: AppTheme.primaryColor,
-                      //   ),
-                      // ),
                       CustomTextField(
                         controller: _emailController,
                         hintText: "Enter your email",
@@ -326,7 +250,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                           EmailValidator(errorText: 'Enter a valid Email'),
                         ]),
                       ),
-
                       const SizedBox(
                         height: 10,
                       ),
@@ -341,47 +264,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       const SizedBox(
                         height: 10,
                       ),
-                      // Material(
-                      //   elevation: 1,
-                      //   child: TextFormField(
-                      //     autofocus: false,
-                      //     decoration: InputDecoration(
-                      //         contentPadding: const EdgeInsets.all(10),
-                      //         fillColor: AppTheme.textBoxBackgroundColor,
-                      //         filled: true,
-                      //         labelText: "Enter your mobile number",
-                      //         labelStyle: const TextStyle(color: AppTheme.textColor),
-                      //         // border: OutlineInputBorder(
-                      //         //     borderRadius: BorderRadius.only(
-                      //         //         topLeft: Radius.circular(10),
-                      //         //         topRight: Radius.circular(10))),
-                      //         prefixIcon: Container(
-                      //           width: 30,
-                      //           margin: const EdgeInsets.all(8),
-                      //           decoration: BoxDecoration(
-                      //             border: Border(
-                      //                 right: BorderSide(color: Colors.grey.shade300)),
-                      //           ),
-                      //           child: Icon(
-                      //             Icons.phone,
-                      //             color: AppTheme.primaryColor,
-                      //             size: MediaQuery.of(context).size.width * 0.06,
-                      //           ),
-                      //         ),
-                      //         border: InputBorder.none,
-                      //         // hintText: 'Enter your number',
-                      //         hintStyle: TextStyle(
-                      //           color: Colors.grey[400],
-                      //           fontSize: MediaQuery.of(context).size.width * 0.040,
-                      //         ),
-                      //         focusColor: AppTheme.primaryColor,
-                      //         hoverColor: AppTheme.primaryColor),
-                      //     keyboardType: TextInputType.number,
-                      //     // controller: _numberController,
-                      //     cursorColor: AppTheme.primaryColor,
-                      //   ),
-                      // ),
-
                       CustomTextField(
                         inputFormatters: [
                           FilteringTextInputFormatter.digitsOnly
@@ -401,7 +283,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                               errorText: 'Maximum numbers length is 15')
                         ]),
                       ),
-
                       const SizedBox(
                         height: 10,
                       ),
@@ -416,47 +297,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       const SizedBox(
                         height: 10,
                       ),
-                      // Material(
-                      //   elevation: 1,
-                      //   child: TextFormField(
-                      //     autofocus: false,
-                      //     decoration: InputDecoration(
-                      //         contentPadding: const EdgeInsets.all(10),
-                      //         fillColor: AppTheme.textBoxBackgroundColor,
-                      //         filled: true,
-                      //         labelText: "Total customer",
-                      //         labelStyle: const TextStyle(color: AppTheme.textColor),
-                      //         // border: OutlineInputBorder(
-                      //         //     borderRadius: BorderRadius.only(
-                      //         //         topLeft: Radius.circular(10),
-                      //         //         topRight: Radius.circular(10))),
-                      //         prefixIcon: Container(
-                      //           width: 30,
-                      //           margin: const EdgeInsets.all(8),
-                      //           decoration: BoxDecoration(
-                      //             border: Border(
-                      //                 right: BorderSide(color: Colors.grey.shade300)),
-                      //           ),
-                      //           child: Icon(
-                      //             Icons.people_sharp,
-                      //             color: AppTheme.primaryColor,
-                      //             size: MediaQuery.of(context).size.width * 0.06,
-                      //           ),
-                      //         ),
-                      //         border: InputBorder.none,
-                      //         // hintText: 'Enter your number',
-                      //         hintStyle: TextStyle(
-                      //           color: Colors.grey[400],
-                      //           fontSize: MediaQuery.of(context).size.width * 0.040,
-                      //         ),
-                      //         focusColor: AppTheme.primaryColor,
-                      //         hoverColor: AppTheme.primaryColor),
-                      //     keyboardType: TextInputType.number,
-                      //     // controller: _numberController,
-                      //     cursorColor: AppTheme.primaryColor,
-                      //   ),
-                      // ),
-
                       CustomTextField(
                         inputFormatters: [
                           FilteringTextInputFormatter.digitsOnly
@@ -476,7 +316,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                               errorText: 'Maximum numbers length is 4')
                         ]),
                       ),
-
                       const SizedBox(
                         height: 10,
                       ),
@@ -491,46 +330,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       const SizedBox(
                         height: 10,
                       ),
-                      // Material(
-                      //   elevation: 1,
-                      //   child: TextFormField(
-                      //     autofocus: false,
-                      //     decoration: InputDecoration(
-                      //         contentPadding: const EdgeInsets.all(10),
-                      //         fillColor: AppTheme.textBoxBackgroundColor,
-                      //         filled: true,
-                      //         labelText: "Experience Year",
-                      //         labelStyle: const TextStyle(color: AppTheme.textColor),
-                      //         // border: OutlineInputBorder(
-                      //         //     borderRadius: BorderRadius.only(
-                      //         //         topLeft: Radius.circular(10),
-                      //         //         topRight: Radius.circular(10))),
-                      //         prefixIcon: Container(
-                      //           width: 30,
-                      //           margin: const EdgeInsets.all(8),
-                      //           decoration: BoxDecoration(
-                      //             border: Border(
-                      //                 right: BorderSide(color: Colors.grey.shade300)),
-                      //           ),
-                      //           child: Icon(
-                      //             Icons.work,
-                      //             color: AppTheme.primaryColor,
-                      //             size: MediaQuery.of(context).size.width * 0.06,
-                      //           ),
-                      //         ),
-                      //         border: InputBorder.none,
-                      //         // hintText: 'Enter your number',
-                      //         hintStyle: TextStyle(
-                      //           color: Colors.grey[400],
-                      //           fontSize: MediaQuery.of(context).size.width * 0.040,
-                      //         ),
-                      //         focusColor: AppTheme.primaryColor,
-                      //         hoverColor: AppTheme.primaryColor),
-                      //     keyboardType: TextInputType.number,
-                      //     // controller: _numberController,
-                      //     cursorColor: AppTheme.primaryColor,
-                      //   ),
-                      // ),
                       CustomTextField(
                         inputFormatters: [
                           FilteringTextInputFormatter.digitsOnly
@@ -554,21 +353,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 const SizedBox(
                   height: 20,
                 ),
-                // ElevatedButton(
-                //     style: ElevatedButton.styleFrom(
-                //         shape: const RoundedRectangleBorder(
-                //             borderRadius:
-                //             BorderRadius.all(Radius.circular(5))),
-                //         primary: AppTheme.primaryColor,
-                //         padding: const EdgeInsets.symmetric(
-                //             horizontal: 35, vertical: 15),
-                //         textStyle:
-                //         const TextStyle(fontWeight: FontWeight.bold)),
-                //     onPressed: () {},
-                //     child: const Text(
-                //       "Save changes",
-                //       style: TextStyle(fontWeight: FontWeight.bold),
-                //     )),
                 Align(
                   alignment: Alignment.center,
                   child: CustomButton(

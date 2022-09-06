@@ -45,7 +45,7 @@ class _OtpScreenState extends State<OtpScreen> {
               ),
             ),
             Positioned(
-              top: MediaQuery.of(context).size.height*.14,
+              top: MediaQuery.of(context).size.height * .14,
               bottom: 0,
               right: 0,
               left: 0,
@@ -87,11 +87,9 @@ class _OtpScreenState extends State<OtpScreen> {
                         'We have sent an OTP on +91 99845 45698',
                         textAlign: TextAlign.center,
                       ),
-
                       const SizedBox(
                         height: 30,
                       ),
-
                       OtpTextField(
                         focusedBorderColor: AppTheme.primaryColor,
                         borderRadius:
@@ -106,43 +104,12 @@ class _OtpScreenState extends State<OtpScreen> {
                         //runs when a code is typed in
                         onCodeChanged: (String code) {
                           otpController = code;
-                          // if (code.isEmpty) {
-                          //   showDialog(
-                          //       context: context,
-                          //       builder: (context) {
-                          //         return const AboutDialog(
-                          //           children: [Text("Field is required!")],
-                          //         );
-                          //       });
-                          // }
-
-                          //handle validation or checks here
                         },
                         //runs when every textfield is filled
                         onSubmit: (String code) {
                           otpController = code;
-                          // if (verificationCode!.isEmpty) {
-                          //   showDialog(
-                          //       context: context,
-                          //       builder: (context) {
-                          //         return const AboutDialog(
-                          //           children: [Text("Field is required!")],
-                          //         );
-                          //       });
-                          // } else {
-                          //   showDialog(
-                          //       context: context,
-                          //       builder: (context) {
-                          //         return AlertDialog(
-                          //           title: const Text("Verification Code"),
-                          //           content: Text(
-                          //               'Code entered is $verificationCode'),
-                          //         );
-                          //       });
-                          // }
                         }, // end onSubmit
                       ),
-
                       const SizedBox(
                         height: 25,
                       ),
@@ -159,21 +126,6 @@ class _OtpScreenState extends State<OtpScreen> {
                       const SizedBox(
                         height: 30,
                       ),
-                      // ElevatedButton(
-                      //     style: ElevatedButton.styleFrom(
-                      //         shape: const RoundedRectangleBorder(
-                      //             borderRadius:
-                      //                 BorderRadius.all(Radius.circular(5))),
-                      //         primary: AppTheme.primaryColor,
-                      //         padding: const EdgeInsets.symmetric(
-                      //             horizontal: 35, vertical: 15),
-                      //         textStyle:
-                      //             const TextStyle(fontWeight: FontWeight.bold)),
-                      //     onPressed: () {},
-                      //     child: const Text(
-                      //       "Verify & Proceed",
-                      //       style: TextStyle(fontWeight: FontWeight.bold),
-                      //     )),
                       CustomButton(
                           buttonText: "Verify & Proceed",
                           onPress: () {

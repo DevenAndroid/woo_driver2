@@ -202,48 +202,6 @@ class _DocumentScreenState extends State<DocumentScreen> {
                       ]),
                   child: Column(
                     children: [
-                      // Material(
-                      //   elevation: 1,
-                      //   child: TextFormField(
-                      //     autofocus: false,
-                      //     decoration: InputDecoration(
-                      //         contentPadding: const EdgeInsets.all(10),
-                      //         fillColor: AppTheme.textBoxBackgroundColor,
-                      //         filled: true,
-                      //         labelText: "Model name",
-                      //         labelStyle: const TextStyle(color: AppTheme.textColor),
-                      //         // border: OutlineInputBorder(
-                      //         //     borderRadius: BorderRadius.only(
-                      //         //         topLeft: Radius.circular(10),
-                      //         //         topRight: Radius.circular(10))),
-                      //         prefixIcon: Container(
-                      //           width: 30,
-                      //           margin: const EdgeInsets.all(8),
-                      //           decoration: BoxDecoration(
-                      //             border: Border(
-                      //                 right: BorderSide(
-                      //                     color: Colors.grey.shade300)),
-                      //           ),
-                      //           child: Container(
-                      //             margin: const EdgeInsets.only(right: 8.0),
-                      //             child: Image.asset("assets/images/motorcycle.png"),
-                      //           )
-                      //
-                      //         ),
-                      //         border: InputBorder.none,
-                      //         // hintText: 'Enter your number',
-                      //         hintStyle: TextStyle(
-                      //           color: Colors.grey[400],
-                      //           fontSize:
-                      //           MediaQuery.of(context).size.width * 0.040,
-                      //         ),
-                      //         focusColor: AppTheme.primaryColor,
-                      //         hoverColor: AppTheme.primaryColor),
-                      //     keyboardType: TextInputType.text,
-                      //     // controller: _numberController,
-                      //     cursorColor: AppTheme.primaryColor,
-                      //   ),
-                      // ),
                       CustomTextField(
                         controller: _nameController,
                         hintText: "Model name",
@@ -257,53 +215,9 @@ class _DocumentScreenState extends State<DocumentScreen> {
                               errorText: "Minimum length is 3"),
                         ]),
                       ),
-
                       const SizedBox(
                         height: 20,
                       ),
-                      // Material(
-                      //   elevation: 1,
-                      //   child: TextFormField(
-                      //     autofocus: false,
-                      //     decoration: InputDecoration(
-                      //         contentPadding: const EdgeInsets.all(10),
-                      //         fillColor: AppTheme.textBoxBackgroundColor,
-                      //         filled: true,
-                      //         labelText: "Vehicle Number",
-                      //         labelStyle: const TextStyle(color: AppTheme.textColor),
-                      //         // border: OutlineInputBorder(
-                      //         //     borderRadius: BorderRadius.only(
-                      //         //         topLeft: Radius.circular(10),
-                      //         //         topRight: Radius.circular(10))),
-                      //         prefixIcon: Container(
-                      //             width: 30,
-                      //             margin: const EdgeInsets.all(8),
-                      //             decoration: BoxDecoration(
-                      //               border: Border(
-                      //                   right: BorderSide(
-                      //                       color: Colors.grey.shade300)),
-                      //             ),
-                      //             child: Container(
-                      //               margin: const EdgeInsets.only(right: 8.0),
-                      //               child: Image.asset("assets/images/car.png"),
-                      //             )
-                      //
-                      //         ),
-                      //         border: InputBorder.none,
-                      //         // hintText: 'Enter your number',
-                      //         hintStyle: TextStyle(
-                      //           color: Colors.grey[400],
-                      //           fontSize:
-                      //           MediaQuery.of(context).size.width * 0.040,
-                      //         ),
-                      //         focusColor: AppTheme.primaryColor,
-                      //         hoverColor: AppTheme.primaryColor),
-                      //     keyboardType: TextInputType.text,
-                      //     // controller: _numberController,
-                      //     cursorColor: AppTheme.primaryColor,
-                      //   ),
-                      // ),
-
                       CustomTextField(
                         controller: _numberController,
                         hintText: "Vehicle Number",
@@ -316,50 +230,6 @@ class _DocumentScreenState extends State<DocumentScreen> {
                       const SizedBox(
                         height: 20,
                       ),
-                      // Material(
-                      //   elevation: 1,
-                      //   child: TextFormField(
-                      //     autofocus: false,
-                      //     decoration: InputDecoration(
-                      //         contentPadding: const EdgeInsets.all(10),
-                      //         fillColor: AppTheme.textBoxBackgroundColor,
-                      //         filled: true,
-                      //         labelText: "Registration year",
-                      //         labelStyle: const TextStyle(color: AppTheme.textColor),
-                      //         // border: OutlineInputBorder(
-                      //         //     borderRadius: BorderRadius.only(
-                      //         //         topLeft: Radius.circular(10),
-                      //         //         topRight: Radius.circular(10))),
-                      //         prefixIcon: Container(
-                      //             width: 30,
-                      //             margin: const EdgeInsets.all(8),
-                      //             decoration: BoxDecoration(
-                      //               border: Border(
-                      //                   right: BorderSide(
-                      //                       color: Colors.grey.shade300)),
-                      //             ),
-                      //             child: Container(
-                      //               margin: const EdgeInsets.only(right: 8.0),
-                      //               child: Icon(Icons.calendar_month_outlined,color: AppTheme.primaryColor,
-                      //                 size: MediaQuery.of(context).size.width * 0.06,
-                      //               )
-                      //             )
-                      //
-                      //         ),
-                      //         border: InputBorder.none,
-                      //         // hintText: 'Enter your number',
-                      //         hintStyle: TextStyle(
-                      //           color: Colors.grey[400],
-                      //           fontSize:
-                      //           MediaQuery.of(context).size.width * 0.040,
-                      //         ),
-                      //         focusColor: AppTheme.primaryColor,
-                      //         hoverColor: AppTheme.primaryColor),
-                      //     keyboardType: TextInputType.number,
-                      //     // controller: _numberController,
-                      //     cursorColor: AppTheme.primaryColor,
-                      //   ),
-                      // ),
                       CustomTextField(
                         inputFormatters: [
                           FilteringTextInputFormatter.digitsOnly
@@ -395,49 +265,6 @@ class _DocumentScreenState extends State<DocumentScreen> {
                       const SizedBox(
                         height: 20,
                       ),
-                      // Material(
-                      //   elevation: 1,
-                      //   child: TextFormField(
-                      //     autofocus: false,
-                      //     decoration: InputDecoration(
-                      //         contentPadding: const EdgeInsets.all(10),
-                      //         fillColor: AppTheme.textBoxBackgroundColor,
-                      //         filled: true,
-                      //         labelText: "Experience Year",
-                      //         labelStyle: const TextStyle(color: AppTheme.textColor),
-                      //         // border: OutlineInputBorder(
-                      //         //     borderRadius: BorderRadius.only(
-                      //         //         topLeft: Radius.circular(10),
-                      //         //         topRight: Radius.circular(10))),
-                      //         prefixIcon: Container(
-                      //             width: 30,
-                      //             margin: const EdgeInsets.all(8),
-                      //             decoration: BoxDecoration(
-                      //               border: Border(
-                      //                   right: BorderSide(
-                      //                       color: Colors.grey.shade300)),
-                      //             ),
-                      //             child: Container(
-                      //               margin: const EdgeInsets.only(right: 8.0),
-                      //               child: Image.asset("assets/images/brifecase.png"),
-                      //             )
-                      //
-                      //         ),
-                      //         border: InputBorder.none,
-                      //         // hintText: 'Enter your number',
-                      //         hintStyle: TextStyle(
-                      //           color: Colors.grey[400],
-                      //           fontSize:
-                      //           MediaQuery.of(context).size.width * 0.040,
-                      //         ),
-                      //         focusColor: AppTheme.primaryColor,
-                      //         hoverColor: AppTheme.primaryColor),
-                      //     keyboardType: TextInputType.text,
-                      //     // controller: _numberController,
-                      //     cursorColor: AppTheme.primaryColor,
-                      //   ),
-                      // ),
-
                       CustomTextField(
                         inputFormatters: [
                           FilteringTextInputFormatter.digitsOnly
@@ -458,7 +285,6 @@ class _DocumentScreenState extends State<DocumentScreen> {
                       const SizedBox(
                         height: 20,
                       ),
-
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -466,9 +292,9 @@ class _DocumentScreenState extends State<DocumentScreen> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
+                              const Text(
                                 "Rc",
-                                style: const TextStyle(
+                                style: TextStyle(
                                     fontSize: 16, fontWeight: FontWeight.w500),
                               ),
                               const SizedBox(
@@ -570,7 +396,7 @@ class _DocumentScreenState extends State<DocumentScreen> {
                             children: [
                               const Text(
                                 "Insurance",
-                                style: const TextStyle(
+                                style: TextStyle(
                                     fontSize: 16, fontWeight: FontWeight.w500),
                               ),
                               const SizedBox(
@@ -674,21 +500,6 @@ class _DocumentScreenState extends State<DocumentScreen> {
                 const SizedBox(
                   height: 20,
                 ),
-                // ElevatedButton(
-                //     style: ElevatedButton.styleFrom(
-                //         shape: const RoundedRectangleBorder(
-                //             borderRadius:
-                //             BorderRadius.all(Radius.circular(10))),
-                //         primary: AppTheme.primaryColor,
-                //         padding: const EdgeInsets.symmetric(
-                //             horizontal: 45, vertical: 15),
-                //         textStyle:
-                //         const TextStyle(fontWeight: FontWeight.bold)),
-                //     onPressed: () {},
-                //     child: const Text(
-                //       "Save",
-                //       style: TextStyle(fontWeight: FontWeight.bold),
-                //     )),
                 Align(
                   alignment: Alignment.center,
                   child: CustomButton(

@@ -5,7 +5,6 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:im_stepper/stepper.dart';
-import 'package:woo_driver/ui/widget/custom_bottom_navigationbar.dart';
 
 import '../../res/theme/theme.dart';
 import '../widget/custom_button.dart';
@@ -41,12 +40,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Completer<GoogleMapController> _controller = Completer();
 
-  static final CameraPosition _kGooglePlex = const CameraPosition(
+  static const CameraPosition _kGooglePlex = CameraPosition(
     target: LatLng(26.9112472, 75.7296486),
     zoom: 14.4746,
   );
 
-  static final CameraPosition _kLake = const CameraPosition(
+  static const CameraPosition _kLake = CameraPosition(
       bearing: 192.8334901395799,
       target: LatLng(26.9112472, 75.7296486),
       tilt: 59.440717697143555,
@@ -102,38 +101,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ],
           )),
-      // bottomNavigationBar: CustomBottomNavigationBar(),
-      // BottomAppBar(
-      //     shape: const AutomaticNotchedShape(RoundedRectangleBorder(
-      //         borderRadius: BorderRadius.only(
-      //       topLeft: Radius.circular(15),
-      //       topRight: Radius.circular(15),
-      //     ))),
-      //     color: AppTheme.primaryColor,
-      //     child: Container(
-      //       margin: const EdgeInsets.only(right: 15),
-      //       child: Row(
-      //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      //         children: <Widget>[
-      //           Image.asset(
-      //             "assets/images/home.png",
-      //             color: AppTheme.appBackgroundColor,
-      //           ),
-      //           Image.asset(
-      //             "assets/images/wallet.png",
-      //             color: AppTheme.appBackgroundColor,
-      //           ),
-      //           Image.asset(
-      //             "assets/images/history.png",
-      //             color: AppTheme.appBackgroundColor,
-      //           ),
-      //           Image.asset(
-      //             "assets/images/menu.png",
-      //             color: AppTheme.appBackgroundColor,
-      //           )
-      //         ],
-      //       ),
-      //     )),
       body: SizedBox(
         // height: MediaQuery.of(context).size.height-MediaQuery.of(context).size.height * .11-100,
         width: MediaQuery.of(context).size.width,
@@ -151,73 +118,116 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Container(
             child: acceptOrder == true
-                ? Container(
-                    child: Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Container(
-                          margin: const EdgeInsets.all(30),
-                          padding: const EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: AppTheme.appBackgroundColor,
-                          ),
-                          height: MediaQuery.of(context).size.height * .23,
-                          width: MediaQuery.of(context).size.width,
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  const Text(
-                                    "Yesterday",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 16),
-                                  ),
-                                  Row(
-                                    children: [
-                                      const Text(
-                                        "Online",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 16,
-                                            color: AppTheme.primaryColor),
+                ? Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Container(
+                        margin: const EdgeInsets.all(30),
+                        padding: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: AppTheme.appBackgroundColor,
+                        ),
+                        height: MediaQuery.of(context).size.height * .23,
+                        width: MediaQuery.of(context).size.width,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                const Text(
+                                  "Yesterday",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 16),
+                                ),
+                                Row(
+                                  children: [
+                                    const Text(
+                                      "Online",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 16,
+                                          color: AppTheme.primaryColor),
+                                    ),
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
+                                    Switch(
+                                      activeColor: AppTheme.primaryColor,
+                                      value: isSwitched,
+                                      onChanged: toggleSwitch,
+                                    )
+                                  ],
+                                ),
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            Expanded(
+                              child: SingleChildScrollView(
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: const [
+                                        Text(
+                                          "Money Earned",
+                                          style: TextStyle(fontSize: 12),
+                                        ),
+                                        SizedBox(
+                                          height: 5,
+                                        ),
+                                        Text("\$200",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 14,
+                                                color: AppTheme.primaryColor)),
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        Text(
+                                          "Total Distance",
+                                          style: TextStyle(fontSize: 12),
+                                        ),
+                                        SizedBox(
+                                          height: 5,
+                                        ),
+                                        Text("137 km",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 14,
+                                                color: AppTheme.primaryColor)),
+                                      ],
+                                    ),
+                                    const Align(
+                                      alignment: Alignment.center,
+                                      child: SizedBox(
+                                        height: 80,
+                                        child: VerticalDivider(
+                                          thickness: 2,
+                                          color: AppTheme.dividerColor,
+                                        ),
                                       ),
-                                      const SizedBox(
-                                        width: 10,
-                                      ),
-                                      Switch(
-                                        activeColor: AppTheme.primaryColor,
-                                        value: isSwitched,
-                                        onChanged: toggleSwitch,
-                                      )
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(
-                                height: 20,
-                              ),
-                              Expanded(
-                                child: SingleChildScrollView(
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Column(
+                                    ),
+                                    Container(
+                                      padding: const EdgeInsets.only(right: 50),
+                                      child: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: const [
                                           Text(
-                                            "Money Earned",
+                                            "Total Hour",
                                             style: TextStyle(fontSize: 12),
                                           ),
                                           SizedBox(
                                             height: 5,
                                           ),
-                                          Text("\$200",
+                                          Text("8 hour",
                                               style: TextStyle(
                                                   fontWeight: FontWeight.w500,
                                                   fontSize: 14,
@@ -227,13 +237,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                             height: 10,
                                           ),
                                           Text(
-                                            "Total Distance",
+                                            "Total Job",
                                             style: TextStyle(fontSize: 12),
                                           ),
                                           SizedBox(
                                             height: 5,
                                           ),
-                                          Text("137 km",
+                                          Text("17",
                                               style: TextStyle(
                                                   fontWeight: FontWeight.w500,
                                                   fontSize: 14,
@@ -241,62 +251,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                                       AppTheme.primaryColor)),
                                         ],
                                       ),
-                                      const Align(
-                                        alignment: Alignment.center,
-                                        child: SizedBox(
-                                          height: 80,
-                                          child: VerticalDivider(
-                                            thickness: 2,
-                                            color: AppTheme.dividerColor,
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                        padding:
-                                            const EdgeInsets.only(right: 50),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: const [
-                                            Text(
-                                              "Total Hour",
-                                              style: TextStyle(fontSize: 12),
-                                            ),
-                                            SizedBox(
-                                              height: 5,
-                                            ),
-                                            Text("8 hour",
-                                                style: TextStyle(
-                                                    fontWeight: FontWeight.w500,
-                                                    fontSize: 14,
-                                                    color:
-                                                        AppTheme.primaryColor)),
-                                            SizedBox(
-                                              height: 10,
-                                            ),
-                                            Text(
-                                              "Total Job",
-                                              style: TextStyle(fontSize: 12),
-                                            ),
-                                            SizedBox(
-                                              height: 5,
-                                            ),
-                                            Text("17",
-                                                style: TextStyle(
-                                                    fontWeight: FontWeight.w500,
-                                                    fontSize: 14,
-                                                    color:
-                                                        AppTheme.primaryColor)),
-                                          ],
-                                        ),
-                                      )
-                                    ],
-                                  ),
+                                    )
+                                  ],
                                 ),
-                              )
-                            ],
-                          )),
-                    ),
+                              ),
+                            )
+                          ],
+                        )),
                   )
                 : Align(
                     alignment: Alignment.bottomCenter,
@@ -307,7 +268,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           borderRadius: BorderRadius.circular(10),
                           color: AppTheme.appBackgroundColor,
                         ),
-
                         width: MediaQuery.of(context).size.width,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -376,11 +336,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                       style: TextStyle(
                                           fontSize: 14,
                                           fontWeight: FontWeight.w500)),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 15,
                                   ),
                                   Row(
-
                                     children: [
                                       CustomButton(
                                         buttonText: "Accept",
@@ -395,12 +354,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                       //     Get.toNamed(MyRoutes.chatScreen);
                                       //   },
                                       // ),
-                                      SizedBox(
+                                      const SizedBox(
                                         width: 20,
                                       ),
                                       ElevatedButton(
                                           style: ElevatedButton.styleFrom(
-                                              side: BorderSide(
+                                              side: const BorderSide(
                                                 width: 2.0,
                                                 color: AppTheme.primaryColor,
                                               ),
@@ -420,7 +379,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           onPressed: () {
                                             Get.toNamed(MyRoutes.chatScreen);
                                           },
-                                          child: Text(
+                                          child: const Text(
                                             "Ignore",
                                             style: TextStyle(
                                                 fontWeight: FontWeight.bold,

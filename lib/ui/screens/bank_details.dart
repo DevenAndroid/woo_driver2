@@ -1,9 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:woo_driver/ui/screens/profile_detail.dart';
 
 import '../../res/theme/theme.dart';
@@ -107,45 +105,7 @@ class _BankDetailsScreenState extends State<BankDetailsScreen> {
                         const SizedBox(
                           height: 10,
                         ),
-                        // Material(
-                        //   elevation: 1,
-                        //   child: TextFormField(
-                        //     autofocus: false,
-                        //     decoration: InputDecoration(
-                        //         contentPadding: const EdgeInsets.all(10),
-                        //         fillColor: AppTheme.textBoxBackgroundColor,
-                        //         filled: true,
-                        //         labelText: "Enter your bank name",
-                        //         // border: OutlineInputBorder(
-                        //         //     borderRadius: BorderRadius.only(
-                        //         //         topLeft: Radius.circular(10),
-                        //         //         topRight: Radius.circular(10))),
-                        //         prefixIcon: Container(
-                        //             width: 30,
-                        //             margin: const EdgeInsets.all(8),
-                        //             decoration: BoxDecoration(
-                        //               border: Border(
-                        //                   right: BorderSide(
-                        //                       color: Colors.grey.shade300)),
-                        //             ),
-                        //             child: Image.asset(
-                        //               "assets/images/bank.png",
-                        //               color: AppTheme.primaryColor,
-                        //             )),
-                        //         border: InputBorder.none,
-                        //         // hintText: 'Enter your number',
-                        //         hintStyle: TextStyle(
-                        //           color: Colors.grey[400],
-                        //           fontSize:
-                        //               MediaQuery.of(context).size.width * 0.040,
-                        //         ),
-                        //         focusColor: AppTheme.primaryColor,
-                        //         hoverColor: AppTheme.primaryColor),
-                        //     keyboardType: TextInputType.text,
-                        //     // controller: _numberController,
-                        //     cursorColor: AppTheme.primaryColor,
-                        //   ),
-                        // ),
+
                         CustomTextField(
                           controller: _bankNameController,
                           hintText: "Enter your bank name",
@@ -168,45 +128,7 @@ class _BankDetailsScreenState extends State<BankDetailsScreen> {
                         const SizedBox(
                           height: 10,
                         ),
-                        // Material(
-                        //   elevation: 1,
-                        //   child: TextFormField(
-                        //     autofocus: false,
-                        //     decoration: InputDecoration(
-                        //         contentPadding: const EdgeInsets.all(10),
-                        //         fillColor: AppTheme.textBoxBackgroundColor,
-                        //         filled: true,
-                        //         labelText: "Enter your account number",
-                        //         // border: OutlineInputBorder(
-                        //         //     borderRadius: BorderRadius.only(
-                        //         //         topLeft: Radius.circular(10),
-                        //         //         topRight: Radius.circular(10))),
-                        //         prefixIcon: Container(
-                        //             width: 30,
-                        //             margin: const EdgeInsets.all(8),
-                        //             decoration: BoxDecoration(
-                        //               border: Border(
-                        //                   right: BorderSide(
-                        //                       color: Colors.grey.shade300)),
-                        //             ),
-                        //             child: Image.asset(
-                        //               "assets/images/id.png",
-                        //               color: AppTheme.primaryColor,
-                        //             )),
-                        //         border: InputBorder.none,
-                        //         // hintText: 'Enter your number',
-                        //         hintStyle: TextStyle(
-                        //           color: Colors.grey[400],
-                        //           fontSize:
-                        //               MediaQuery.of(context).size.width * 0.040,
-                        //         ),
-                        //         focusColor: AppTheme.primaryColor,
-                        //         hoverColor: AppTheme.primaryColor),
-                        //     keyboardType: TextInputType.number,
-                        //     // controller: _numberController,
-                        //     cursorColor: AppTheme.primaryColor,
-                        //   ),
-                        // ),
+
                         CustomTextField(
                           inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                           controller: _accountController,
@@ -220,7 +142,7 @@ class _BankDetailsScreenState extends State<BankDetailsScreen> {
                           ]),
                         ),
 
-                        SizedBox(
+                        const SizedBox(
                           height: 15,
                         ),
                         const Text(
@@ -230,45 +152,7 @@ class _BankDetailsScreenState extends State<BankDetailsScreen> {
                         const SizedBox(
                           height: 10,
                         ),
-                        // Material(
-                        //   elevation: 1,
-                        //   child: TextFormField(
-                        //     autofocus: false,
-                        //     decoration: InputDecoration(
-                        //         contentPadding: const EdgeInsets.all(10),
-                        //         fillColor: AppTheme.textBoxBackgroundColor,
-                        //         filled: true,
-                        //         labelText: "Enter your account numbe",
-                        //         // border: OutlineInputBorder(
-                        //         //     borderRadius: BorderRadius.only(
-                        //         //         topLeft: Radius.circular(10),
-                        //         //         topRight: Radius.circular(10))),
-                        //         prefixIcon: Container(
-                        //             width: 30,
-                        //             margin: const EdgeInsets.all(8),
-                        //             decoration: BoxDecoration(
-                        //               border: Border(
-                        //                   right: BorderSide(
-                        //                       color: Colors.grey.shade300)),
-                        //             ),
-                        //             child: Image.asset(
-                        //               "assets/images/id.png",
-                        //               color: AppTheme.primaryColor,
-                        //             )),
-                        //         border: InputBorder.none,
-                        //         // hintText: 'Enter your number',
-                        //         hintStyle: TextStyle(
-                        //           color: Colors.grey[400],
-                        //           fontSize:
-                        //               MediaQuery.of(context).size.width * 0.040,
-                        //         ),
-                        //         focusColor: AppTheme.primaryColor,
-                        //         hoverColor: AppTheme.primaryColor),
-                        //     keyboardType: TextInputType.number,
-                        //     // controller: _numberController,
-                        //     cursorColor: AppTheme.primaryColor,
-                        //   ),
-                        // ),
+
                         CustomTextField(
                           inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                           controller: _reAccountController,
@@ -292,45 +176,7 @@ class _BankDetailsScreenState extends State<BankDetailsScreen> {
                         const SizedBox(
                           height: 10,
                         ),
-                        // Material(
-                        //   elevation: 1,
-                        //   child: TextFormField(
-                        //     autofocus: false,
-                        //     decoration: InputDecoration(
-                        //         contentPadding: const EdgeInsets.all(10),
-                        //         fillColor: AppTheme.textBoxBackgroundColor,
-                        //         filled: true,
-                        //         labelText: "Enter IFSC code",
-                        //         // border: OutlineInputBorder(
-                        //         //     borderRadius: BorderRadius.only(
-                        //         //         topLeft: Radius.circular(10),
-                        //         //         topRight: Radius.circular(10))),
-                        //         prefixIcon: Container(
-                        //             width: 30,
-                        //             margin: const EdgeInsets.all(8),
-                        //             decoration: BoxDecoration(
-                        //               border: Border(
-                        //                   right: BorderSide(
-                        //                       color: Colors.grey.shade300)),
-                        //             ),
-                        //             child: Image.asset(
-                        //               "assets/images/ifsc.png",
-                        //               color: AppTheme.primaryColor,
-                        //             )),
-                        //         border: InputBorder.none,
-                        //         // hintText: 'Enter your number',
-                        //         hintStyle: TextStyle(
-                        //           color: Colors.grey[400],
-                        //           fontSize:
-                        //               MediaQuery.of(context).size.width * 0.040,
-                        //         ),
-                        //         focusColor: AppTheme.primaryColor,
-                        //         hoverColor: AppTheme.primaryColor),
-                        //     keyboardType: TextInputType.text,
-                        //     // controller: _numberController,
-                        //     cursorColor: AppTheme.primaryColor,
-                        //   ),
-                        // ),
+
                         CustomTextField(
                           controller: _ifscController,
                           hintText: "Enter IFSC code",
@@ -348,25 +194,7 @@ class _BankDetailsScreenState extends State<BankDetailsScreen> {
                   const SizedBox(
                     height: 70,
                   ),
-                  // Align(
-                  //   alignment: Alignment.center,
-                  //   child: ElevatedButton(
-                  //       style: ElevatedButton.styleFrom(
-                  //           shape: const RoundedRectangleBorder(
-                  //               borderRadius:
-                  //                   BorderRadius.all(Radius.circular(5))),
-                  //           primary: AppTheme.primaryColor,
-                  //           padding: const EdgeInsets.symmetric(
-                  //               horizontal: 35, vertical: 15),
-                  //           textStyle:
-                  //               const TextStyle(fontWeight: FontWeight.bold)),
-                  //       onPressed: () {},
-                  //       child: const Text(
-                  //         " Continue ",
-                  //         style: TextStyle(
-                  //             fontWeight: FontWeight.w500, fontSize: 14),
-                  //       )),
-                  // ),
+
                   Align(
                     alignment: Alignment.center,
                     child: CustomButton(
