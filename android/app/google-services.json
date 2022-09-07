@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1021529694374",
+    "project_id": "woo-driver-2a16d",
+    "storage_bucket": "woo-driver-2a16d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1021529694374:android:425a9e2ef125b97fc91467",
+        "android_client_info": {
+          "package_name": "com.example.woo_driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1021529694374-loem03tv00c1n7p6i5rki8smgm8356fb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.woo_driver",
+            "certificate_hash": "bfa708e211d74ae327a2278871b44723500474a4"
+          }
+        },
+        {
+          "client_id": "1021529694374-itbpr2nn2m9qvm6ls1n1fvtegbf4fmn2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2oTcg-K2TJge3m0Z-qOJkwhJaybXYZsE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1021529694374-itbpr2nn2m9qvm6ls1n1fvtegbf4fmn2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
